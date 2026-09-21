@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Apartments — Era Residence / Pink Oaks</title>
+  <meta content="Explore ground floor residences, duplexes and penthouses designed for contemporary Mediterranean living." name="description"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Syne:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="assets/fonts/typekit.js" type="text/javascript"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  
+  <link href="assets/css/webflow.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/editorial-lux.css" rel="stylesheet" type="text/css"/>
+</head>
+<body class="editorial-page apartments-page-canvas">
+
+  <!-- Top-Right Hanging Bougainvillea Flowers Cluster -->
+  <div class="apart-top-bougainvillea-corner">
+    <img alt="Era Residence Bougainvillea" src="assets/images/flowers/bougainvillea-flowers_01.avif" loading="eager" />
+  </div>
+
+  <!-- GLOBAL ELEMENT 1: Left Vertical Breadcrumb -->
+  <div class="vertical-breadcrumb b-desk">
+    <div class="vertical-breadcrumb-line"></div>
+    <div class="vertical-breadcrumb-text">
+      <span class="faded">HOME</span> / SELECT AN APARTMENT
+    </div>
+  </div>
+
+  <!-- GLOBAL ELEMENT 2: Top Header Bar (Logo + Right Nav) -->
+  <header class="top-header-bar">
+    <!-- Top-Left Rotating Badge Logo -->
+    <a href="index.html" class="brand-badge-logo" aria-label="Era Residence Home">
+      <div class="brand-badge-emblem">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="16" r="2.5" fill="#0F1F3D"/>
+          <path d="M16 4C16 4 13.5 9 13.5 13C13.5 14.5 14.5 16 16 16C17.5 16 18.5 14.5 18.5 13C18.5 9 16 4 16 4Z" stroke="#0F1F3D" stroke-width="1.2" fill="none"/>
+          <path d="M16 28C16 28 13.5 23 13.5 19C13.5 17.5 14.5 16 16 16C17.5 16 18.5 17.5 18.5 19C18.5 23 16 28 16 28Z" stroke="#0F1F3D" stroke-width="1.2" fill="none"/>
+          <path d="M4 16C4 16 9 13.5 13 13.5C14.5 13.5 16 14.5 16 16C16 17.5 14.5 18.5 13 18.5C9 18.5 4 16 4 16Z" stroke="#0F1F3D" stroke-width="1.2" fill="none"/>
+          <path d="M28 16C28 16 23 13.5 19 13.5C17.5 13.5 16 14.5 16 16C16 17.5 17.5 18.5 19 18.5C23 18.5 28 16 28 16Z" stroke="#0F1F3D" stroke-width="1.2" fill="none"/>
+        </svg>
+      </div>
+      <div class="brand-badge-text-ring">
+        <svg viewBox="0 0 100 100" width="100%" height="100%">
+          <path id="apart-badge-text-path" d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" fill="none"/>
+          <text fill="#0F1F3D" font-family="'Syne', 'Inter', sans-serif" font-size="6.8" font-weight="700" letter-spacing="2.2px">
+            <textPath href="#apart-badge-text-path" startOffset="0%">ERA RESIDENCE • ERA RESIDENCE • </textPath>
+          </text>
+        </svg>
+      </div>
+    </a>
+
+    <!-- Top-Right Navigation -->
+    <nav class="top-right-nav">
+      <a href="apartments.html" class="top-nav-primary">Select an Apartment</a>
+      <div class="top-nav-secondary-row">
+        <a href="#book-call" class="top-nav-secondary-link">Book a Call</a>
+        <a href="contact.html" class="top-nav-secondary-link">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- SECTION A: HERO & FILTERS -->
+    <section class="apartments-hero-section">
+      <div class="apartments-title-row">
+        <h1 class="apartments-headline">Apartments</h1>
+        <div class="apartments-count-badge" id="apartment-count">25</div>
+      </div>
+
+      <!-- Filter Controls Row -->
+      <div class="apartments-filter-bar">
+        <div class="apartments-filter-group">
+          <!-- Filter 1: Typology -->
+          <button class="apartments-filter-btn" type="button">
+            <span>Typology: All</span>
+            <svg viewBox="0 0 10 6" fill="currentColor"><path d="M0 0l5 6 5-6z"/></svg>
+          </button>
+
+          <!-- Filter 2: Bedrooms -->
+          <button class="apartments-filter-btn" type="button">
+            <span>Bedrooms: All</span>
+            <svg viewBox="0 0 10 6" fill="currentColor"><path d="M0 0l5 6 5-6z"/></svg>
+          </button>
+
+          <!-- Filter 3: Sort -->
+          <button class="apartments-filter-btn" type="button">
+            <span>Sort by: Relevant</span>
+            <svg viewBox="0 0 10 6" fill="currentColor"><path d="M0 0l5 6 5-6z"/></svg>
+          </button>
+        </div>
+
+        <button class="apartments-reset-btn" type="button">Reset</button>
+      </div>
+    </section>
+
+    <!-- SECTION B: 3-COLUMN APARTMENT GRID (Screenshot 2) -->
+    <section class="apartments-catalogue-grid" id="apartments-grid">
+      
+      <!-- 1. Unit 011 -->
+      <a href="apartments/011.html" class="apart-card-item">
+        <div class="apart-card-head">
+          <div class="apart-card-type">GROUND FLOOR + BASEMENT</div>
+          <div class="apart-card-completion">COMPLETION: Q4 2026</div>
+        </div>
+        <div class="apart-card-plan-graphic">
+          <img alt="Unit 011 Floor Plan" src="assets/images/units/011.webp" loading="lazy"/>
+        </div>
+        <div class="apart-card-footer">
+          <div class="apart-card-meta-tag">№ 011 · BLOCK B1 · 0 FLOOR</div>
+          <div class="apart-card-main-figures">3 BED | 132 M²</div>
+          <div class="apart-card-sub-terrace">+ 28 M² TERRACE</div>
+        </div>
+      </a>
+
+      <!-- 2. Unit 012 -->
+      <a href="apartments/012.html" class="apart-card-item">
+        <div class="apart-card-head">
+          <div class="apart-card-type">GROUND FLOOR + BASEMENT</div>
+          <div class="apart-card-completion">COMPLETION: Q4 2026</div>
+        </div>
+        <div class="apart-card-plan-graphic">
+          <img alt="Unit 012 Floor Plan" src="assets/images/units/012.webp" loading="lazy"/>
+        </div>
+        <div class="apart-card-footer">
+          <div class="apart-card-meta-tag">№ 012 · BLOCK B1 · 0 FLOOR</div>
+          <div class="apart-card-main-figures">3 BED | 132 M²</div>
+          <div class="apart-card-sub-terrace">+ 28 M² TERRACE</div>
+        </div>
+      </a>
+
+      <!-- 3. Unit 031 -->
+      <a href="apartments/031.html" class="apart-card-item">
+        <div class="apart-card-head">
+          <div class="apart-card-type">GROUND FLOOR + BASEMENT</div>
+          <div class="apart-card-completion">COMPLETION: Q4 2026</div>
+        </div>
+        <div class="apart-card-plan-graphic">
+          <img alt="Unit 031 Floor Plan" src="assets/images/units/031.webp" loading="lazy"/>
+        </div>
+        <div class="apart-card-footer">
+          <div class="apart-card-meta-tag">№ 031 · BLOCK B3 · 0 FLOOR</div>
+          <div class="apart-card-main-figures">3 BED | 134 M²</div>
+          <div class="apart-card-sub-terrace">+ 30 M² TERRACE</div>
+        </div>
+      </a>
+
+      <!-- 4. Unit 032 -->
+      <a href="apartments/032.html" class="apart-card-item">
+        <div class="apart-card-head">
+          <div class="apart-card-type">GROUND FLOOR + BASEMENT</div>
+          <div class="apart-card-completion">COMPLETION: Q4 2026</div>
+        </div>
+        <div class="apart-card-plan-graphic">
+          <img alt="Unit 032 Floor Plan" src="assets/images/units/032.webp" loading="lazy"/>
+        </div>
+        <div class="apart-card-footer">
+          <div class="apart-card-meta-tag">№ 032 · BLOCK B3 · 0 FLOOR</div>
+          <div class="apart-card-main-figures">3 BED | 134 M²</div>
+          <div class="apart-card-sub-terrace">+ 30 M² TERRACE</div>
+        </div>
+      </a>
+
+      <!-- 5. Unit 033 -->
+      <a href="apartments/033.html" class="apart-card-item">
+        <div class="apart-card-head">
+          <div class="apart-card-type">GROUND FLOOR + BASEMENT</div>
+          <div class="apart-card-completion">COMPLETION: Q4 2026</div>
+        </div>
+        <div class="apart-card-plan-graphic">
+          <img alt="Unit 033 Floor Plan" src="assets/images/units/033.webp" loading="lazy"/>
+        </div>
+        <div class="apart-card-footer">
+          <div class="apart-card-meta-tag">№ 033 · BLOCK B3 · 0 FLOOR</div>
+          <div class="apart-card-main-figures">3 BED | 132 M²</div>
+          <div class="apart-card-sub-terrace">+ 28 M² TERRACE</div>
+        </div>
+      </a>
+
+      <!-- 6. INTERLEAVED PHOTO CARD 1: Garden Terrace with Pergola -->
+      <div class="apart-photo-card-item">
+        <img alt="Garden Terrace with Pergola & Greenery" src="assets/images/renders/6a1571e51d50c8bcf5f4bb3d_era-residence-garden-2-p-1080.png" loading="lazy"/>
+      </div>
+
+      <!-- 7. Unit 034 -->
+      <a href="apartments/034.html" class="apart-card-item">
+        <div class="apart-card-head">
+          <div class="apart-card-type">GROUND FLOOR + BASEMENT</div>
+          <div class="apart-card-completion">COMPLETION: Q4 2026</div>
+        </div>
+        <div class="apart-card-plan-graphic">
+          <img alt="Unit 034 Floor Plan" src="assets/images/units/034.webp" loading="lazy"/>
+        </div>
+        <div class="apart-card-footer">
+          <div class="apart-card-meta-tag">№ 034 · BLOCK B3 · 0 FLOOR</div>
+          <div class="apart-card-main-figures">3 BED | 132 M²</div>
+          <div class="apart-card-sub-terrace">+ 28 M² TERRACE</div>
+        </div>
+      </a>
+
+      <!-- 8. Unit 111 -->
+      <a href="apartments/111.html" class="apart-card-item">
+        <div class="apart-card-head">
+          <div class="apart-card-type">GROUND FLOOR</div>
+          <div class="apart-card-completion">COMPLETION: Q4 2026</div>
+        </div>
+        <div class="apart-card-plan-graphic">
+          <img alt="Unit 111 Floor Plan" src="assets/images/units/111.webp" loading="lazy"/>
+        </div>
+        <div class="apart-card-footer">
+          <div class="apart-card-meta-tag">№ 111 · BLOCK B1 · 1 FLOOR</div>
+          <div class="apart-card-main-figures">3 BED | 132 M²</div>
+          <div class="apart-card-sub-terrace">+ 42 M² TERRACE</div>
+        </div>
+      </a>
+
+      <!-- 9. Unit 112 -->
+      <a href="apartments/112.html" class="apart-card-item">
+        <div class="apart-card-head">
+          <div class="apart-card-type">GROUND FLOOR</div>
+          <div class="apart-card-completion">COMPLETION: Q4 2026</div>
+        </div>
+        <div class="apart-card-plan-graphic">
+          <img alt="Unit 112 Floor Plan" src="assets/images/units/112.webp" loading="lazy"/>
+        </div>
+        <div class="apart-card-footer">
+          <div class="apart-card-meta-tag">№ 112 · BLOCK B1 · 1 FLOOR</div>
+          <div class="apart-card-main-figures">3 BED | 132 M²</div>
+          <div class="apart-card-sub-terrace">+ 42 M² TERRACE</div>
+        </div>
+      </a>
+
+      <!-- 10. INTERLEAVED PHOTO CARD 2: Terrace with Sea View & Dining -->
+      <div class="apart-photo-card-item">
+        <img alt="Rooftop Dining Terrace with Sea View" src="assets/images/renders/6a15153b797c328a9f2f5964_era-residence-terrace-p-1080.png" loading="lazy"/>
+      </div>
+
+      <!-- 11. Unit 113 -->
+      <a href="apartments/113.html" class="apart-card-item">
+        <div class="apart-card-head">
+          <div class="apart-card-type">GROUND FLOOR</div>
+          <div class="apart-card-completion">COMPLETION: Q4 2026</div>
+        </div>
+        <div class="apart-card-plan-graphic">
+          <img alt="Unit 113 Floor Plan" src="assets/images/units/113.webp" loading="lazy"/>
+        </div>
+        <div class="apart-card-footer">
+          <div class="apart-card-meta-tag">№ 113 · BLOCK B1 · 1 FLOOR</div>
+          <div class="apart-card-main-figures">3 BED | 132 M²</div>
+          <div class="apart-card-sub-terrace">+ 42 M² TERRACE</div>
+        </div>
+      </a>
+
+      <!-- 12. Unit 114 -->
+      <a href="apartments/114.html" class="apart-card-item">
+        <div class="apart-card-head">
+          <div class="apart-card-type">GROUND FLOOR</div>
+          <div class="apart-card-completion">COMPLETION: Q4 2026</div>
+        </div>
+        <div class="apart-card-plan-graphic">
+          <img alt="Unit 114 Floor Plan" src="assets/images/units/114.webp" loading="lazy"/>
+        </div>
+        <div class="apart-card-footer">
+          <div class="apart-card-meta-tag">№ 114 · BLOCK B1 · 1 FLOOR</div>
+          <div class="apart-card-main-figures">3 BED | 132 M²</div>
+          <div class="apart-card-sub-terrace">+ 42 M² TERRACE</div>
+        </div>
+      </a>
+
+      <!-- 13. Unit 121 -->
+      <a href="apartments/121.html" class="apart-card-item">
+        <div class="apart-card-head">
+          <div class="apart-card-type">GROUND FLOOR</div>
+          <div class="apart-card-completion">COMPLETION: Q4 2026</div>
+        </div>
+        <div class="apart-card-plan-graphic">
+          <img alt="Unit 121 Floor Plan" src="assets/images/units/121.webp" loading="lazy"/>
+        </div>
+        <div class="apart-card-footer">
+          <div class="apart-card-meta-tag">№ 121 · BLOCK B1 · 1 FLOOR</div>
+          <div class="apart-card-main-figures">4 BED | 154 M²</div>
+          <div class="apart-card-sub-terrace">+ 51 M² TERRACE</div>
+        </div>
+      </a>
+
+      <!-- 14. Unit 122 -->
+      <a href="apartments/122.html" class="apart-card-item">
+        <div class="apart-card-head">
+          <div class="apart-card-type">GROUND FLOOR</div>
+          <div class="apart-card-completion">COMPLETION: Q4 2026</div>
+        </div>
+        <div class="apart-card-plan-graphic">
+          <img alt="Unit 122 Floor Plan" src="assets/images/units/122.webp" loading="lazy"/>
+        </div>
+        <div class="apart-card-footer">
+          <div class="apart-card-meta-tag">№ 122 · BLOCK B2 · 1 FLOOR</div>
+          <div class="apart-card-main-figures">4 BED | 154 M²</div>
+          <div class="apart-card-sub-terrace">+ 51 M² TERRACE</div>
+        </div>
+      </a>
+
+      <!-- 15. INTERLEAVED PHOTO CARD 3: Bright Interior Living Room -->
+      <div class="apart-photo-card-item">
+        <img alt="Bright Sunlit Interior Living Room" src="assets/images/instagram/sanctuary_interior_living.webp" loading="lazy"/>
+      </div>
+
+      <!-- 16. Unit 123 -->
+      <a href="apartments/123.html" class="apart-card-item">
+        <div class="apart-card-head">
+          <div class="apart-card-type">PENTHOUSE DUPLEX</div>
+          <div class="apart-card-completion">COMPLETION: Q4 2026</div>
+        </div>
+        <div class="apart-card-plan-graphic">
+          <img alt="Unit 123 Floor Plan" src="assets/images/units/123.webp" loading="lazy"/>
+        </div>
+        <div class="apart-card-footer">
+          <div class="apart-card-meta-tag">№ 123 · BLOCK B3 · 1 FLOOR</div>
+          <div class="apart-card-main-figures">3 BED | 128 M²</div>
+          <div class="apart-card-sub-terrace">+ 82 M² TERRACE</div>
+        </div>
+      </a>
+
+      <!-- 17. Unit 124 -->
+      <a href="apartments/124.html" class="apart-card-item">
+        <div class="apart-card-head">
+          <div class="apart-card-type">PENTHOUSE DUPLEX</div>
+          <div class="apart-card-completion">COMPLETION: Q4 2026</div>
+        </div>
+        <div class="apart-card-plan-graphic">
+          <img alt="Unit 124 Floor Plan" src="assets/images/units/124.webp" loading="lazy"/>
+        </div>
+        <div class="apart-card-footer">
+          <div class="apart-card-meta-tag">№ 124 · BLOCK B2 · 1 FLOOR</div>
+          <div class="apart-card-main-figures">3 BED | 128 M²</div>
+          <div class="apart-card-sub-terrace">+ 82 M² TERRACE</div>
+        </div>
+      </a>
+
+      <!-- 18. Unit 131 -->
+      <a href="apartments/131.html" class="apart-card-item">
+        <div class="apart-card-head">
+          <div class="apart-card-type">GROUND FLOOR</div>
+          <div class="apart-card-completion">COMPLETION: Q4 2026</div>
+        </div>
+        <div class="apart-card-plan-graphic">
+          <img alt="Unit 131 Floor Plan" src="assets/images/units/131.webp" loading="lazy"/>
+        </div>
+        <div class="apart-card-footer">
+          <div class="apart-card-meta-tag">№ 131 · BLOCK B1 · 1 FLOOR</div>
+          <div class="apart-card-main-figures">3 BED | 132 M²</div>
+          <div class="apart-card-sub-terrace">+ 42 M² TERRACE</div>
+        </div>
+      </a>
+
+      <!-- 19. Unit 132 -->
+      <a href="apartments/132.html" class="apart-card-item">
+        <div class="apart-card-head">
+          <div class="apart-card-type">GROUND FLOOR</div>
+          <div class="apart-card-completion">COMPLETION: Q4 2026</div>
+        </div>
+        <div class="apart-card-plan-graphic">
+          <img alt="Unit 132 Floor Plan" src="assets/images/units/132.webp" loading="lazy"/>
+        </div>
+        <div class="apart-card-footer">
+          <div class="apart-card-meta-tag">№ 132 · BLOCK B1 · 1 FLOOR</div>
+          <div class="apart-card-main-figures">3 BED | 132 M²</div>
+          <div class="apart-card-sub-terrace">+ 42 M² TERRACE</div>
+        </div>
+      </a>
+
+      <!-- 20. Unit 133 -->
+      <a href="apartments/133.html" class="apart-card-item">
+        <div class="apart-card-head">
+          <div class="apart-card-type">GROUND FLOOR</div>
+          <div class="apart-card-completion">COMPLETION: Q4 2026</div>
+        </div>
+        <div class="apart-card-plan-graphic">
+          <img alt="Unit 133 Floor Plan" src="assets/images/units/133.webp" loading="lazy"/>
+        </div>
+        <div class="apart-card-footer">
+          <div class="apart-card-meta-tag">№ 133 · BLOCK B3 · 1 FLOOR</div>
+          <div class="apart-card-main-figures">3 BED | 132 M²</div>
+          <div class="apart-card-sub-terrace">+ 42 M² TERRACE</div>
+        </div>
+      </a>
+
+      <!-- 21. Unit 134 -->
+      <a href="apartments/134.html" class="apart-card-item">
+        <div class="apart-card-head">
+          <div class="apart-card-type">GROUND FLOOR</div>
+          <div class="apart-card-completion">COMPLETION: Q4 2026</div>
+        </div>
+        <div class="apart-card-plan-graphic">
+          <img alt="Unit 134 Floor Plan" src="assets/images/units/134.webp" loading="lazy"/>
+        </div>
+        <div class="apart-card-footer">
+          <div class="apart-card-meta-tag">№ 134 · BLOCK B3 · 1 FLOOR</div>
+          <div class="apart-card-main-figures">3 BED | 132 M²</div>
+          <div class="apart-card-sub-terrace">+ 42 M² TERRACE</div>
+        </div>
+      </a>
+
+      <!-- 22. Unit 211 -->
+      <a href="apartments/211.html" class="apart-card-item">
+        <div class="apart-card-head">
+          <div class="apart-card-type">PENTHOUSE DUPLEX</div>
+          <div class="apart-card-completion">COMPLETION: Q4 2026</div>
+        </div>
+        <div class="apart-card-plan-graphic">
+          <img alt="Unit 211 Floor Plan" src="assets/images/units/211.webp" loading="lazy"/>
+        </div>
+        <div class="apart-card-footer">
+          <div class="apart-card-meta-tag">№ 211 · BLOCK B1 · 2 FLOOR</div>
+          <div class="apart-card-main-figures">3 BED | 132 M²</div>
+          <div class="apart-card-sub-terrace">+ 102 M² TERRACE</div>
+        </div>
+      </a>
+
+      <!-- 23. Unit 212 -->
+      <a href="apartments/212.html" class="apart-card-item">
+        <div class="apart-card-head">
+          <div class="apart-card-type">PENTHOUSE DUPLEX</div>
+          <div class="apart-card-completion">COMPLETION: Q4 2026</div>
+        </div>
+        <div class="apart-card-plan-graphic">
+          <img alt="Unit 212 Floor Plan" src="assets/images/units/212.webp" loading="lazy"/>
+        </div>
+        <div class="apart-card-footer">
+          <div class="apart-card-meta-tag">№ 212 · BLOCK B1 · 2 FLOOR</div>
+          <div class="apart-card-main-figures">3 BED | 132 M²</div>
+          <div class="apart-card-sub-terrace">+ 102 M² TERRACE</div>
+        </div>
+      </a>
+
+      <!-- 24. Unit 213 -->
+      <a href="apartments/213.html" class="apart-card-item">
+        <div class="apart-card-head">
+          <div class="apart-card-type">PENTHOUSE DUPLEX</div>
+          <div class="apart-card-completion">COMPLETION: Q4 2026</div>
+        </div>
+        <div class="apart-card-plan-graphic">
+          <img alt="Unit 213 Floor Plan" src="assets/images/units/213.webp" loading="lazy"/>
+        </div>
+        <div class="apart-card-footer">
+          <div class="apart-card-meta-tag">№ 213 · BLOCK B3 · 2 FLOOR</div>
+          <div class="apart-card-main-figures">3 BED | 132 M²</div>
+          <div class="apart-card-sub-terrace">+ 102 M² TERRACE</div>
+        </div>
+      </a>
+
+      <!-- 25. Unit 221 -->
+      <a href="apartments/221.html" class="apart-card-item">
+        <div class="apart-card-head">
+          <div class="apart-card-type">PENTHOUSE DUPLEX</div>
+          <div class="apart-card-completion">COMPLETION: Q4 2026</div>
+        </div>
+        <div class="apart-card-plan-graphic">
+          <img alt="Unit 221 Floor Plan" src="assets/images/units/221.webp" loading="lazy"/>
+        </div>
+        <div class="apart-card-footer">
+          <div class="apart-card-meta-tag">№ 221 · BLOCK B1 · 2 FLOOR</div>
+          <div class="apart-card-main-figures">4 BED | 154 M²</div>
+          <div class="apart-card-sub-terrace">+ 107 M² TERRACE</div>
+        </div>
+      </a>
+
+      <!-- 26. Unit 222 -->
+      <a href="apartments/222.html" class="apart-card-item">
+        <div class="apart-card-head">
+          <div class="apart-card-type">PENTHOUSE DUPLEX</div>
+          <div class="apart-card-completion">COMPLETION: Q4 2026</div>
+        </div>
+        <div class="apart-card-plan-graphic">
+          <img alt="Unit 222 Floor Plan" src="assets/images/units/222.webp" loading="lazy"/>
+        </div>
+        <div class="apart-card-footer">
+          <div class="apart-card-meta-tag">№ 222 · BLOCK B2 · 2 FLOOR</div>
+          <div class="apart-card-main-figures">4 BED | 154 M²</div>
+          <div class="apart-card-sub-terrace">+ 107 M² TERRACE</div>
+        </div>
+      </a>
+
+      <!-- 27. Unit 223 -->
+      <a href="apartments/223.html" class="apart-card-item">
+        <div class="apart-card-head">
+          <div class="apart-card-type">PENTHOUSE DUPLEX</div>
+          <div class="apart-card-completion">COMPLETION: Q4 2026</div>
+        </div>
+        <div class="apart-card-plan-graphic">
+          <img alt="Unit 223 Floor Plan" src="assets/images/units/223.webp" loading="lazy"/>
+        </div>
+        <div class="apart-card-footer">
+          <div class="apart-card-meta-tag">№ 223 · BLOCK B3 · 2 FLOOR</div>
+          <div class="apart-card-main-figures">3 BED | 128 M²</div>
+          <div class="apart-card-sub-terrace">+ 88 M² TERRACE</div>
+        </div>
+      </a>
+
+      <!-- 28. Unit 224 -->
+      <a href="apartments/224.html" class="apart-card-item">
+        <div class="apart-card-head">
+          <div class="apart-card-type">PENTHOUSE DUPLEX</div>
+          <div class="apart-card-completion">COMPLETION: Q4 2026</div>
+        </div>
+        <div class="apart-card-plan-graphic">
+          <img alt="Unit 224 Floor Plan" src="assets/images/units/224.webp" loading="lazy"/>
+        </div>
+        <div class="apart-card-footer">
+          <div class="apart-card-meta-tag">№ 224 · BLOCK B2 · 2 FLOOR</div>
+          <div class="apart-card-main-figures">3 BED | 128 M²</div>
+          <div class="apart-card-sub-terrace">+ 88 M² TERRACE</div>
+        </div>
+      </a>
+
+    </section>
+
+    <!-- SECTION C: FULL-BLEED CTA BANNER -->
+    <section class="cta-fullbleed-banner">
+      <div class="cta-banner-bg">
+        <img alt="Era Residence Penthouse Terraces" src="assets/images/icons/6a0f88f3b81e88aabf6874e7_img_cta_1920-p-1600.png" loading="lazy"/>
+      </div>
+      <div class="cta-banner-overlay"></div>
+
+      <div class="cta-banner-content">
+        <p class="cta-banner-paragraph">
+          A short conversation is enough to understand which apartment fits your use case — whether it is a family second home, a longer stay, or a place to return to year after year.
+        </p>
+
+        <div class="cta-banner-titles">
+          <h2 class="cta-banner-headline">Perfect<br/>Sea Views</h2>
+          <div class="cta-banner-subheadline">From Rooftop Terraces</div>
+        </div>
+
+        <a href="contact.html" class="cta-circle-action-btn">
+          View Available Apartments
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- SECTION D: DEEP BURGUNDY FOOTER -->
+  <footer class="editorial-burgundy-footer">
+    <div class="footer-emblem-watermark">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="16" cy="16" r="3" fill="#FFFFFF"/>
+        <path d="M16 4C16 4 13.5 9 13.5 13C13.5 14.5 14.5 16 16 16C17.5 16 18.5 14.5 18.5 13C18.5 9 16 4 16 4Z" stroke="#FFFFFF" stroke-width="1.2" fill="none"/>
+        <path d="M16 28C16 28 13.5 23 13.5 19C13.5 17.5 14.5 16 16 16C17.5 16 18.5 17.5 18.5 19C18.5 23 16 28 16 28Z" stroke="#FFFFFF" stroke-width="1.2" fill="none"/>
+        <path d="M4 16C4 16 9 13.5 13 13.5C14.5 13.5 16 14.5 16 16C16 17.5 14.5 18.5 13 18.5C9 18.5 4 16 4 16Z" stroke="#FFFFFF" stroke-width="1.2" fill="none"/>
+        <path d="M28 16C28 16 23 13.5 19 13.5C17.5 13.5 16 14.5 16 16C16 17.5 17.5 18.5 19 18.5C23 18.5 28 16 28 16Z" stroke="#FFFFFF" stroke-width="1.2" fill="none"/>
+      </svg>
+    </div>
+
+    <div class="footer-bottom-grid">
+      <div class="footer-left-meta">
+        <div class="footer-brand-title">Era Residence.</div>
+        <div class="footer-copyright">©2026 All Rights Reserved</div>
+        <div class="footer-links-row">
+          <a href="#" class="footer-legal-link">Privacy Policy</a>
+          <a href="#" class="footer-legal-link">Terms of Use</a>
+        </div>
+      </div>
+      <div class="footer-right-credits">
+        <div class="footer-made-by">Made by TheFirstTheLast</div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

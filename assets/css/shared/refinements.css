@@ -1,0 +1,156 @@
+/* refinements.css
+   Fixes added after the port. This file is linked last on every page, so
+   anything here wins over webflow.css and the other shared sheets.
+   Delete a block to revert that one change — nothing else depends on it. */
+
+
+/* ---------------------------------------------------------------------------
+   1. Circular buttons: centre the label
+
+   ".btn-circle" already centres its label box inside the ring, but the label
+   inherits text-align:start, so a two-word label like "Explore Residences"
+   wraps to two ragged-left lines and reads as off-centre. Centring the text
+   lines makes it sit visually in the middle of the circle.
+   --------------------------------------------------------------------------- */
+.btn-circle_label,
+.btn-circle_label .nav-item_label,
+.btn-circle_label .nav-item_label_text,
+.btn-circle_label .l1,
+.btn-circle_label .l2 {
+  text-align: center;
+}
+
+.btn-circle_label .nav-item {
+  display: block;
+  width: 100%;
+}
+
+/* The hover duplicate is absolutely positioned; span the full label so its
+   centred lines line up with the ones underneath. */
+.btn-circle_label .nav-item_label_text.is-2 {
+  right: 0;
+  width: 100%;
+}
+
+
+/* ---------------------------------------------------------------------------
+   2. Stop iOS zooming the page when a form field is focused
+
+   Mobile Safari zooms in on any input whose font-size is under 16px, then
+   leaves the page scaled. The fields compute to ~14.4px, so they trip it.
+   Only applied on touch devices; the desktop type scale is untouched.
+   --------------------------------------------------------------------------- */
+@media (hover: none) and (pointer: coarse) {
+
+  .input_field,
+  .input_field.l1,
+  .input_field.area,
+  input.w-input,
+  textarea.w-input,
+  select.w-select {
+    font-size: 16px;
+  }
+}
+
+
+/* ---------------------------------------------------------------------------
+   3. Bigger tap targets for the location category pills
+
+   The pills are 25px tall, well under the ~44px a finger needs. Grown only on
+   touch devices, and only vertically, so the row still wraps the same way.
+   --------------------------------------------------------------------------- */
+@media (hover: none) and (pointer: coarse) {
+
+  .cat-btn {
+    min-height: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .cat-item {
+    min-height: 44px;
+  }
+}
+
+
+/* ---------------------------------------------------------------------------
+   4. Touch polish
+
+   Removes the grey flash iOS paints over links on tap, and keeps long words
+   (addresses, unit names) from spilling out of narrow columns.
+   --------------------------------------------------------------------------- */
+@media (hover: none) and (pointer: coarse) {
+
+  a,
+  button,
+  .cat-btn,
+  .nav-item,
+  .link {
+    -webkit-tap-highlight-color: rgba(18, 42, 77, 0.08);
+  }
+
+  .l1,
+  .l2,
+  .p1,
+  .h5,
+  .h6 {
+    overflow-wrap: break-word;
+  }
+}
+
+
+/* ---------------------------------------------------------------------------
+   5. Floating chrome must follow the section under it
+
+   The header nav, the scroll progress bar and the "Scroll" indicator all float
+   above the page. text-contrast.css forces them pure white with a dark shadow,
+   which is right over the hero photograph and the dark footer, but leaves them
+   invisible over the pink and cream sections.
+
+   app.js already tags them with theme_on-light / theme_on-color / theme_on-dark
+   as you scroll (initThemeChange, driven by each section's data-bg). These rules
+   just honour that: navy over a light section, white everywhere else.
+   --------------------------------------------------------------------------- */
+.header-nav.theme_on-light,
+.header-nav.theme_on-light *,
+.header-cramps.theme_on-light,
+.header-cramps.theme_on-light *,
+.header-logo.theme_on-light,
+.header-logo.theme_on-light *,
+.s-bar-w.theme_on-light,
+.s-bar-w.theme_on-light *,
+.s-down.theme_on-light,
+.s-down.theme_on-light * {
+  color: #122a4d !important;
+  text-shadow: none !important;
+}
+
+/* SVG chrome: the rotating logo lettering, the menu icon, the scroll arrow */
+.header-logo.theme_on-light text,
+.header-logo.theme_on-light svg path,
+.header-nav.theme_on-light svg path,
+.s-down.theme_on-light svg path {
+  fill: #122a4d !important;
+  stroke: #122a4d !important;
+  text-shadow: none !important;
+}
+
+.s-down.theme_on-light .s-down_arrow svg path {
+  fill: #122a4d !important;
+  stroke: #122a4d !important;
+}
+
+/* The progress bar reads as a solid white pill on cream otherwise */
+.s-bar-w.theme_on-light .s-bar_track {
+  background-color: rgba(18, 42, 77, 0.25) !important;
+}
+
+.s-bar-w.theme_on-light .s-bar_fill {
+  background-color: #122a4d !important;
+  box-shadow: none !important;
+}
+
+.header-cramps.theme_on-light .line-h,
+.header-cramps.theme_on-light .data-divider {
+  background-color: rgba(18, 42, 77, 0.45) !important;
+}

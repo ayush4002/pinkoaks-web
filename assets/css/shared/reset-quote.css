@@ -1,0 +1,49 @@
+/* reset-quote.css
+   Extracted from the inline <style> blocks of the original export. */
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+
+  /* Quote Section — Crisp White Typography and SVG Icons */
+  .quote-s,
+  .quote-s *,
+  .quote-w .quote-s,
+  .quote-w .quote-s *,
+  .quote-s_c,
+  .quote-s_c *,
+  .quote-s h4,
+  .quote-s h4.h5,
+  .quote-s .h5,
+  .quote-s_author,
+  .quote-s_author .l1,
+  .quote-s_author .l1.reg {
+    color: #FFFFFF !important;
+  }
+
+  .quote-s svg,
+  .quote-s svg path,
+  .quote-s_ico svg,
+  .quote-s_ico svg path,
+  .quote-s .ico svg,
+  .quote-s .ico svg path {
+    fill: #FFFFFF !important;
+    color: #FFFFFF !important;
+  }
+
+  .quote-s h4.h5,
+  .quote-s .h5 {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+  }
+
+  .quote-s .quote-s_author .l1 {
+    color: #FFFFFF !important;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .quote-s .quote-s_author .l1.reg {
+    color: rgba(255, 255, 255, 0.88) !important;
+  }
+
+  .quote-s .red-line {
+    background-color: rgba(255, 255, 255, 0.6) !important;
+  }

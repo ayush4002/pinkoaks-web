@@ -1,0 +1,470 @@
+/* index.css
+   Extracted from the inline <style> blocks of the original export. */
+
+:root {
+    --pink-baby: #F9C0D1;
+    --pink-light: #FBD7E1;
+    --cream: #F2EFE7;
+    --navy: #122a4d;
+    --navy-85: rgba(18, 42, 77, 0.85);
+    --navy-65: rgba(18, 42, 77, 0.65);
+    --navy-30: rgba(18, 42, 77, 0.30);
+    --navy-12: rgba(18, 42, 77, 0.12);
+    --navy-05: rgba(18, 42, 77, 0.05);
+
+    --_global-colors---brand-500--velvet-plum: #F9C0D1;
+    --_global-colors---brand-500--powder-sky: #FBD7E1;
+    --_global-colors---brand-500--blush-bloom: #F9C0D1;
+    --_global-colors---base-0--100: #F2EFE7;
+    --_global-colors---base-1000--100: #122a4d;
+    --_global-colors---base-1000--60: rgba(18, 42, 77, 0.65);
+    --_global-colors---base-1000--30: rgba(18, 42, 77, 0.30);
+    --_global-colors---base-1000--10: rgba(18, 42, 77, 0.12);
+    --_global-colors---base-1000--5: rgba(18, 42, 77, 0.05);
+  }
+
+  body {
+    background-color: #F9C0D1;
+    color: #122a4d;
+    font-family: 'Maison Neue Extended', 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Theme color variable assignments without forcing background-color on all containers */
+  .theme_on-color {
+    --_colors---base-1000--primary: #122a4d !important;
+    --_colors---other--bg: #F9C0D1 !important;
+    --_colors---base-0--primary: #F2EFE7 !important;
+    --_colors---base-1000--gray-text: rgba(18, 42, 77, 0.65) !important;
+    --_colors---base-1000--line: rgba(18, 42, 77, 0.12) !important;
+    color: #122a4d;
+  }
+
+  .theme_on-brand {
+    --_colors---base-1000--primary: #122a4d !important;
+    --_colors---other--bg: #F9C0D1 !important;
+    --_colors---base-0--primary: #F2EFE7 !important;
+    --_colors---base-1000--gray-text: rgba(18, 42, 77, 0.65) !important;
+    --_colors---base-1000--line: rgba(18, 42, 77, 0.12) !important;
+    color: #122a4d;
+  }
+
+  .theme_on-light {
+    --_colors---base-1000--primary: #122a4d !important;
+    --_colors---other--bg: #F2EFE7 !important;
+    --_colors---base-0--primary: #F2EFE7 !important;
+    --_colors---base-1000--gray-text: rgba(18, 42, 77, 0.65) !important;
+    --_colors---base-1000--line: rgba(18, 42, 77, 0.12) !important;
+    color: #122a4d;
+  }
+
+  .theme_on-dark {
+    --_colors---base-1000--primary: #122a4d !important;
+    --_colors---other--bg: #F9C0D1 !important;
+    --_colors---base-0--primary: #F2EFE7 !important;
+    --_colors---base-1000--gray-text: rgba(18, 42, 77, 0.65) !important;
+    --_colors---base-1000--line: rgba(18, 42, 77, 0.12) !important;
+    color: #122a4d;
+  }
+
+  /* Explicitly keep UI chrome and quote overlays completely transparent */
+  .header-logo,
+  .header-nav,
+  .header-nav_list,
+  .header-cramps,
+  .s-down,
+  .s-bar-w,
+  .quote-s,
+  .quote-s_c,
+  .transition-container > .theme_on-color {
+    background-color: transparent !important;
+    background: transparent !important;
+  }
+
+  /* Navigation Links & Text */
+  .nav-item, .link, .btn, .header-logo, .l1, .l2, .h1, .h2, .h3, .h4, .h5, .h6, .p1 {
+    color: #122a4d;
+  }
+
+  /* Editorial Badge in Hero */
+  .hero-editorial-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 8px 20px;
+    background: rgba(242, 239, 231, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(18, 42, 77, 0.12);
+    border-radius: 30px;
+    margin: 0 auto 20px;
+  }
+
+  /* Lifestyle Section Responsive Layout */
+  .lifestyle-section-w {
+    background-color: #F9C0D1;
+    position: relative;
+    z-index: 15;
+    padding: 70px 0 90px;
+    border-top: 1px solid rgba(18, 42, 77, 0.08);
+  }
+
+  .lifestyle-editorial-grid {
+    display: grid;
+    grid-template-columns: 1.08fr 1.22fr;
+    gap: 52px 68px;
+    align-items: center;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .lifestyle-img-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #FBD7E1;
+    box-shadow: 0 28px 64px -12px rgba(18, 42, 77, 0.16);
+    border: 1px solid rgba(18, 42, 77, 0.08);
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .lifestyle-img-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .lifestyle-img-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .lifestyle-img-card:hover img {
+    transform: scale(1.03);
+  }
+
+  .lifestyle-glass-badge {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background: rgba(242, 239, 231, 0.94);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 16px 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba(18, 42, 77, 0.1);
+  }
+
+  @media (max-width: 991px) {
+    .lifestyle-editorial-grid {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+    .lifestyle-section-w {
+      padding: 50px 0 70px;
+    }
+    .hero-editorial-badge {
+      padding: 6px 14px;
+      gap: 8px;
+    }
+  }
+
+  /* Quote Section — Crisp White Typography, Icons, and Author on Pool Background */
+  .quote-s,
+  .quote-s *,
+  .quote-w .quote-s,
+  .quote-w .quote-s *,
+  .quote-s_c,
+  .quote-s_c *,
+  .quote-s h4,
+  .quote-s h4.h5,
+  .quote-s .h5,
+  .quote-s_author,
+  .quote-s_author .l1,
+  .quote-s_author .l1.reg {
+    color: #FFFFFF !important;
+  }
+
+  .quote-s svg,
+  .quote-s svg path,
+  .quote-s_ico svg,
+  .quote-s_ico svg path,
+  .quote-s .ico svg,
+  .quote-s .ico svg path {
+    fill: #FFFFFF !important;
+    color: #FFFFFF !important;
+  }
+
+  .quote-s h4.h5,
+  .quote-s .h5 {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+  }
+
+  .quote-s .quote-s_author .l1 {
+    color: #FFFFFF !important;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+  }
+
+  .quote-s .quote-s_author .l1.reg {
+    color: rgba(255, 255, 255, 0.88) !important;
+  }
+
+  .quote-s .red-line {
+    background-color: rgba(255, 255, 255, 0.6) !important;
+  }
+
+  /* ===================================================
+     Instagram Visual Stories & Archives Section
+     =================================================== */
+  .ig-stories-section {
+    background-color: #FBD7E1;
+    padding: 100px 0 110px;
+    position: relative;
+    z-index: 10;
+    border-top: 1px solid rgba(18, 42, 77, 0.08);
+    border-bottom: 1px solid rgba(18, 42, 77, 0.08);
+  }
+
+  .ig-stories-header {
+    text-align: center;
+    max-width: 820px;
+    margin: 0 auto 56px;
+  }
+
+  .ig-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 18px;
+    background: rgba(242, 239, 231, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(18, 42, 77, 0.12);
+    border-radius: 30px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #122a4d;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+
+  .ig-badge-pill:hover {
+    transform: translateY(-2px);
+    background: #F2EFE7;
+  }
+
+  .ig-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .ig-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #F2EFE7;
+    box-shadow: 0 16px 36px -8px rgba(18, 42, 77, 0.12);
+    border: 1px solid rgba(18, 42, 77, 0.08);
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s ease;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ig-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 50px -10px rgba(18, 42, 77, 0.2);
+  }
+
+  .ig-card-img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: #F9C0D1;
+  }
+
+  .ig-card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .ig-card:hover .ig-card-img-wrap img {
+    transform: scale(1.05);
+  }
+
+  .ig-card-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(242, 239, 231, 0.92);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(18, 42, 77, 0.1);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #122a4d;
+    text-transform: uppercase;
+  }
+
+  .ig-card-overlay-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(18, 42, 77, 0.85);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .ig-card:hover .ig-card-overlay-btn {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .ig-card-content {
+    padding: 20px 22px 24px;
+    background: #F2EFE7;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .ig-card-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: #122a4d;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .ig-card-desc {
+    font-family: var(--_fonts---font-body);
+    font-size: 12px;
+    line-height: 1.45;
+    color: rgba(18, 42, 77, 0.72);
+  }
+
+  .ig-footer-cta {
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  @media (max-width: 991px) {
+    .ig-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .ig-stories-section {
+      padding: 70px 0 80px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .ig-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+/* ===================================================
+     ENHANCED CONTRAST: WHITE TEXT ON IMAGES & OVERLAYS
+     =================================================== */
+  .hero-title,
+  .hero-title *,
+  .hero-editorial-badge,
+  .hero-editorial-badge *,
+  .hero_title,
+  .hero_desc,
+  .hero_desc * {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
+  }
+
+  .hero-editorial-badge {
+    background: rgba(18, 42, 77, 0.75) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  }
+
+  .lifestyle-glass-badge {
+    background: rgba(18, 42, 77, 0.88) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    color: #FFFFFF !important;
+  }
+
+  .lifestyle-glass-badge *,
+  .lifestyle-glass-badge h3,
+  .lifestyle-glass-badge p,
+  .lifestyle-glass-badge span {
+    color: #FFFFFF !important;
+  }
+
+  .quote-s,
+  .quote-s *,
+  .quote-s_c,
+  .quote-s_c *,
+  .quote-s h4,
+  .quote-s .h5,
+  .quote-s_author,
+  .quote-s_author * {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.75);
+  }
+
+  .amen-card_t,
+  .amen-card_t *,
+  .amen-card_b,
+  .amen-card_b *,
+  .amen-card .h4,
+  .amen-card .l1,
+  .amen-card .p1 {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  }
+
+  .ig-card-tag {
+    background: rgba(18, 42, 77, 0.88) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+
+.loc-w_decor {
+    clip-path: polygon(var(--_special-units---offset-l) 0, calc(100% - var(--_special-units---offset-r)) 0%, 100% 101%, 0 101%);
+  }

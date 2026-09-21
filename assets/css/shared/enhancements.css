@@ -1,0 +1,85 @@
+/* enhancements.css
+   Extracted from the inline <style> blocks of the original export. */
+
+/* ===================================================
+     ENHANCED CONTRAST: WHITE TEXT ON IMAGES & OVERLAYS
+     =================================================== */
+  /* Hero section text over background image */
+  .hero-title,
+  .hero-title *,
+  .hero-editorial-badge,
+  .hero-editorial-badge *,
+  .hero_title,
+  .hero_desc,
+  .hero_desc * {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.65);
+  }
+
+  .hero-editorial-badge {
+    background: rgba(18, 42, 77, 0.75) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  }
+
+  /* Lifestyle / Balcony Nahargarh glass badge text on image */
+  .lifestyle-glass-badge {
+    background: rgba(18, 42, 77, 0.88) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    color: #FFFFFF !important;
+  }
+
+  .lifestyle-glass-badge *,
+  .lifestyle-glass-badge h3,
+  .lifestyle-glass-badge p,
+  .lifestyle-glass-badge span {
+    color: #FFFFFF !important;
+  }
+
+  /* Quote section text over pool sanctuary image */
+  .quote-s,
+  .quote-s *,
+  .quote-s_c,
+  .quote-s_c *,
+  .quote-s h4,
+  .quote-s .h5,
+  .quote-s_author,
+  .quote-s_author * {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.65);
+  }
+
+  /* Amenity cards text over amenity renders */
+  .amen-card_t,
+  .amen-card_t *,
+  .amen-card_b,
+  .amen-card_b *,
+  .amen-card .h4,
+  .amen-card .l1,
+  .amen-card .p1 {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.65);
+  }
+
+  /* Instagram archive cards tags and badges on images */
+  .ig-card-tag {
+    background: rgba(18, 42, 77, 0.88) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Architecture & Interior showcase caption overlays */
+  .arch-scroll-area_t,
+  .arch-scroll-area_t *,
+  .interior-s_l_desc,
+  .interior-s_l_desc *,
+  .interior-s_r_desc,
+  .interior-s_r_desc * {
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
+  }

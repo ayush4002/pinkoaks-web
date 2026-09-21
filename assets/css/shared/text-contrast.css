@@ -1,0 +1,234 @@
+/* text-contrast.css
+   Extracted from the inline <style> blocks of the original export. */
+
+/* ==========================================================================
+     STRICT OVERRIDE: 100% PURE CRISP WHITE TYPOGRAPHY & ASSETS ON ALL IMAGES
+     ========================================================================== */
+
+  /* NO BACKGROUND ON LOGO (Pure Transparent Logo Emblem & Rotating Text) */
+  .header-logo,
+  .header-logo *,
+  .logo_symbol,
+  .logo_symbol *,
+  .logo,
+  .logo *,
+  .header-logo_bg,
+  .header-logo_bg * {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  .header-logo text,
+  .header-logo_bg text {
+    fill: #FFFFFF !important;
+    color: #FFFFFF !important;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8) !important;
+  }
+
+  /* 1. SECTION 1 (HERO) OVERLAY TYPOGRAPHY */
+  #hero,
+  #hero *,
+  .hero-s,
+  .hero-s *,
+  .hero-s_logo,
+  .hero-s_logo *,
+  .hero-s_logo_a,
+  .hero-s_logo_a *,
+  .hero-s_title,
+  .hero-s_title * {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.85) !important;
+  }
+
+  .hero-editorial-badge {
+    background: rgba(18, 42, 77, 0.75) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  }
+
+  .hero-editorial-badge * {
+    color: #FFFFFF !important;
+  }
+
+  /* 2. SECTION 5 (BANI PARK / JAIPUR SKYLINE) */
+  .loc-w,
+  .loc-w *,
+  .loc-s,
+  .loc-s *,
+  .loc-s_desc,
+  .loc-s_desc *,
+  .loc-s_desc h3,
+  .loc-s_desc h4,
+  .loc-s_desc h5,
+  .loc-s_desc p {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.9) !important;
+  }
+
+  /* 3. SECTION 8 (AMENITIES / GATED COMMUNITY & TABS) */
+  .amen-w,
+  .amen-w *,
+  .amen-s,
+  .amen-s *,
+  .amen-slide,
+  .amen-slide *,
+  .amen-slide_title,
+  .amen-slide_title *,
+  .amen-slide_title h3,
+  .amen-slide_title .l1,
+  .amen-slide_desc,
+  .amen-slide_desc *,
+  .amen-slide_desc h4,
+  .amen-slide_desc .h5,
+  .amm-s_cms_tabs-w,
+  .amm-s_cms_tabs-w *,
+  .amen-tabs-cms,
+  .amen-tabs-cms *,
+  .amen-tab,
+  .amen-tab *,
+  .amen-tab .h5,
+  .amm-s_cms_btn-w,
+  .amm-s_cms_btn-w *,
+  .amm-s_cms_btn,
+  .amm-s_cms_btn * {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.95), 0 0 24px rgba(0, 0, 0, 0.8) !important;
+  }
+
+  .amm-s_cms_tabs_line {
+    background-color: rgba(255, 255, 255, 0.35) !important;
+  }
+
+  .amm-s_cms_tabs_line_hilight {
+    background-color: #FFFFFF !important;
+  }
+
+  .amm-s_cms_btn .btn-circle {
+    border-color: rgba(255, 255, 255, 0.6) !important;
+  }
+
+  .amm-s_cms_btn svg path {
+    stroke: #FFFFFF !important;
+  }
+
+  /* 4. SECTION 10: ARCHITECTURE & SCHIEMANN WEYERS */
+  .arch-scroll-area,
+  .arch-scroll-area *,
+  .arch-w,
+  .arch-w *,
+  .arch-s,
+  .arch-s *,
+  .arch-s_t,
+  .arch-s_t *,
+  .arch-s_t h2,
+  .arch-s_t .h1,
+  .arch-s_b,
+  .arch-s_b *,
+  .arch-s_quote,
+  .arch-s_quote *,
+  .arch-s_quote h3,
+  .arch-s_quote .h5,
+  .arch-s_author,
+  .arch-s_author *,
+  .arch-s_author .l1,
+  .arch-s_author .l1.reg,
+  .arch-s_btn,
+  .arch-s_btn * {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.95), 0 0 35px rgba(0, 0, 0, 0.85) !important;
+  }
+
+  .arch-s_btn .btn-circle {
+    border-color: rgba(255, 255, 255, 0.6) !important;
+  }
+
+  .arch-s_btn svg path {
+    stroke: #FFFFFF !important;
+  }
+
+  /* 5. SECTION 13: CTA / PERFECT SEA VIEWS & TERRACES */
+  .cta-w,
+  .cta-w *,
+  .cta-s,
+  .cta-s *,
+  .cta-s_desc,
+  .cta-s_desc *,
+  .cta-s_desc p,
+  .cta-s_desc .l1,
+  .cta-s_title,
+  .cta-s_title *,
+  .cta-s_title h2,
+  .cta-s_title h2.h1,
+  .cta-s_title .h1,
+  .cta-s_title h3,
+  .cta-s_title h3.c1,
+  .cta-s_title .c1,
+  .cta-s_title_btn,
+  .cta-s_title_btn *,
+  .cta-s_title_btn .l1,
+  .cta-s_title_btn a {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.95), 0 0 35px rgba(0, 0, 0, 0.85) !important;
+  }
+
+  .cta-s_title_btn .btn-circle {
+    border-color: rgba(255, 255, 255, 0.6) !important;
+  }
+
+  .cta-s_title_btn svg path {
+    stroke: #FFFFFF !important;
+  }
+
+  /* 6. FLOATING SIDEBAR & SCROLL INDICATORS */
+  .s-bar-w,
+  .s-bar-w *,
+  .s-bar,
+  .s-bar_track,
+  .s-bar_fill,
+  .s-down,
+  .s-down *,
+  .s-down_label,
+  .s-down_arrow,
+  .s-down_arrow svg,
+  .s-down_arrow svg path {
+    color: #FFFFFF !important;
+    fill: #FFFFFF !important;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.9) !important;
+  }
+
+  .s-bar_track {
+    background-color: rgba(255, 255, 255, 0.45) !important;
+  }
+
+  .s-bar_fill {
+    background-color: #FFFFFF !important;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.9) !important;
+  }
+
+  .s-down_arrow svg path {
+    stroke: #FFFFFF !important;
+    fill: #FFFFFF !important;
+  }
+
+  /* 7. TOP NAVIGATION & HEADER LINKS */
+  .header-cramps,
+  .header-cramps *,
+  .header-cramps .link,
+  .header-cramps .link *,
+  .header-cramps .nav-item,
+  .header-cramps .nav-item *,
+  .header-cramps .h6,
+  .header-cramps .l2,
+  .header-cramps .link_label_text,
+  .header-cramps .nav-item_label_text {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9) !important;
+  }
+
+  .header-cramps .line-h,
+  .header-cramps .data-divider {
+    background-color: rgba(255, 255, 255, 0.6) !important;
+  }

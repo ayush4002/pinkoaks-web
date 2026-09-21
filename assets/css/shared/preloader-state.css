@@ -1,0 +1,46 @@
+/* preloader-state.css
+   Extracted from the inline <style> blocks of the original export. */
+
+[data-prevent-flicker] {
+    visibility: visible;
+  }
+
+  [data-master-preloader],
+  [data-preloader],
+  .master-preloader,
+  .preloader {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  body.is-loading [data-prevent-flicker] {
+    visibility: visible;
+  }
+
+  body.is-loading [data-master-preloader],
+  body.is-loading [data-preloader],
+  body.is-loading .master-preloader,
+  body.is-loading .preloader {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  @media screen and (orientation: landscape) and (max-width: 991px) and (pointer: coarse) and (hover: none) {
+    .landscape-cover {
+      display: block;
+    }
+
+    body {
+      overflow: hidden;
+    }
+  }
+
+  .unset-all{
+     all: unset;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
