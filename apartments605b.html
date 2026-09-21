@@ -4,7 +4,7 @@
   <meta charset="utf-8"/>
   <title>Apartments — Pink Oaks Luxury Residences, Jaipur</title>
   <meta content="Explore boutique 2, 3 & 4 BHK residences, duplexes and penthouses with private solariums and Nahargarh Fort views in Bani Park, Jaipur." name="description"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,7 +27,7 @@
     <img alt="Pink Oaks Bougainvillea" src="assets/images/flowers/bougainvillea-flowers_01.avif" loading="eager" />
   </div>
 
-  <!-- GLOBAL ELEMENT 1: Left Vertical Breadcrumb -->
+  <!-- GLOBAL ELEMENT 1: Left Vertical Breadcrumb (Desktop) -->
   <div class="vertical-breadcrumb b-desk">
     <div class="vertical-breadcrumb-line"></div>
     <div class="vertical-breadcrumb-text">
@@ -35,12 +35,12 @@
     </div>
   </div>
 
-  <!-- GLOBAL ELEMENT 2: Top Header Bar (Logo + Right Nav) -->
+  <!-- GLOBAL ELEMENT 2: Top Header Bar (Logo + Desktop Nav + Mobile Button) -->
   <header class="top-header-bar">
     <!-- Top-Left Rotating Badge Logo -->
     <a href="index.html" class="brand-badge-logo" aria-label="Pink Oaks Home">
       <div class="brand-badge-emblem">
-        <img alt="Pink Oaks" src="assets/images/pink-oaks-leaf.webp" style="width:24px;height:24px;object-fit:contain;"/>
+        <img alt="Pink Oaks" src="assets/images/pink-oaks-leaf.webp"/>
       </div>
       <div class="brand-badge-text-ring">
         <svg viewBox="0 0 100 100" width="100%" height="100%">
@@ -52,7 +52,7 @@
       </div>
     </a>
 
-    <!-- Top-Right Navigation -->
+    <!-- Top-Right Navigation (Desktop) -->
     <nav class="top-right-nav">
       <a href="apartments.html" class="top-nav-primary">Select an Apartment</a>
       <div class="top-nav-secondary-row">
@@ -60,20 +60,55 @@
         <a href="contact.html" class="top-nav-secondary-link">Contact</a>
       </div>
     </nav>
+
+    <!-- Mobile Menu Trigger Button (<768px) -->
+    <button class="mobile-menu-trigger-btn" type="button" aria-label="Open Navigation Menu">
+      <div class="mobile-menu-burger-lines">
+        <span></span>
+        <span></span>
+      </div>
+      <span>Menu</span>
+    </button>
   </header>
+
+  <!-- FULL-SCREEN LUXURY MOBILE MENU OVERLAY -->
+  <div class="lux-mobile-menu-overlay" aria-hidden="true">
+    <div class="mobile-menu-header">
+      <div class="mobile-menu-brand-tag">Pink Oaks Residence</div>
+      <button class="mobile-menu-close-btn" type="button" aria-label="Close Menu">&times;</button>
+    </div>
+    <nav class="mobile-menu-nav-links">
+      <a href="apartments.html" class="mobile-menu-nav-item">Select an Apartment</a>
+      <a href="contact.html#book-call" class="mobile-menu-nav-item">Book a Call</a>
+      <a href="contact.html" class="mobile-menu-nav-item">Contact</a>
+    </nav>
+    <div class="mobile-menu-footer-meta">
+      <a class="mobile-menu-contact-line" href="tel:+919829012345">+91 98290 12345</a>
+      <a class="mobile-menu-contact-line" href="mailto:sales@pinkoaks.in">sales@pinkoaks.in</a>
+      <div class="mobile-menu-social-row">
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://facebook.com" target="_blank">Facebook</a>
+        <a href="https://youtube.com" target="_blank">YouTube</a>
+      </div>
+    </div>
+  </div>
 
   <main>
     <!-- SECTION A: HERO & FILTERS -->
     <section class="apartments-hero-section">
+      <!-- Mobile Horizontal Breadcrumb -->
+      <div class="mobile-horizontal-breadcrumb">
+        <a href="index.html">Home</a> / Select an Apartment
+      </div>
+
       <div class="apartments-title-row">
         <h1 class="apartments-headline">Apartments</h1>
         <div class="apartments-count-badge" id="apartment-count">25</div>
       </div>
 
-      <!-- Filter Controls Row -->
+      <!-- Desktop Filter Controls Row -->
       <div class="apartments-filter-bar">
         <div class="apartments-filter-group">
-          
           <!-- Filter 1: Typology -->
           <div class="filter-dropdown-wrapper">
             <button id="filter-typology-btn" class="apartments-filter-btn" type="button">
@@ -120,9 +155,73 @@
 
         <button class="apartments-reset-btn" type="button">Reset</button>
       </div>
+
+      <!-- Mobile Sticky Filter Trigger Bar -->
+      <div class="mobile-sticky-filter-bar">
+        <button class="mobile-filter-open-btn" type="button">
+          <span class="filter-badge-dot"></span>
+          <span>Filter &amp; Sort</span>
+        </button>
+        <div style="display:flex;gap:12px;align-items:center;">
+          <a href="#" class="mobile-sheet-reset-link" style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(15,31,61,0.6);text-decoration:none;">Reset</a>
+          <button class="mobile-grid-toggle-btn" type="button" aria-label="Toggle Grid Layout" title="Toggle Compact Grid">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <rect x="1" y="1" width="6" height="6" rx="1"/>
+              <rect x="9" y="1" width="6" height="6" rx="1"/>
+              <rect x="1" y="9" width="6" height="6" rx="1"/>
+              <rect x="9" y="9" width="6" height="6" rx="1"/>
+            </svg>
+          </button>
+        </div>
+      </div>
     </section>
 
-    <!-- SECTION B: 3-COLUMN APARTMENT GRID (Screenshot 2) -->
+    <!-- MOBILE BOTTOM SHEET FILTER MODAL -->
+    <div id="mobile-filter-sheet" class="mobile-filter-bottom-sheet" aria-hidden="true">
+      <div class="mobile-sheet-backdrop"></div>
+      <div class="mobile-sheet-container">
+        <div class="mobile-sheet-drag-handle"></div>
+        <div class="mobile-sheet-title-row">
+          <h3 class="mobile-sheet-title">Filter &amp; Sort</h3>
+          <button class="mobile-sheet-close-btn" type="button" style="background:none;border:none;font-size:24px;color:var(--color-navy);cursor:pointer;">&times;</button>
+        </div>
+        
+        <div class="mobile-sheet-group">
+          <div class="mobile-sheet-group-label">Typology</div>
+          <div class="mobile-sheet-chips-row" data-filter-type="typology">
+            <button class="mobile-filter-chip is-active" data-value="all">All Typologies</button>
+            <button class="mobile-filter-chip" data-value="Ground Floor + Basement">Ground + Basement</button>
+            <button class="mobile-filter-chip" data-value="Ground Floor">Ground Floor</button>
+            <button class="mobile-filter-chip" data-value="Middle Floors">Middle Floors</button>
+            <button class="mobile-filter-chip" data-value="Penthouse Duplex">Penthouse Duplex</button>
+          </div>
+        </div>
+
+        <div class="mobile-sheet-group">
+          <div class="mobile-sheet-group-label">Bedrooms</div>
+          <div class="mobile-sheet-chips-row" data-filter-type="bedrooms">
+            <button class="mobile-filter-chip is-active" data-value="all">All Bedrooms</button>
+            <button class="mobile-filter-chip" data-value="2">2 BHK</button>
+            <button class="mobile-filter-chip" data-value="3">3 BHK</button>
+            <button class="mobile-filter-chip" data-value="4">4 BHK</button>
+          </div>
+        </div>
+
+        <div class="mobile-sheet-group">
+          <div class="mobile-sheet-group-label">Sort By</div>
+          <div class="mobile-sheet-chips-row" data-filter-type="sort">
+            <button class="mobile-filter-chip is-active" data-value="relevant">Relevant</button>
+            <button class="mobile-filter-chip" data-value="area-asc">Area: Low to High</button>
+            <button class="mobile-filter-chip" data-value="area-desc">Area: High to Low</button>
+            <button class="mobile-filter-chip" data-value="floor">Floor Level</button>
+          </div>
+        </div>
+
+        <button class="mobile-sheet-apply-btn" type="button">Show 25 Apartments</button>
+      </div>
+    </div>
+
+    <!-- SECTION B: CATALOGUE GRID (Screenshot 2) -->
     <section class="apartments-catalogue-grid" id="apartments-grid">
       <!-- 1. Unit 011 -->
       <div class="apart-card-item" data-unit="011" data-typology="GROUND FLOOR + BASEMENT" data-bedrooms="3" data-area="132" data-floor="0">
@@ -543,7 +642,7 @@
       </div>
     </section>
 
-    <!-- SECTION C: FULL-BLEED CTA BANNER -->
+    <!-- SECTION C: FULL-BLEED COURTYARD CTA BANNER -->
     <section class="cta-fullbleed-banner">
       <div class="cta-banner-bg">
         <img alt="Pink Oaks Penthouse Terraces" src="assets/images/icons/6a0f88f3b81e88aabf6874e7_img_cta_1920-p-1600.png" loading="lazy"/>

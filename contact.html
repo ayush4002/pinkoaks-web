@@ -4,7 +4,7 @@
   <meta charset="utf-8"/>
   <title>Contact Us — Pink Oaks Luxury Residences, Jaipur</title>
   <meta content="Contact sales office and explore the master location map for Pink Oaks residences in Bani Park, Jaipur." name="description"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +22,7 @@
 </head>
 <body class="editorial-page contact-page-canvas">
 
-  <!-- GLOBAL ELEMENT 1: Left Vertical Breadcrumb -->
+  <!-- GLOBAL ELEMENT 1: Left Vertical Breadcrumb (Desktop) -->
   <div class="vertical-breadcrumb b-desk">
     <div class="vertical-breadcrumb-line"></div>
     <div class="vertical-breadcrumb-text">
@@ -30,12 +30,12 @@
     </div>
   </div>
 
-  <!-- GLOBAL ELEMENT 2: Top Header Bar (Logo + Right Nav) -->
+  <!-- GLOBAL ELEMENT 2: Top Header Bar (Logo + Desktop Nav + Mobile Button) -->
   <header class="top-header-bar">
     <!-- Top-Left Rotating Badge Logo -->
     <a href="index.html" class="brand-badge-logo" aria-label="Pink Oaks Home">
       <div class="brand-badge-emblem">
-        <img alt="Pink Oaks" src="assets/images/pink-oaks-leaf.webp" style="width:24px;height:24px;object-fit:contain;"/>
+        <img alt="Pink Oaks" src="assets/images/pink-oaks-leaf.webp"/>
       </div>
       <div class="brand-badge-text-ring">
         <svg viewBox="0 0 100 100" width="100%" height="100%">
@@ -47,7 +47,7 @@
       </div>
     </a>
 
-    <!-- Top-Right Navigation -->
+    <!-- Top-Right Navigation (Desktop) -->
     <nav class="top-right-nav">
       <a href="apartments.html" class="top-nav-primary">Select an Apartment</a>
       <div class="top-nav-secondary-row">
@@ -55,11 +55,47 @@
         <a href="contact.html" class="top-nav-secondary-link" style="opacity:1;text-decoration:underline;text-underline-offset:3px;">Contact</a>
       </div>
     </nav>
+
+    <!-- Mobile Menu Trigger Button (<768px) -->
+    <button class="mobile-menu-trigger-btn" type="button" aria-label="Open Navigation Menu">
+      <div class="mobile-menu-burger-lines">
+        <span></span>
+        <span></span>
+      </div>
+      <span>Menu</span>
+    </button>
   </header>
+
+  <!-- FULL-SCREEN LUXURY MOBILE MENU OVERLAY -->
+  <div class="lux-mobile-menu-overlay" aria-hidden="true">
+    <div class="mobile-menu-header">
+      <div class="mobile-menu-brand-tag">Pink Oaks Residence</div>
+      <button class="mobile-menu-close-btn" type="button" aria-label="Close Menu">&times;</button>
+    </div>
+    <nav class="mobile-menu-nav-links">
+      <a href="apartments.html" class="mobile-menu-nav-item">Select an Apartment</a>
+      <a href="#book-call" class="mobile-menu-nav-item">Book a Call</a>
+      <a href="contact.html" class="mobile-menu-nav-item">Contact</a>
+    </nav>
+    <div class="mobile-menu-footer-meta">
+      <a class="mobile-menu-contact-line" href="tel:+919829012345">+91 98290 12345</a>
+      <a class="mobile-menu-contact-line" href="mailto:sales@pinkoaks.in">sales@pinkoaks.in</a>
+      <div class="mobile-menu-social-row">
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://facebook.com" target="_blank">Facebook</a>
+        <a href="https://youtube.com" target="_blank">YouTube</a>
+      </div>
+    </div>
+  </div>
 
   <!-- SECTION A: HERO & MAP (Screenshot 1) -->
   <main>
     <section class="contact-hero-section">
+      <!-- Mobile Horizontal Breadcrumb -->
+      <div class="mobile-horizontal-breadcrumb">
+        <a href="index.html">Home</a> / Contact
+      </div>
+
       <!-- Centered Huge Title -->
       <h1 class="contact-page-title">Contact Us</h1>
 
@@ -135,7 +171,7 @@
         </svg>
 
         <!-- Floating Sales Office Tooltip Pin -->
-        <div class="contact-map-sales-pin" style="top: 48%; left: 51%;">
+        <div class="contact-map-sales-pin">
           <div class="contact-map-sales-pin-icon">
             <svg viewBox="0 0 16 16" width="14" height="14" fill="none">
               <path d="M8 1.5C5.2 1.5 3 3.7 3 6.5C3 10.2 8 14.5 8 14.5C8 14.5 13 10.2 13 6.5C13 3.7 10.8 1.5 8 1.5Z" fill="#FFFFFF"/>

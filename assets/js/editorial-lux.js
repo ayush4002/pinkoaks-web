@@ -1,23 +1,27 @@
 /**
  * editorial-lux.js
- * Comprehensive Luxury Motion & Interactive System for Pink Oaks
- * (GSAP, ScrollTrigger, Lenis Smooth Scroll, Real-time Filters, Interactive Map, Modals)
+ * Mobile-First Responsive Motion & Interactive System for Pink Oaks
+ * Features: Lenis Native-Touch Smooth Scroll, Mobile Fullscreen Menu,
+ * Mobile Filter Bottom Sheet, Real-time Reactive Filters, Floorplan Lightbox.
  */
 
 (function () {
   'use strict';
 
-  // 1. Initialize Lenis Smooth Scrolling if available
+  // 1. Initialize Lenis Smooth Scrolling with mobile-safe parameters
   let lenis = null;
+  const isMobileDevice = window.innerWidth < 768 || 'ontouchstart' in window;
+
   if (typeof Lenis !== 'undefined') {
     lenis = new Lenis({
-      duration: 1.2,
+      duration: isMobileDevice ? 0.8 : 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
+      syncTouch: false, // native feeling touch scrolling on phones
       wheelMultiplier: 1.0,
-      touchMultiplier: 1.5,
+      touchMultiplier: 1.2,
     });
 
     function raf(time) {
@@ -26,7 +30,6 @@
     }
     requestAnimationFrame(raf);
 
-    // Sync with GSAP ScrollTrigger
     if (typeof ScrollTrigger !== 'undefined') {
       lenis.on('scroll', ScrollTrigger.update);
       gsap.ticker.add((time) => {
@@ -36,39 +39,39 @@
     }
   }
 
-  // 2. Main Animation & Interaction Initialization
+  // 2. Main Experience Engine
   function initEditorialExperience() {
-    // A. GSAP Scroll Animations
+    // A. GSAP Scroll Animations (Optimized for Mobile Performance)
     if (typeof gsap !== 'undefined') {
       if (typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
       }
 
-      // 1. Page Title & Subtitle Entrance
+      // 1. Page Title Entrance
       const headline = document.querySelector('.apartments-headline, .contact-page-title');
       if (headline) {
         gsap.fromTo(
           headline,
-          { opacity: 0, y: 40, scale: 0.96 },
-          { opacity: 1, y: 0, scale: 1, duration: 1.2, ease: 'power3.out', delay: 0.1 }
+          { opacity: 0, y: isMobileDevice ? 24 : 40, scale: 0.97 },
+          { opacity: 1, y: 0, scale: 1, duration: 1.0, ease: 'power3.out', delay: 0.1 }
         );
       }
 
       // 2. Filter Bar & Breadcrumb Reveal
-      const filterBar = document.querySelector('.apartments-filter-bar');
-      const breadcrumb = document.querySelector('.vertical-breadcrumb');
+      const filterBar = document.querySelector('.apartments-filter-bar, .mobile-sticky-filter-bar');
+      const breadcrumb = document.querySelector('.vertical-breadcrumb, .mobile-horizontal-breadcrumb');
       if (filterBar) {
         gsap.fromTo(
           filterBar,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.9, ease: 'power2.out', delay: 0.3 }
+          { opacity: 0, y: 15 },
+          { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', delay: 0.25 }
         );
       }
       if (breadcrumb) {
         gsap.fromTo(
           breadcrumb,
-          { opacity: 0, x: -20 },
-          { opacity: 1, x: 0, duration: 1, ease: 'power2.out', delay: 0.4 }
+          { opacity: 0, y: -10 },
+          { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', delay: 0.2 }
         );
       }
 
@@ -77,50 +80,39 @@
       if (infoBlocks.length) {
         gsap.fromTo(
           infoBlocks,
-          { opacity: 0, y: 25 },
-          { opacity: 1, y: 0, duration: 0.8, stagger: 0.12, ease: 'power2.out', delay: 0.3 }
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.7, stagger: 0.08, ease: 'power2.out', delay: 0.2 }
         );
       }
 
-      // 4. Map & Social Overlay Reveal
-      const mapWrapper = document.querySelector('.contact-map-wrapper');
-      if (mapWrapper) {
-        gsap.fromTo(
-          mapWrapper,
-          { opacity: 0, scale: 0.96, y: 30 },
-          { opacity: 1, scale: 1, y: 0, duration: 1.2, ease: 'power3.out', delay: 0.4 }
-        );
-      }
-
-      // 5. Staggered ScrollTrigger for Apartment Grid Cards
+      // 4. Staggered Cards Reveal
       const apartCards = document.querySelectorAll('.apart-card-item, .apart-photo-card-item');
       if (apartCards.length && typeof ScrollTrigger !== 'undefined') {
         ScrollTrigger.batch(apartCards, {
           onEnter: (batch) => {
             gsap.fromTo(
               batch,
-              { opacity: 0, y: 45, scale: 0.98 },
+              { opacity: 0, y: isMobileDevice ? 25 : 45 },
               {
                 opacity: 1,
                 y: 0,
-                scale: 1,
-                duration: 0.85,
-                stagger: 0.08,
+                duration: 0.75,
+                stagger: isMobileDevice ? 0.05 : 0.08,
                 ease: 'power2.out',
                 overwrite: 'auto'
               }
             );
           },
-          start: 'top 92%',
+          start: 'top 94%',
           once: true
         });
       }
 
-      // 6. Fullbleed CTA Banner Parallax
+      // 5. Fullbleed CTA Banner Parallax
       const ctaBgImg = document.querySelector('.cta-banner-bg img');
-      if (ctaBgImg && typeof ScrollTrigger !== 'undefined') {
+      if (ctaBgImg && typeof ScrollTrigger !== 'undefined' && !isMobileDevice) {
         gsap.to(ctaBgImg, {
-          y: '18%',
+          y: '16%',
           ease: 'none',
           scrollTrigger: {
             trigger: '.cta-fullbleed-banner',
@@ -130,40 +122,79 @@
           }
         });
       }
-
-      // 7. Rotating Badge Speedup on Scroll
-      const badgeRing = document.querySelector('.brand-badge-text-ring');
-      if (badgeRing && typeof ScrollTrigger !== 'undefined') {
-        ScrollTrigger.create({
-          onUpdate: (self) => {
-            const vel = Math.min(Math.abs(self.getVelocity() / 300), 4);
-            badgeRing.style.animationDuration = `${Math.max(4, 24 - vel * 4)}s`;
-          }
-        });
-      }
     }
 
-    // B. Interactive Filter System with Animated Counter
+    // B. Mobile Fullscreen Navigation Overlay
+    initMobileMenu();
+
+    // C. Mobile Bottom Sheet Filter System + Desktop Dropdowns
     initFilterSystem();
 
-    // C. Interactive Floorplan Modal Viewer
+    // D. Floorplan Lightbox Modal
     initFloorplanModal();
 
-    // D. Map Tooltip Interaction
+    // E. Map Pin Interactivity
     initMapInteractivity();
   }
 
-  // --- FILTER SYSTEM ---
+  // --- MOBILE FULLSCREEN MENU ---
+  function initMobileMenu() {
+    const trigger = document.querySelector('.mobile-menu-trigger-btn');
+    const overlay = document.querySelector('.lux-mobile-menu-overlay');
+    const closeBtn = document.querySelector('.mobile-menu-close-btn');
+
+    if (!trigger || !overlay) return;
+
+    function openMenu() {
+      overlay.classList.add('is-active');
+      document.body.classList.add('menu-open');
+      if (typeof gsap !== 'undefined') {
+        gsap.fromTo(
+          overlay.querySelectorAll('.mobile-menu-nav-item, .mobile-menu-footer-meta'),
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.5, stagger: 0.08, ease: 'power3.out', delay: 0.15 }
+        );
+      }
+    }
+
+    function closeMenu() {
+      overlay.classList.remove('is-active');
+      document.body.classList.remove('menu-open');
+    }
+
+    trigger.addEventListener('click', openMenu);
+    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+
+    overlay.querySelectorAll('.mobile-menu-nav-item').forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && overlay.classList.contains('is-active')) {
+        closeMenu();
+      }
+    });
+  }
+
+  // --- COMPREHENSIVE FILTER SYSTEM ---
   function initFilterSystem() {
     const grid = document.querySelector('.apartments-catalogue-grid');
     const cards = document.querySelectorAll('.apart-card-item');
     const photoCards = document.querySelectorAll('.apart-photo-card-item');
     const countBadge = document.getElementById('apartment-count');
-    const resetBtn = document.querySelector('.apartments-reset-btn');
+    const resetBtns = document.querySelectorAll('.apartments-reset-btn, .mobile-sheet-reset-link');
 
+    // Desktop Buttons
     const filterTypologyBtn = document.getElementById('filter-typology-btn');
     const filterBedroomsBtn = document.getElementById('filter-bedrooms-btn');
     const filterSortBtn = document.getElementById('filter-sort-btn');
+
+    // Mobile Bottom Sheet Elements
+    const mobileSheet = document.getElementById('mobile-filter-sheet');
+    const mobileOpenBtn = document.querySelector('.mobile-filter-open-btn');
+    const mobileCloseBtn = document.querySelector('.mobile-sheet-close-btn');
+    const mobileApplyBtn = document.querySelector('.mobile-sheet-apply-btn');
+    const gridToggleBtn = document.querySelector('.mobile-grid-toggle-btn');
 
     let currentTypology = 'all';
     let currentBedrooms = 'all';
@@ -182,34 +213,22 @@
         if (matchTypo && matchBeds) {
           card.style.display = 'flex';
           visibleCount++;
-          if (typeof gsap !== 'undefined') {
-            gsap.to(card, { opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out' });
-          } else {
-            card.style.opacity = '1';
-          }
+          card.style.opacity = '1';
         } else {
-          if (typeof gsap !== 'undefined') {
-            gsap.to(card, {
-              opacity: 0,
-              scale: 0.95,
-              duration: 0.3,
-              ease: 'power2.in',
-              onComplete: () => { card.style.display = 'none'; }
-            });
-          } else {
-            card.style.display = 'none';
-          }
+          card.style.display = 'none';
         }
       });
 
-      // Photo tiles visibility
       photoCards.forEach((pc) => {
         pc.style.display = (currentTypology === 'all' && currentBedrooms === 'all') ? 'flex' : 'none';
       });
 
-      // Animated Count Update
       if (countBadge) {
-        animateCounter(parseInt(countBadge.textContent) || 0, visibleCount);
+        countBadge.textContent = visibleCount;
+      }
+
+      if (mobileApplyBtn) {
+        mobileApplyBtn.textContent = `Show ${visibleCount} Apartments`;
       }
 
       if (typeof ScrollTrigger !== 'undefined') {
@@ -217,45 +236,10 @@
       }
     }
 
-    function animateCounter(start, end) {
-      if (!countBadge) return;
-      if (typeof gsap !== 'undefined') {
-        const obj = { val: start };
-        gsap.to(obj, {
-          val: end,
-          duration: 0.6,
-          ease: 'power2.out',
-          onUpdate: () => {
-            countBadge.textContent = Math.round(obj.val);
-          }
-        });
-      } else {
-        countBadge.textContent = end;
-      }
-    }
-
-    // Filter Dropdowns Setup
-    setupDropdown('filter-typology-menu', (val, label) => {
-      currentTypology = val;
-      if (filterTypologyBtn) filterTypologyBtn.querySelector('span').textContent = `Typology: ${label}`;
-      applyFilters();
-    });
-
-    setupDropdown('filter-bedrooms-menu', (val, label) => {
-      currentBedrooms = val;
-      if (filterBedroomsBtn) filterBedroomsBtn.querySelector('span').textContent = `Bedrooms: ${label}`;
-      applyFilters();
-    });
-
-    setupDropdown('filter-sort-menu', (val, label) => {
-      currentSort = val;
-      if (filterSortBtn) filterSortBtn.querySelector('span').textContent = `Sort by: ${label}`;
-      sortCards(val);
-    });
-
-    // Reset Button
-    if (resetBtn) {
-      resetBtn.addEventListener('click', () => {
+    // Reset Functionality
+    resetBtns.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
         currentTypology = 'all';
         currentBedrooms = 'all';
         currentSort = 'relevant';
@@ -264,13 +248,70 @@
         if (filterBedroomsBtn) filterBedroomsBtn.querySelector('span').textContent = 'Bedrooms: All';
         if (filterSortBtn) filterSortBtn.querySelector('span').textContent = 'Sort by: Relevant';
 
-        cards.forEach((c) => {
-          c.style.display = 'flex';
-          c.style.opacity = '1';
-          c.style.transform = 'translateY(0)';
+        // Reset Mobile Chips
+        document.querySelectorAll('.mobile-filter-chip').forEach((chip) => {
+          if (chip.getAttribute('data-value') === 'all' || chip.getAttribute('data-value') === 'relevant') {
+            chip.classList.add('is-active');
+          } else {
+            chip.classList.remove('is-active');
+          }
         });
-        photoCards.forEach((pc) => pc.style.display = 'flex');
-        if (countBadge) animateCounter(parseInt(countBadge.textContent) || 0, cards.length);
+
+        applyFilters();
+      });
+    });
+
+    // Mobile Sheet Open/Close
+    if (mobileOpenBtn && mobileSheet) {
+      mobileOpenBtn.addEventListener('click', () => {
+        mobileSheet.classList.add('is-active');
+        document.body.classList.add('sheet-open');
+      });
+
+      function closeSheet() {
+        mobileSheet.classList.remove('is-active');
+        document.body.classList.remove('sheet-open');
+      }
+
+      if (mobileCloseBtn) mobileCloseBtn.addEventListener('click', closeSheet);
+      if (mobileApplyBtn) mobileApplyBtn.addEventListener('click', () => {
+        applyFilters();
+        closeSheet();
+      });
+
+      mobileSheet.addEventListener('click', (e) => {
+        if (e.target.classList.contains('mobile-sheet-backdrop')) {
+          closeSheet();
+        }
+      });
+    }
+
+    // Mobile Filter Chips Selection
+    document.querySelectorAll('.mobile-sheet-chips-row').forEach((row) => {
+      const type = row.getAttribute('data-filter-type');
+      row.querySelectorAll('.mobile-filter-chip').forEach((chip) => {
+        chip.addEventListener('click', () => {
+          row.querySelectorAll('.mobile-filter-chip').forEach((c) => c.classList.remove('is-active'));
+          chip.classList.add('is-active');
+
+          const val = chip.getAttribute('data-value');
+          if (type === 'typology') currentTypology = val;
+          if (type === 'bedrooms') currentBedrooms = val;
+          if (type === 'sort') {
+            currentSort = val;
+            sortCards(val);
+          }
+
+          applyFilters();
+        });
+      });
+    });
+
+    // Mobile Grid View Toggle (1 Col vs 2 Col Compact)
+    if (gridToggleBtn && grid) {
+      gridToggleBtn.addEventListener('click', () => {
+        grid.classList.toggle('compact-mode');
+        gridToggleBtn.classList.toggle('is-active');
       });
     }
 
@@ -290,39 +331,6 @@
     }
   }
 
-  function setupDropdown(menuId, onSelect) {
-    const menu = document.getElementById(menuId);
-    if (!menu) return;
-
-    const btn = menu.previousElementSibling;
-    if (btn) {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        // Close other open dropdowns
-        document.querySelectorAll('.filter-dropdown-menu').forEach((m) => {
-          if (m !== menu) m.classList.remove('is-open');
-        });
-        menu.classList.toggle('is-open');
-      });
-    }
-
-    menu.querySelectorAll('.filter-option').forEach((opt) => {
-      opt.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const val = opt.getAttribute('data-value');
-        const label = opt.textContent.trim();
-        menu.querySelectorAll('.filter-option').forEach((o) => o.classList.remove('is-selected'));
-        opt.classList.add('is-selected');
-        menu.classList.remove('is-open');
-        onSelect(val, label);
-      });
-    });
-
-    document.addEventListener('click', () => {
-      menu.classList.remove('is-open');
-    });
-  }
-
   // --- FLOORPLAN MODAL VIEWER ---
   function initFloorplanModal() {
     const modal = document.getElementById('lux-floorplan-modal');
@@ -338,14 +346,11 @@
 
     document.querySelectorAll('.apart-card-item').forEach((card) => {
       card.addEventListener('click', (e) => {
-        // If clicking inside a direct sub-link, let link operate
-        if (e.target.tagName === 'A' && e.target.getAttribute('href') && !e.target.classList.contains('plan-quickview-btn')) return;
-
-        const unit = card.getAttribute('data-unit') || card.querySelector('.apart-card-unit-num')?.textContent.trim() || 'Residence';
+        const unit = card.getAttribute('data-unit') || 'Residence';
         const img = card.querySelector('.apart-plan-image')?.getAttribute('src') || '';
         const area = card.querySelector('.spec-col:nth-child(2) .spec-value')?.textContent.trim() || '';
         const beds = card.querySelector('.spec-col:nth-child(1) .spec-value')?.textContent.trim() || '';
-        const floor = card.querySelector('.spec-col:nth-child(3) .spec-value')?.textContent.trim() || '';
+        const floor = card.querySelector('.apart-card-meta-tag')?.textContent.trim() || '';
 
         if (modalImg) modalImg.setAttribute('src', img);
         if (modalUnit) modalUnit.textContent = `Apartment ${unit}`;
@@ -355,57 +360,37 @@
         if (downloadPdf) downloadPdf.setAttribute('href', `assets/plans/${unit.replace(/[^0-9]/g, '')}.pdf`);
 
         modal.classList.add('is-active');
-        document.body.style.overflow = 'hidden';
-
-        if (typeof gsap !== 'undefined') {
-          gsap.fromTo(
-            modal.querySelector('.lux-modal-content'),
-            { opacity: 0, scale: 0.94, y: 20 },
-            { opacity: 1, scale: 1, y: 0, duration: 0.4, ease: 'power3.out' }
-          );
-        }
+        document.body.classList.add('modal-open');
       });
     });
 
     function closeModal() {
-      if (!modal.classList.contains('is-active')) return;
-      if (typeof gsap !== 'undefined') {
-        gsap.to(modal.querySelector('.lux-modal-content'), {
-          opacity: 0,
-          scale: 0.94,
-          duration: 0.25,
-          ease: 'power2.in',
-          onComplete: () => {
-            modal.classList.remove('is-active');
-            document.body.style.overflow = '';
-          }
-        });
-      } else {
-        modal.classList.remove('is-active');
-        document.body.style.overflow = '';
-      }
+      modal.classList.remove('is-active');
+      document.body.classList.remove('modal-open');
     }
 
     if (closeBtn) closeBtn.addEventListener('click', closeModal);
     modal.addEventListener('click', (e) => {
-      if (e.target === modal || e.target.classList.contains('lux-modal-backdrop')) {
+      if (e.target.classList.contains('lux-modal-backdrop') || e.target === modal) {
         closeModal();
       }
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeModal();
+      if (e.key === 'Escape' && modal.classList.contains('is-active')) {
+        closeModal();
+      }
     });
   }
 
   // --- MAP INTERACTION ---
   function initMapInteractivity() {
     const pin = document.querySelector('.contact-map-sales-pin');
-    if (!pin) return;
+    if (!pin || isMobileDevice) return;
 
     pin.addEventListener('mouseenter', () => {
       if (typeof gsap !== 'undefined') {
-        gsap.to(pin, { scale: 1.06, y: -4, duration: 0.3, ease: 'back.out(2)' });
+        gsap.to(pin, { scale: 1.05, y: -4, duration: 0.3, ease: 'back.out(2)' });
       }
     });
 
@@ -416,7 +401,6 @@
     });
   }
 
-  // Auto-init on DOM ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initEditorialExperience);
   } else {
