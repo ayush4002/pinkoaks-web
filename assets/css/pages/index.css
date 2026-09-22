@@ -520,13 +520,15 @@
    MOBILE RESPONSIVE FIX FOR "THE SPACE TO LIVE IN" SECTION
    ========================================================================== */
 @media screen and (max-width: 991px) {
-  /* 1. Prevent "Live in" text from being cropped / overlapped */
+  /* 1. Prevent "Live in" text from overlapping with the pink box */
   .interior-s_title {
     grid-area: auto !important;
     width: 100% !important;
-    margin-bottom: 2rem !important;
+    margin-top: 0 !important;
+    margin-bottom: 3.5rem !important;
+    padding-bottom: 0.5rem !important;
     position: relative !important;
-    z-index: 10 !important;
+    z-index: 20 !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -535,12 +537,12 @@
   }
 
   .interior-s_title_a {
-    margin-top: -0.75rem !important;
+    margin-top: 0.25rem !important;
     margin-left: 0 !important;
-    margin-bottom: 1.25rem !important;
-    transform: rotate(-6deg) !important;
+    margin-bottom: 0 !important;
+    transform: rotate(-5deg) !important;
     position: relative !important;
-    z-index: 11 !important;
+    z-index: 21 !important;
     display: block !important;
     overflow: visible !important;
   }
@@ -550,6 +552,7 @@
     line-height: 1.25 !important;
     padding-bottom: 0.5rem !important;
     display: inline-block !important;
+    font-size: clamp(48px, 12vw, 76px) !important;
   }
 
   /* 2. Container stack & reset spacing */
@@ -558,15 +561,17 @@
     flex-direction: column !important;
     align-items: center !important;
     width: 100% !important;
-    gap: 3rem !important;
+    gap: 3.5rem !important;
+    margin-top: 1rem !important;
   }
 
-  /* 3. Center-align the girl's pink photo box & remove asymmetrical whitespace */
+  /* 3. Center-align the girl's pink photo box & center the image inside with balanced padding */
   .interior-s_l {
     width: 100% !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
+    margin: 0 auto !important;
   }
 
   .interior-s_l .grid,
@@ -582,31 +587,62 @@
     grid-area: auto !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    width: 100% !important;
-    max-width: 420px !important;
-    aspect-ratio: 3/4 !important;
-    padding: clamp(24px, 7vw, 44px) clamp(20px, 6vw, 36px) !important;
+    width: calc(100% - 48px) !important;
+    max-width: 360px !important;
+    aspect-ratio: 4 / 5 !important;
+    background-color: var(--pink-baby, #F9C0D1) !important;
+    padding: 32px 24px !important;
     box-sizing: border-box !important;
     position: relative !important;
-    border-radius: 4px !important;
+    border-radius: 8px !important;
     overflow: visible !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
 
   .interior-s_l_img {
+    width: 80% !important;
+    max-width: 260px !important;
+    aspect-ratio: 3 / 4 !important;
+    margin: auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 8px 24px rgba(18, 42, 77, 0.1) !important;
+    border-radius: 4px !important;
+    overflow: hidden !important;
+  }
+
+  .interior-s_l_img .img-w,
+  .interior-s_l_img picture,
+  .interior-s_l_img img {
     width: 100% !important;
     height: 100% !important;
-    max-width: 320px !important;
-    margin: 0 auto !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  .flower.interior {
+    position: absolute !important;
+    top: -24px !important;
+    right: -18px !important;
+    width: 130px !important;
+    height: 130px !important;
+    pointer-events: none !important;
+    z-index: 10 !important;
   }
 
   .interior-s_l_desc {
     grid-area: auto !important;
     width: 100% !important;
-    max-width: 420px !important;
+    max-width: 360px !important;
     margin-left: auto !important;
     margin-right: auto !important;
     text-align: center !important;
-    padding: 1.25rem 1rem 0 !important;
+    padding: 1.5rem 1rem 0 !important;
     box-sizing: border-box !important;
   }
 
@@ -620,7 +656,7 @@
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    margin-top: 0 !important;
+    margin: 0 auto !important;
   }
 
   .interior-s_r .grid,
@@ -636,17 +672,28 @@
     grid-area: auto !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    width: 100% !important;
-    max-width: 420px !important;
-    aspect-ratio: 4/3 !important;
+    width: calc(100% - 48px) !important;
+    max-width: 360px !important;
+    aspect-ratio: 4 / 3 !important;
     box-sizing: border-box !important;
-    border-radius: 4px !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    box-shadow: 0 8px 24px rgba(18, 42, 77, 0.08) !important;
+  }
+
+  .interior-s_r_img .img-w,
+  .interior-s_r_img picture,
+  .interior-s_r_img img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
   }
 
   .interior-s_r_lead {
     grid-area: auto !important;
     width: 100% !important;
-    max-width: 420px !important;
+    max-width: 360px !important;
     margin-left: auto !important;
     margin-right: auto !important;
     text-align: center !important;
@@ -669,7 +716,7 @@
   .interior-s_r_desc {
     grid-area: auto !important;
     width: 100% !important;
-    max-width: 420px !important;
+    max-width: 360px !important;
     margin-left: auto !important;
     margin-right: auto !important;
     text-align: center !important;
