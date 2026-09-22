@@ -468,3 +468,261 @@
 .loc-w_decor {
     clip-path: polygon(var(--_special-units---offset-l) 0, calc(100% - var(--_special-units---offset-r)) 0%, 100% 101%, 0 101%);
   }
+
+
+/* ==========================================================================
+   ENHANCED LOCATION & DISTANCE SECTION ("EVERYTHING YOU NEED, WITHIN REACH")
+   Fix mobile title collision, route SVG overflow, and category cards styling
+   ========================================================================== */
+
+/* --- TITLE & HEADLINE FIXES --- */
+.loc-path-s_title {
+  text-align: center;
+  margin: 0 auto 30px auto;
+  max-width: 820px;
+  padding: 0 20px;
+  position: relative;
+  z-index: 5;
+}
+
+.loc-path-s_title h2.h3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.15;
+  margin: 0 auto;
+}
+
+.loc-path-s_title_line {
+  font-family: 'Bodoni Moda', 'Playfair Display', Georgia, serif;
+  font-size: clamp(32px, 5vw, 68px);
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  color: #122a4d;
+  display: block;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.loc-path-s_title_a {
+  font-family: 'Alex Brush', 'Corinthia', 'Pinyon Script', cursive !important;
+  font-size: clamp(48px, 7vw, 96px) !important;
+  font-weight: 400;
+  color: #122a4d !important;
+  line-height: 0.7 !important;
+  margin: 8px 0 !important;
+  display: inline-block !important;
+  transform: rotate(-6deg) !important;
+  position: relative;
+  z-index: 2;
+  text-transform: none !important;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+  .loc-path-s_title_line {
+    font-size: clamp(26px, 7.5vw, 36px);
+    line-height: 1.15;
+  }
+  .loc-path-s_title_a {
+    font-size: clamp(44px, 12vw, 60px) !important;
+    line-height: 0.8 !important;
+    margin: 4px 0 !important;
+    transform: rotate(-5deg) !important;
+  }
+  .loc-path-s_title {
+    margin-bottom: 20px;
+  }
+}
+
+/* --- ROUTE SVG & MAP TRACK --- */
+.loc-path-s_path {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 10px 0;
+}
+
+.loc-path-s_path::-webkit-scrollbar {
+  display: none;
+}
+
+.loc-path-s_path_c {
+  position: relative;
+  width: 100%;
+  max-width: 1300px;
+  min-width: 1040px;
+  margin: 0 auto;
+  padding: 40px 40px 50px 40px !important;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .loc-path-s_path_c {
+    min-width: 860px;
+    padding: 30px 30px 40px 30px !important;
+  }
+}
+
+.loc-route-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.loc-node text {
+  transition: transform 0.2s ease, fill 0.2s ease;
+  user-select: none;
+}
+
+.loc-node:hover text {
+  fill: #B5426E;
+}
+
+.loc-node circle {
+  transition: r 0.2s ease, fill 0.2s ease;
+}
+
+.loc-node:hover circle {
+  fill: #B5426E;
+  r: 5.5;
+}
+
+/* Central Pink Oaks Pin Glow */
+.loc-center-pin-glow {
+  animation: pinPulse 2.5s infinite ease-in-out;
+  transform-origin: center;
+}
+
+@keyframes pinPulse {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+/* Swipe Indicator for Mobile */
+.loc-swipe-hint {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(18, 42, 77, 0.5);
+  margin-top: -10px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+  .loc-swipe-hint {
+    display: flex;
+  }
+}
+
+/* --- CATEGORY NAVIGATION PILLS --- */
+.category-section {
+  max-width: 980px;
+  margin: 36px auto 0 auto;
+  padding: 0 20px;
+}
+
+.cat-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+@media (max-width: 600px) {
+  .cat-nav {
+    gap: 8px;
+  }
+}
+
+.cat-btn {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(18, 42, 77, 0.14);
+  color: #122a4d;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(18, 42, 77, 0.04);
+}
+
+.cat-btn:hover {
+  background: #FFFFFF;
+  border-color: #122a4d;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(18, 42, 77, 0.08);
+}
+
+.cat-btn.is-active {
+  background: #122a4d !important;
+  color: #FFFFFF !important;
+  border-color: #122a4d !important;
+  box-shadow: 0 4px 16px rgba(18, 42, 77, 0.18);
+}
+
+/* --- DESTINATION CARDS GRID --- */
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+  min-height: 100px;
+}
+
+.cat-item {
+  background: #FFFFFF;
+  border: 1px solid rgba(18, 42, 77, 0.09);
+  border-radius: 12px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 10px rgba(18, 42, 77, 0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  text-decoration: none;
+}
+
+.cat-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(18, 42, 77, 0.08);
+  border-color: #F9C0D1;
+}
+
+.cat-item-name {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #122a4d;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cat-item-dist {
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #B5426E;
+  background: rgba(249, 192, 209, 0.25);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  white-space: nowrap;
+  margin-left: 12px;
+}
