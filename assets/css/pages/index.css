@@ -517,16 +517,30 @@
 }
 
 /* ==========================================================================
-   MOBILE RESPONSIVE FIX FOR "THE SPACE TO LIVE IN" SECTION
+   RESPONSIVE FIX FOR "THE SPACE TO LIVE IN" SECTION
    ========================================================================== */
 @media screen and (max-width: 991px) {
-  /* 1. Prevent "Live in" text from overlapping with the pink box */
+  /* 1. Reset negative offset margin on container and provide ample top breathing room */
+  .interior-w {
+    margin-top: 0 !important;
+    position: relative !important;
+    width: 100% !important;
+  }
+
+  .interior-s {
+    position: relative !important;
+    z-index: 5 !important;
+    width: 100% !important;
+    padding-top: 2.5rem !important;
+  }
+
+  /* 2. Fix "Live" heading: prevent top-edge cropping, reposition cleanly downward */
   .interior-s_title {
     grid-area: auto !important;
     width: 100% !important;
-    margin-top: 0 !important;
+    margin-top: 1rem !important;
     margin-bottom: 3.5rem !important;
-    padding-bottom: 0.5rem !important;
+    padding: 0.5rem 0 !important;
     position: relative !important;
     z-index: 20 !important;
     display: flex !important;
@@ -534,28 +548,36 @@
     align-items: center !important;
     justify-content: center !important;
     text-align: center !important;
+    overflow: visible !important;
+  }
+
+  .interior-s_title h2.h1 {
+    margin: 0 !important;
+    line-height: 0.95 !important;
+    overflow: visible !important;
   }
 
   .interior-s_title_a {
-    margin-top: 0.25rem !important;
+    margin-top: 0.5rem !important;
     margin-left: 0 !important;
     margin-bottom: 0 !important;
     transform: rotate(-5deg) !important;
     position: relative !important;
-    z-index: 21 !important;
+    z-index: 25 !important;
     display: block !important;
     overflow: visible !important;
+    padding: 0.25rem 0 !important;
   }
 
   .interior-s_title_a .a1 {
     overflow: visible !important;
-    line-height: 1.25 !important;
-    padding-bottom: 0.5rem !important;
+    line-height: 1.35 !important;
+    padding: 0.25rem 0.5rem !important;
     display: inline-block !important;
-    font-size: clamp(48px, 12vw, 76px) !important;
+    font-size: clamp(44px, 11vw, 72px) !important;
   }
 
-  /* 2. Container stack & reset spacing */
+  /* 3. Container stack & reset symmetrical spacing */
   .interior-s_imgs {
     display: flex !important;
     flex-direction: column !important;
@@ -565,7 +587,7 @@
     margin-top: 1rem !important;
   }
 
-  /* 3. Center-align the girl's pink photo box & center the image inside with balanced padding */
+  /* 4. Center the pink photo section & girl's photo (symmetrical left/right spacing) */
   .interior-s_l {
     width: 100% !important;
     display: flex !important;
@@ -581,20 +603,21 @@
     align-items: center !important;
     width: 100% !important;
     grid-template-columns: 1fr !important;
+    margin: 0 auto !important;
   }
 
   .interior-s_l_img-w {
     grid-area: auto !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    width: calc(100% - 48px) !important;
-    max-width: 360px !important;
+    width: calc(100% - 32px) !important;
+    max-width: 380px !important;
     aspect-ratio: 4 / 5 !important;
     background-color: var(--pink-baby, #F9C0D1) !important;
     padding: 32px 24px !important;
     box-sizing: border-box !important;
     position: relative !important;
-    border-radius: 8px !important;
+    border-radius: 6px !important;
     overflow: visible !important;
     display: flex !important;
     flex-direction: column !important;
@@ -603,8 +626,8 @@
   }
 
   .interior-s_l_img {
-    width: 80% !important;
-    max-width: 260px !important;
+    width: 78% !important;
+    max-width: 270px !important;
     aspect-ratio: 3 / 4 !important;
     margin: auto !important;
     display: flex !important;
@@ -628,7 +651,7 @@
   .flower.interior {
     position: absolute !important;
     top: -24px !important;
-    right: -18px !important;
+    right: -16px !important;
     width: 130px !important;
     height: 130px !important;
     pointer-events: none !important;
@@ -637,8 +660,8 @@
 
   .interior-s_l_desc {
     grid-area: auto !important;
-    width: 100% !important;
-    max-width: 360px !important;
+    width: calc(100% - 32px) !important;
+    max-width: 380px !important;
     margin-left: auto !important;
     margin-right: auto !important;
     text-align: center !important;
@@ -650,7 +673,7 @@
     text-align: center !important;
   }
 
-  /* 4. Center-align the temple photo box & remove asymmetrical whitespace */
+  /* 5. Center-align the temple photo section identically */
   .interior-s_r {
     width: 100% !important;
     display: flex !important;
@@ -666,17 +689,18 @@
     align-items: center !important;
     width: 100% !important;
     grid-template-columns: 1fr !important;
+    margin: 0 auto !important;
   }
 
   .interior-s_r_img {
     grid-area: auto !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    width: calc(100% - 48px) !important;
-    max-width: 360px !important;
+    width: calc(100% - 32px) !important;
+    max-width: 380px !important;
     aspect-ratio: 4 / 3 !important;
     box-sizing: border-box !important;
-    border-radius: 8px !important;
+    border-radius: 6px !important;
     overflow: hidden !important;
     box-shadow: 0 8px 24px rgba(18, 42, 77, 0.08) !important;
   }
@@ -692,8 +716,8 @@
 
   .interior-s_r_lead {
     grid-area: auto !important;
-    width: 100% !important;
-    max-width: 360px !important;
+    width: calc(100% - 32px) !important;
+    max-width: 380px !important;
     margin-left: auto !important;
     margin-right: auto !important;
     text-align: center !important;
@@ -715,8 +739,8 @@
 
   .interior-s_r_desc {
     grid-area: auto !important;
-    width: 100% !important;
-    max-width: 360px !important;
+    width: calc(100% - 32px) !important;
+    max-width: 380px !important;
     margin-left: auto !important;
     margin-right: auto !important;
     text-align: center !important;
@@ -739,7 +763,7 @@
     margin-top: 1.5rem !important;
   }
 
-  /* 5. Center-align the slider gallery below */
+  /* 6. Center-align the slider gallery below */
   .interior-s_gallery-cms {
     grid-area: auto !important;
     width: 100% !important;
