@@ -515,3 +515,192 @@
     overflow: visible !important;
   }
 }
+
+/* ==========================================================================
+   MOBILE RESPONSIVE FIX FOR "THE SPACE TO LIVE IN" SECTION
+   ========================================================================== */
+@media screen and (max-width: 991px) {
+  /* 1. Prevent "Live in" text from being cropped / overlapped */
+  .interior-s_title {
+    grid-area: auto !important;
+    width: 100% !important;
+    margin-bottom: 2rem !important;
+    position: relative !important;
+    z-index: 10 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .interior-s_title_a {
+    margin-top: -0.75rem !important;
+    margin-left: 0 !important;
+    margin-bottom: 1.25rem !important;
+    transform: rotate(-6deg) !important;
+    position: relative !important;
+    z-index: 11 !important;
+    display: block !important;
+    overflow: visible !important;
+  }
+
+  .interior-s_title_a .a1 {
+    overflow: visible !important;
+    line-height: 1.25 !important;
+    padding-bottom: 0.5rem !important;
+    display: inline-block !important;
+  }
+
+  /* 2. Container stack & reset spacing */
+  .interior-s_imgs {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 3rem !important;
+  }
+
+  /* 3. Center-align the girl's pink photo box & remove asymmetrical whitespace */
+  .interior-s_l {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .interior-s_l .grid,
+  .interior-s_l .grid._5-columns {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .interior-s_l_img-w {
+    grid-area: auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100% !important;
+    max-width: 420px !important;
+    aspect-ratio: 3/4 !important;
+    padding: clamp(24px, 7vw, 44px) clamp(20px, 6vw, 36px) !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    border-radius: 4px !important;
+    overflow: visible !important;
+  }
+
+  .interior-s_l_img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+  }
+
+  .interior-s_l_desc {
+    grid-area: auto !important;
+    width: 100% !important;
+    max-width: 420px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+    padding: 1.25rem 1rem 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .interior-s_l_desc .l1 {
+    text-align: center !important;
+  }
+
+  /* 4. Center-align the temple photo box & remove asymmetrical whitespace */
+  .interior-s_r {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    margin-top: 0 !important;
+  }
+
+  .interior-s_r .grid,
+  .interior-s_r .grid._5-columns {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .interior-s_r_img {
+    grid-area: auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100% !important;
+    max-width: 420px !important;
+    aspect-ratio: 4/3 !important;
+    box-sizing: border-box !important;
+    border-radius: 4px !important;
+  }
+
+  .interior-s_r_lead {
+    grid-area: auto !important;
+    width: 100% !important;
+    max-width: 420px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+    padding: 1.5rem 1rem 0 !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .interior-s_r_lead .red-line {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .interior-s_r_lead .h5 {
+    text-align: center !important;
+  }
+
+  .interior-s_r_desc {
+    grid-area: auto !important;
+    width: 100% !important;
+    max-width: 420px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+    padding: 0 1rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .interior-s_r_desc .p1 {
+    text-align: center !important;
+  }
+
+  .interior-s_r_btn {
+    grid-area: auto !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-top: 1.5rem !important;
+  }
+
+  /* 5. Center-align the slider gallery below */
+  .interior-s_gallery-cms {
+    grid-area: auto !important;
+    width: 100% !important;
+    margin-right: 0 !important;
+  }
+
+  .interior-s_gallery-cms_pag {
+    margin-left: 0 !important;
+    justify-content: center !important;
+  }
+}
