@@ -4,17 +4,26 @@
    ========================================================================== */
 
 :root {
-  --color-contact-bg: #B5CEDC;
-  --color-sea-blue: #CBDFE9;
-  --color-apart-bg: #F3F2EA;
-  --color-navy: #0F1F3D;
+  /* ── Home-page-matched palette ───────────────────────────────────────────
+     Pink blush #F9C0D1  |  Cream #F2EFE7  |  Navy #122a4d  |  Burg #33081F
+     ──────────────────────────────────────────────────────────────────────── */
+  --color-contact-bg: #F9C0D1;        /* was blue-grey; now matches home pink */
+  --color-sea-blue: #FBD7E1;          /* light pink accent (was sea blue) */
+  --color-apart-bg: #F9C0D1;          /* was beige; now pink-blush like home */
+  --color-cream: #F2EFE7;             /* home page cream — used for cards */
+  --color-navy: #122a4d;              /* exact home page navy */
+  --color-navy-85: rgba(18, 42, 77, 0.85);
+  --color-navy-65: rgba(18, 42, 77, 0.65);
+  --color-navy-30: rgba(18, 42, 77, 0.30);
+  --color-navy-12: rgba(18, 42, 77, 0.12);
+  --color-navy-05: rgba(18, 42, 77, 0.05);
   --color-burgundy: #33081F;
   --color-map-lines: #8FA5B5;
-  --color-border-soft: rgba(15, 31, 61, 0.12);
+  --color-border-soft: rgba(18, 42, 77, 0.12);
   --color-white: #FFFFFF;
   
   --font-didone: "ambroise-francois-std", "Bodoni Moda", "Playfair Display", "Instrument Serif", serif;
-  --font-ui: "Syne", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-ui: 'Maison Neue Extended', 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
@@ -43,12 +52,12 @@ html, body {
 body.editorial-page {
   font-family: var(--font-ui);
   color: var(--color-navy);
-  background-color: var(--color-apart-bg);
+  background-color: var(--color-apart-bg);  /* #F9C0D1 — same as home */
   min-height: 100dvh;
 }
 
 body.contact-page-canvas {
-  background-color: var(--color-contact-bg);
+  background-color: var(--color-contact-bg);  /* #F9C0D1 — same as home */
 }
 
 body.menu-open,
@@ -533,11 +542,11 @@ body.modal-open {
   flex-direction: column;
   gap: 8px;
   z-index: 10;
-  background: rgba(181, 206, 220, 0.9);
+  background: rgba(251, 215, 225, 0.92);  /* light pink — matches home page */
   backdrop-filter: blur(8px);
   padding: 8px 14px;
-  border-radius: 4px;
-  border: 1px solid rgba(15, 31, 61, 0.15);
+  border-radius: 12px;
+  border: 1px solid rgba(18, 42, 77, 0.15);
 }
 
 .contact-social-link {
@@ -718,12 +727,12 @@ body.modal-open {
   position: sticky;
   top: max(72px, calc(var(--safe-top) + 60px));
   z-index: 80;
-  background: rgba(243, 242, 234, 0.95);
+  background: rgba(249, 192, 209, 0.96);  /* pink-blush tint — matches home page */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   padding: 10px 16px;
-  border-top: 1px solid rgba(15, 31, 61, 0.12);
-  border-bottom: 1px solid rgba(15, 31, 61, 0.12);
+  border-top: 1px solid rgba(18, 42, 77, 0.12);
+  border-bottom: 1px solid rgba(18, 42, 77, 0.12);
   margin-bottom: 24px;
   justify-content: space-between;
   align-items: center;
@@ -801,7 +810,7 @@ body.modal-open {
   position: relative;
   width: 100%;
   max-height: 85dvh;
-  background: #F3F2EA;
+  background: #F2EFE7;  /* cream — matches home page card backgrounds */
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   padding: 16px 20px max(24px, calc(var(--safe-bottom) + 16px));
@@ -917,18 +926,19 @@ body.modal-open {
   padding: 0 12px !important;
 }
 
-/* Unit Card Item */
+/* Unit Card Item — cream bg + rounded radius, matching home page card aesthetic */
 .apart-card-item {
-  background: #FFFFFF;
-  border: 1px solid rgba(15, 31, 61, 0.1);
-  border-radius: 8px;
+  background: #F2EFE7;  /* cream — matches home page card bg */
+  border: 1px solid rgba(18, 42, 77, 0.08);
+  border-radius: 20px;  /* rounded like home page lifestyle cards */
   padding: clamp(16px, 2.5vw, 28px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-decoration: none;
   color: inherit;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+  box-shadow: 0 16px 36px -8px rgba(18, 42, 77, 0.10);
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s ease, border-color 0.4s ease;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   position: relative;
@@ -937,8 +947,9 @@ body.modal-open {
 @media (hover: hover) {
   .apart-card-item:hover {
     transform: translateY(-6px);
-    box-shadow: 0 20px 48px rgba(15, 31, 61, 0.08);
-    border-color: rgba(15, 31, 61, 0.25);
+    box-shadow: 0 28px 64px -12px rgba(18, 42, 77, 0.16);
+    border-color: rgba(18, 42, 77, 0.15);
+    background: #FBD7E1;  /* subtle pink blush on hover — like home page card hover */
   }
 }
 
@@ -1029,11 +1040,12 @@ body.modal-open {
 /* Interleaved Photo Cards */
 .apart-photo-card-item {
   position: relative;
-  border-radius: 8px;
+  border-radius: 20px;  /* match card radius */
   overflow: hidden;
   aspect-ratio: 4 / 5;
   background: var(--color-navy);
   display: flex;
+  box-shadow: 0 28px 64px -12px rgba(18, 42, 77, 0.20);
 }
 
 .apart-photo-card-item img {
@@ -1366,7 +1378,7 @@ body.modal-open {
 .lux-modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(15, 31, 61, 0.75);
+  background: rgba(18, 42, 77, 0.75);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -1374,13 +1386,13 @@ body.modal-open {
 .book-call-modal-content {
   position: relative;
   z-index: 2;
-  background: var(--color-apart-bg);
-  border-radius: 16px;
+  background: #F2EFE7;  /* cream, not pink, for the modal bg so forms read clearly */
+  border-radius: 20px;
   max-width: 520px;
   width: 100%;
   padding: clamp(28px, 5vw, 44px);
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
-  border: 1px solid rgba(15, 31, 61, 0.1);
+  border: 1px solid rgba(18, 42, 77, 0.1);
 }
 
 .modal-close-trigger {
@@ -1556,6 +1568,7 @@ body.modal-open {
   padding: clamp(60px, 8vw, 120px) clamp(16px, 4vw, 56px);
   max-width: 1380px;
   margin: 0 auto;
+  /* Inherits the pink-blush page bg — no override needed */
 }
 
 .boutique-row {
@@ -1615,11 +1628,11 @@ body.modal-open {
 
 .boutique-img-wrap {
   position: relative;
-  border-radius: 4px;
+  border-radius: 20px;  /* rounded to match home page card style */
   overflow: hidden;
-  box-shadow: 0 16px 40px rgba(15, 31, 61, 0.08);
+  box-shadow: 0 28px 64px -12px rgba(18, 42, 77, 0.16);
   aspect-ratio: 16 / 10;
-  background-color: rgba(15, 31, 61, 0.04);
+  background-color: #FBD7E1;  /* light pink placeholder bg */
 }
 
 .boutique-img-wrap img {
