@@ -1999,3 +1999,357 @@ img, video {
   padding: 6px 16px;
   border-radius: var(--radius-full);
 }
+
+
+/* ==========================================================================
+   SIGNATURE PINK OAKS NAVBAR & FULLSCREEN MENU OVERLAY (MATCHING BRAND SYSTEM)
+   ========================================================================== */
+
+/* Top Header Bar */
+.top-header-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 28px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.top-header-bar > * {
+  pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+  .top-header-bar {
+    padding: 20px 24px;
+  }
+}
+
+/* Rotating Badge Logo (Navy Circle + Spinning Ring) */
+.brand-badge-logo {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: transform var(--transition-smooth);
+  text-decoration: none;
+}
+
+.brand-badge-logo:hover {
+  transform: scale(1.06);
+}
+
+.brand-badge-circle-bg {
+  width: 58px;
+  height: 58px;
+  background-color: #122a4d;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 4px 16px rgba(18, 42, 77, 0.2);
+  overflow: hidden;
+  padding: 8px;
+}
+
+.brand-badge-emblem {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-badge-emblem img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.brand-badge-text-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  animation: spinBadge 24s linear infinite;
+  transform-origin: center center;
+  pointer-events: none;
+}
+
+@keyframes spinBadge {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .brand-badge-logo {
+    width: 68px;
+    height: 68px;
+  }
+  .brand-badge-circle-bg {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Top-Right MENU Button */
+.top-header-menu-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: 30px;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.top-header-menu-btn:hover {
+  opacity: 0.75;
+  transform: translateY(-1px);
+}
+
+.menu-btn-label {
+  font-family: var(--font-caps);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  color: var(--color-navy-primary);
+  line-height: 1;
+}
+
+.menu-btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-navy-primary);
+  transition: transform var(--transition-fast);
+}
+
+.top-header-menu-btn:hover .menu-btn-icon {
+  transform: scale(1.15);
+}
+
+/* ==========================================================================
+   FULLSCREEN SIGNATURE PINK OAKS MENU OVERLAY (IMAGE 2 RECREATION)
+   ========================================================================== */
+.signature-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #F9C0D1;
+  background: radial-gradient(circle at 50% 30%, #FDD7E2 0%, #F9C0D1 60%, #F5AEBF 100%);
+  z-index: 500;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s ease;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.signature-menu-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.signature-menu-canvas {
+  width: 100%;
+  min-height: 100vh;
+  padding: 28px 48px 24px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  max-width: 1600px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .signature-menu-canvas {
+    padding: 20px 24px 20px 24px;
+  }
+}
+
+/* Menu Topbar (Inside Overlay) */
+.signature-menu-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.signature-menu-close-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px 14px;
+  font-family: var(--font-caps);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  color: var(--color-navy-primary);
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.signature-menu-close-btn:hover {
+  opacity: 0.75;
+  transform: scale(1.05);
+}
+
+.close-btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-navy-primary);
+}
+
+/* Menu Center (Title + Links) */
+.signature-menu-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex: 1;
+  margin: 40px 0;
+}
+
+.signature-menu-title-wrap {
+  position: relative;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-script-the {
+  font-family: 'Alex Brush', 'Corinthia', 'Pinyon Script', cursive;
+  font-size: 92px;
+  font-weight: 400;
+  color: var(--color-navy-primary);
+  line-height: 0.5;
+  margin-bottom: -12px;
+  position: relative;
+  z-index: 2;
+  transform: rotate(-5deg);
+  letter-spacing: 1px;
+}
+
+.menu-didone-heading {
+  font-family: 'Bodoni Moda', 'Playfair Display', Georgia, serif;
+  font-size: 84px;
+  font-weight: 400;
+  letter-spacing: 4px;
+  line-height: 1;
+  color: var(--color-navy-primary);
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .menu-script-the {
+    font-size: 64px;
+    margin-bottom: -8px;
+  }
+  .menu-didone-heading {
+    font-size: 56px;
+    letter-spacing: 2.5px;
+  }
+  .signature-menu-title-wrap {
+    margin-bottom: 36px;
+  }
+}
+
+/* Navigation Links */
+.signature-menu-nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+
+.signature-nav-link {
+  font-family: 'Bodoni Moda', 'Playfair Display', Georgia, serif;
+  font-size: 23px;
+  font-weight: 400;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--color-navy-primary);
+  display: inline-block;
+  position: relative;
+  padding: 4px 0;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+  cursor: pointer;
+  text-decoration: none;
+  background: none;
+  border: none;
+}
+
+.signature-nav-link:hover {
+  transform: translateY(-2px);
+  color: #0d1e38;
+}
+
+.signature-nav-link .nav-link-text {
+  position: relative;
+  display: inline-block;
+  transition: border-color var(--transition-fast);
+}
+
+.signature-nav-link.is-active .nav-link-text,
+.signature-nav-link:hover .nav-link-text {
+  border-bottom: 1.5px solid var(--color-navy-primary);
+  padding-bottom: 2px;
+}
+
+@media (max-width: 768px) {
+  .signature-nav-link {
+    font-size: 19px;
+    letter-spacing: 1.8px;
+  }
+  .signature-menu-nav-links {
+    gap: 16px;
+  }
+}
+
+/* Menu Bottom Leaf Motif */
+.signature-menu-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 16px;
+}
+
+.menu-bottom-leaf img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  opacity: 0.85;
+  filter: drop-shadow(0 4px 10px rgba(18, 42, 77, 0.1));
+  transition: transform var(--transition-smooth);
+}
+
+.menu-bottom-leaf:hover img {
+  transform: scale(1.15) rotate(6deg);
+}
