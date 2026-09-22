@@ -468,3 +468,50 @@
 .loc-w_decor {
     clip-path: polygon(var(--_special-units---offset-l) 0, calc(100% - var(--_special-units---offset-r)) 0%, 100% 101%, 0 101%);
   }
+
+
+/* ==========================================================================
+   MOBILE-ONLY RESPONSIVE FIX FOR LOCATION TIMELINE COMPONENT
+   ========================================================================== */
+.loc-path-s_path_c {
+  position: relative;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 30px 20px 40px;
+}
+
+.loc-route-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+@media screen and (max-width: 767px) {
+  /* Override webflow.css width: 250% on mobile and eliminate horizontal cutoff */
+  .loc-path-s_path {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    overflow: visible !important;
+  }
+
+  .loc-path-s_path_c {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    padding: 10px 6px 20px 6px !important;
+    margin: 0 auto !important;
+    overflow: visible !important;
+  }
+
+  .loc-route-svg {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    display: block !important;
+    overflow: visible !important;
+  }
+}
