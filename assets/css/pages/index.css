@@ -468,3 +468,145 @@
 .loc-w_decor {
     clip-path: polygon(var(--_special-units---offset-l) 0, calc(100% - var(--_special-units---offset-r)) 0%, 100% 101%, 0 101%);
   }
+
+
+/* ==========================================================================
+   FULL-SEEING RESPONSIVE LOCATION MAP & ROUTE SVG (NO HORIZONTAL CUTOFF)
+   ========================================================================== */
+.loc-path-s_title {
+  text-align: center;
+  margin: 0 auto 20px auto;
+  max-width: 900px;
+  padding: 0 16px;
+  position: relative;
+  z-index: 5;
+}
+
+.loc-path-s_title h2.h3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.15;
+  margin: 0 auto;
+}
+
+.loc-path-s_title_line {
+  font-family: 'Bodoni Moda', 'Playfair Display', Georgia, serif;
+  font-size: clamp(26px, 5.5vw, 64px);
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  color: #122a4d;
+  display: block;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.loc-path-s_title_a {
+  font-family: 'Alex Brush', 'Corinthia', 'Pinyon Script', cursive !important;
+  font-size: clamp(40px, 8.5vw, 88px) !important;
+  font-weight: 400;
+  color: #122a4d !important;
+  line-height: 0.8 !important;
+  margin: 6px 0 !important;
+  display: inline-block !important;
+  transform: rotate(-5deg) !important;
+  position: relative;
+  z-index: 2;
+  text-transform: none !important;
+}
+
+.loc-path-s_path {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+  padding: 10px 0;
+  box-sizing: border-box;
+}
+
+.loc-path-s_path_c {
+  position: relative;
+  width: 100% !important;
+  max-width: 1200px !important;
+  min-width: 0 !important;
+  margin: 0 auto !important;
+  padding: 10px 10px 20px 10px !important;
+  box-sizing: border-box;
+  overflow: visible !important;
+}
+
+.loc-route-svg {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  overflow: visible !important;
+}
+
+@media (max-width: 768px) {
+  .loc-path-s_title_line {
+    font-size: clamp(22px, 6.5vw, 30px);
+    line-height: 1.2;
+  }
+  .loc-path-s_title_a {
+    font-size: clamp(36px, 10.5vw, 48px) !important;
+    line-height: 0.85 !important;
+    margin: 4px 0 !important;
+  }
+  .loc-path-s_path_c {
+    padding: 5px 8px 15px 8px !important;
+  }
+}
+
+
+/* ==========================================================================
+   FORCE 100% FULL-SEEING ROUTE PATH ON ALL VIEWPORTS (OVERRIDE WEBFLOW 250%)
+   ========================================================================== */
+.loc-path-s_path,
+div.loc-path-s_path {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding: 10px 0 !important;
+  box-sizing: border-box !important;
+}
+
+.loc-path-s_path_c,
+div.loc-path-s_path_c {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 auto !important;
+  padding: 10px 4px 20px 4px !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+}
+
+.loc-route-svg,
+svg.loc-route-svg {
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+  display: block !important;
+  overflow: visible !important;
+}
+
+@media (max-width: 991px), (max-width: 768px), (max-width: 480px) {
+  .loc-path-s_path,
+  div.loc-path-s_path {
+    overflow: visible !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .loc-path-s_path_c,
+  div.loc-path-s_path_c {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    padding: 8px 4px 16px 4px !important;
+    margin: 0 auto !important;
+  }
+}
