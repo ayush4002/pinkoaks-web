@@ -92,17 +92,19 @@ img, video {
   .b-mob { display: flex !important; }
 }
 
-/* --- BOUGAINVILLEA CORNER CLUSTER --- */
+/* --- BOUGAINVILLEA CORNER CLUSTER (Flipped across corner) --- */
 .apart-top-bougainvillea-corner {
   position: fixed;
   top: 0;
   right: 0;
-  width: 260px;
-  height: 260px;
+  width: 280px;
+  height: 280px;
   pointer-events: none;
   z-index: 50;
   overflow: hidden;
-  opacity: 0.85;
+  opacity: 0.9;
+  transform: scaleX(-1);
+  transform-origin: top right;
 }
 
 .bougainvillea-corner-video {
@@ -110,13 +112,251 @@ img, video {
   height: 100%;
   object-fit: contain;
   object-position: top right;
+  transform: scaleX(-1);
+  transform-origin: center center;
 }
 
 @media (max-width: 768px) {
   .apart-top-bougainvillea-corner {
     width: 160px;
     height: 160px;
-    opacity: 0.65;
+    opacity: 0.75;
+  }
+}
+
+/* --- SIGNATURE DESKTOP NAVIGATION (Images 1, 2, 3) --- */
+
+/* Left Rail Logo Badge (Top-Left) */
+.header-logo {
+  position: fixed;
+  left: var(--_special-units---offset-l, 28px);
+  top: var(--_special-units---offset-l, 28px);
+  z-index: 1200;
+  width: 84px;
+  height: 84px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  pointer-events: auto;
+  transition: transform var(--transition-smooth);
+}
+
+.header-logo:hover {
+  transform: scale(1.05);
+}
+
+.header-logo .logo_symbol {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.header-logo_bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  animation: spinBadge 24s linear infinite;
+  transform-origin: center center;
+}
+
+/* Left Rail Scroll Progress Bar (Middle-Left) */
+.s-bar-w {
+  position: fixed;
+  left: var(--_special-units---offset-l, 28px);
+  top: 140px;
+  bottom: 140px;
+  width: 84px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1200;
+  pointer-events: none;
+}
+
+.s-bar {
+  position: relative;
+  width: 1px;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.s-bar_track {
+  position: absolute;
+  inset: 0 auto;
+  width: 1px;
+  height: 100%;
+  background-color: rgba(18, 42, 77, 0.25);
+  z-index: 0;
+}
+
+.s-bar_fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: var(--progress, 0%);
+  background-color: var(--color-navy-primary, #122a4d);
+  z-index: 1;
+  transition: height 0.1s linear;
+}
+
+.s-bar_thumb {
+  position: absolute;
+  top: var(--progress, 0%);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: 36px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-navy-primary, #122a4d);
+  background: transparent;
+  user-select: none;
+  cursor: grab;
+}
+
+/* Left Rail Scroll Down Arrow (Bottom-Left) */
+.s-down {
+  position: fixed;
+  left: var(--_special-units---offset-l, 28px);
+  bottom: 32px;
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  pointer-events: auto;
+  text-decoration: none;
+}
+
+.s-down .l2 {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-navy-primary, #122a4d);
+  opacity: 0.8;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.s-down:hover .l2 {
+  opacity: 1;
+  transform: rotate(180deg) translateY(-2px);
+}
+
+.s-down_arrow {
+  width: 14px;
+  height: 14px;
+  color: var(--color-navy-primary, #122a4d);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bounceDown 2s infinite ease-in-out;
+}
+
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+/* Top Right Navigation (Desktop - Image 2) */
+.header-nav {
+  position: fixed;
+  top: var(--_special-units---offset-r, 28px);
+  right: var(--_special-units---offset-r, 36px);
+  z-index: 1200;
+  pointer-events: none;
+}
+
+.header-nav_list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  pointer-events: auto;
+}
+
+.header-nav_list.f-desk {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.header-nav_list.f-desk .link {
+  text-decoration: none;
+}
+
+.header-nav_list.f-desk .link .h6.font-didone,
+.header-nav_list.f-desk .link .h6 {
+  font-family: 'Bodoni Moda', 'Playfair Display', serif;
+  font-size: clamp(16px, 1.2vw, 20px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-navy-primary, #122a4d);
+  text-align: right;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1.5px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.header-nav_list.f-desk .link:hover .h6 {
+  opacity: 0.8;
+  transform: translateX(-2px);
+}
+
+.header-nav_list.f-desk .nav-item {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-navy-primary, #122a4d);
+  text-decoration: none;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.header-nav_list.f-desk .nav-item:hover {
+  opacity: 1;
+  transform: translateX(-2px);
+}
+
+.header-nav_list.f-mob {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .header-nav_list.f-desk {
+    display: none !important;
+  }
+  .header-nav_list.f-mob {
+    display: flex !important;
+  }
+  .s-bar-w,
+  .s-down {
+    display: none !important;
   }
 }
 
@@ -126,51 +366,12 @@ img, video {
   left: 28px;
   bottom: 80px;
   z-index: 90;
-  display: flex;
+  display: none; /* Replaced by full desktop sidebar rail */
   align-items: center;
   gap: 16px;
   transform: rotate(-90deg);
   transform-origin: left bottom;
   pointer-events: auto;
-}
-
-.vertical-breadcrumb-line {
-  width: 36px;
-  height: 1px;
-  background-color: var(--color-navy-primary);
-  opacity: 0.35;
-}
-
-.vertical-breadcrumb-text {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 2.2px;
-  text-transform: uppercase;
-  color: var(--color-navy-primary);
-  white-space: nowrap;
-}
-
-.vertical-breadcrumb-text .faded {
-  opacity: 0.45;
-  transition: opacity var(--transition-fast);
-}
-
-.vertical-breadcrumb-text a:hover .faded {
-  opacity: 1;
-}
-
-/* --- TOP HEADER BAR --- */
-.top-header-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 24px 44px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 100;
-  pointer-events: none;
 }
 
 .top-header-bar > * {

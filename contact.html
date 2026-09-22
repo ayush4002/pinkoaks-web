@@ -9,7 +9,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;1,6..96,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Syne:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Syne:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="assets/fonts/typekit.js" type="text/javascript"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   
@@ -22,29 +22,20 @@
 </head>
 <body class="editorial-page contact-page-canvas">
 
-  <!-- Top-Right Hanging Bougainvillea Flowers Cluster (Layered behind Nav, non-blocking) -->
-  <div class="apart-top-bougainvillea-corner" aria-hidden="true">
-    <video class="bougainvillea-corner-video" autoplay loop muted playsinline webkit-playsinline="true" disablepictureinpicture poster="assets/images/flowers/bougainvillea-flowers_01.avif">
-      <source src="assets/video/bougainvillea.webm" type="video/webm">
-      <source src="assets/video/bougainvillea.mp4" type="video/mp4">
-      <img alt="Pink Oaks Bougainvillea" src="assets/images/flowers/bougainvillea-flowers_01.avif" loading="eager" />
-    </video>
-  </div>
-
-  <!-- Left Vertical Breadcrumb (Desktop) -->
-  <div class="vertical-breadcrumb b-desk" aria-label="Breadcrumb Navigation">
+  <!-- GLOBAL ELEMENT 1: Left Vertical Breadcrumb (Desktop) -->
+  <div class="vertical-breadcrumb b-desk">
     <div class="vertical-breadcrumb-line"></div>
     <div class="vertical-breadcrumb-text">
-      <a href="index.html" class="breadcrumb-home-link"><span class="faded">HOME</span></a> / CONTACT
+      <a href="index.html" style="color:inherit;text-decoration:none;"><span class="faded">HOME</span></a> / CONTACT
     </div>
   </div>
 
-  <!-- Top Header Bar (Logo + Desktop Nav + Mobile Button) -->
+  <!-- GLOBAL ELEMENT 2: Top Header Bar (Logo + Desktop Nav + Mobile Button) -->
   <header class="top-header-bar">
-    <!-- Top-Left Rotating Badge Logo (~80px) -->
+    <!-- Top-Left Rotating Badge Logo -->
     <a href="index.html" class="brand-badge-logo" aria-label="Pink Oaks Home">
       <div class="brand-badge-emblem">
-        <img alt="Pink Oaks Leaf Emblem" src="assets/images/pink-oaks-leaf.webp"/>
+        <img alt="Pink Oaks" src="assets/images/pink-oaks-leaf.webp"/>
       </div>
       <div class="brand-badge-text-ring">
         <svg viewBox="0 0 100 100" width="100%" height="100%">
@@ -57,11 +48,11 @@
     </a>
 
     <!-- Top-Right Navigation (Desktop) -->
-    <nav class="top-right-nav" aria-label="Main Navigation">
+    <nav class="top-right-nav">
       <a href="apartments.html" class="top-nav-primary">Select an Apartment</a>
       <div class="top-nav-secondary-row">
-        <a href="#book-call" class="top-nav-secondary-link book-call-trigger">Book a Call</a>
-        <a href="contact.html" class="top-nav-secondary-link is-active">Contact</a>
+        <a href="#book-call" class="top-nav-secondary-link">Book a Call</a>
+        <a href="contact.html" class="top-nav-secondary-link" style="opacity:1;text-decoration:underline;text-underline-offset:3px;">Contact</a>
       </div>
     </nav>
 
@@ -82,18 +73,17 @@
       <button class="mobile-menu-close-btn" type="button" aria-label="Close Menu">&times;</button>
     </div>
     <nav class="mobile-menu-nav-links">
-      <a href="index.html" class="mobile-menu-nav-item">Home</a>
       <a href="apartments.html" class="mobile-menu-nav-item">Select an Apartment</a>
-      <a href="#book-call" class="mobile-menu-nav-item book-call-trigger">Book a Call</a>
-      <a href="contact.html" class="mobile-menu-nav-item is-active">Contact</a>
+      <a href="#book-call" class="mobile-menu-nav-item">Book a Call</a>
+      <a href="contact.html" class="mobile-menu-nav-item">Contact</a>
     </nav>
     <div class="mobile-menu-footer-meta">
       <a class="mobile-menu-contact-line" href="tel:+919829012345">+91 98290 12345</a>
       <a class="mobile-menu-contact-line" href="mailto:sales@pinkoaks.in">sales@pinkoaks.in</a>
       <div class="mobile-menu-social-row">
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
-        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://facebook.com" target="_blank">Facebook</a>
+        <a href="https://youtube.com" target="_blank">YouTube</a>
       </div>
     </div>
   </div>
@@ -107,7 +97,7 @@
       </div>
 
       <!-- Centered Huge Title -->
-      <h1 class="contact-page-title font-didone">Contact Us</h1>
+      <h1 class="contact-page-title">Contact Us</h1>
 
       <!-- 3-Column Information Row -->
       <div class="contact-info-trio">
@@ -127,7 +117,7 @@
         <div class="contact-info-block">
           <div class="contact-info-label">Talk to Us</div>
           <a class="contact-info-value" href="tel:+919829012345">+91 98290 12345</a>
-          <a class="contact-info-label" href="https://wa.me/919829012345" target="_blank" rel="noopener noreferrer" style="text-decoration:underline; margin-top:4px; color:var(--color-navy); display:inline-block;">WhatsApp</a>
+          <a class="contact-info-label" href="https://wa.me/919829012345" target="_blank" style="text-decoration:underline; margin-top:2px; color:var(--color-navy);">WhatsApp</a>
         </div>
       </div>
 
@@ -196,14 +186,14 @@
 
         <!-- Floating Social Media Box (Bottom-Left) -->
         <div class="contact-map-social-box">
-          <a class="contact-social-link" href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
-          <a class="contact-social-link" href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Facebook</a>
-          <a class="contact-social-link" href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">YouTube</a>
+          <a class="contact-social-link" href="https://instagram.com" target="_blank" aria-label="Instagram">Instagram</a>
+          <a class="contact-social-link" href="https://facebook.com" target="_blank" aria-label="Facebook">Facebook</a>
+          <a class="contact-social-link" href="https://youtube.com" target="_blank" aria-label="YouTube">YouTube</a>
         </div>
 
         <!-- Floating Circular CTA (Bottom-Right) -->
         <div class="contact-map-circle-cta">
-          <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="contact-circle-cta-link" aria-label="Open in Google Maps">
+          <a href="https://maps.google.com" target="_blank" class="contact-circle-cta-link" aria-label="Open in Google Maps">
             <svg viewBox="0 0 100 100" class="contact-circle-svg">
               <circle cx="50" cy="50" r="46" fill="none" stroke="#0F1F3D" stroke-width="1.2"/>
               <path id="contact-cta-ring-path" d="M 50, 50 m -34, 0 a 34,34 0 1,1 68,0 a 34,34 0 1,1 -68,0" fill="none"/>
@@ -223,45 +213,26 @@
 
     <!-- SECTION B: FULL-BLEED COURTYARD BANNER (Screenshot 1 Bottom) -->
     <section class="cta-fullbleed-banner">
-      <div class="cta-banner-bg" data-parallax="bg">
-        <img alt="Pink Oaks Penthouse Terraces" src="assets/images/icons/6a0f88f3b81e88aabf6874e7_img_cta_1920-p-1600.png" loading="lazy"/>
+      <div class="cta-banner-bg">
+        <img alt="Pink Oaks Courtyard & Bougainvillea" src="assets/images/icons/6a0f88f3b81e88aabf6874e7_img_cta_1920-p-1600.png" loading="eager"/>
       </div>
       <div class="cta-banner-overlay"></div>
-
-      <!-- Sliced Horizontal Strips for Parallax Effect -->
-      <div class="cta-strips-container" aria-hidden="true">
-        <div class="cta-strip cta-strip-1"></div>
-        <div class="cta-strip cta-strip-2"></div>
-        <div class="cta-strip cta-strip-3"></div>
-        <div class="cta-strip cta-strip-4"></div>
-        <div class="cta-strip cta-strip-5"></div>
-        <div class="cta-strip cta-strip-6"></div>
-      </div>
-
-      <!-- Large Right Bougainvillea Flower Accent -->
-      <div class="cta-banner-flower-accent" aria-hidden="true">
-        <img alt="Bougainvillea Flowers" src="assets/images/flowers/bougainvillea-flowers_04.avif" loading="lazy" />
-      </div>
 
       <div class="cta-banner-content">
         <!-- Top Paragraph -->
         <p class="cta-banner-paragraph">
-          A SHORT CONVERSATION IS ENOUGH TO UNDERSTAND WHICH APARTMENT FITS YOUR USE CASE — WHETHER IT IS A FAMILY SECOND HOME, A LONGER STAY, OR A PLACE TO RETURN TO YEAR AFTER YEAR.
+          A short conversation is enough to understand which apartment fits your use case — whether it is a family second home, a longer stay, or a place to return to year after year.
         </p>
 
         <!-- Big Headline Group -->
         <div class="cta-banner-titles">
-          <h2 class="cta-banner-headline font-didone">PERFECT<br/>NAHARGARH VIEWS</h2>
-          <div class="cta-banner-subheadline">FROM ROOFTOP TERRACES</div>
+          <h2 class="cta-banner-headline">Perfect<br/>Sea Views</h2>
+          <div class="cta-banner-subheadline">From Rooftop Terraces</div>
         </div>
 
         <!-- Center Circular Action Button -->
-        <a href="apartments.html" class="cta-circle-action-btn" aria-label="View Available Apartments">
-          <svg class="cta-circle-svg-ring" viewBox="0 0 160 160">
-            <circle cx="80" cy="80" r="76" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="80 160" transform="rotate(-90 80 80)"></circle>
-            <circle cx="80" cy="80" r="76" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="40 200" transform="rotate(90 80 80)"></circle>
-          </svg>
-          <span class="cta-circle-btn-text">VIEW AVAILABLE APARTMENTS</span>
+        <a href="apartments.html" class="cta-circle-action-btn">
+          View Available Apartments
         </a>
       </div>
     </section>
@@ -269,102 +240,26 @@
 
   <!-- SECTION C: DEEP BURGUNDY FOOTER (Screenshot 1 Footer) -->
   <footer class="editorial-burgundy-footer">
-    <!-- Center Watermark Logo -->
-    <div class="footer-emblem-watermark" aria-hidden="true">
-      <img alt="Pink Oaks Logo Watermark" src="assets/images/logo.webp"/>
+    <!-- Center Watermark Flower -->
+    <div class="footer-emblem-watermark">
+      <img alt="Pink Oaks Logo" src="assets/images/logo.webp" style="width:140px;height:140px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.25;"/>
     </div>
 
-    <div class="footer-content-wrap">
-      <!-- Top-Left Sales Office Block -->
-      <div class="footer-sales-office-block">
-        <a href="tel:+919829012345" class="footer-phone-link">+91 98290 12345</a>
-        <div class="footer-sales-label">SALES OFFICE</div>
-        <a href="https://maps.google.com/?q=Pink+Oaks+Bani+Park+Jaipur" target="_blank" rel="noopener noreferrer" class="footer-address-link">
-          D-169, Bhrigu Marg, Bani Park<br/>Jaipur, Rajasthan 302016
-        </a>
+    <!-- Bottom Metadata Grid -->
+    <div class="footer-bottom-grid">
+      <div class="footer-left-meta">
+        <div class="footer-brand-title">Pink Oaks Residence.</div>
+        <div class="footer-copyright">©2026 All Rights Reserved</div>
+        <div class="footer-links-row">
+          <a href="#" class="footer-legal-link">Privacy Policy</a>
+          <a href="#" class="footer-legal-link">Terms of Use</a>
+        </div>
       </div>
-
-      <!-- Bottom Metadata Grid -->
-      <div class="footer-bottom-grid">
-        <div class="footer-left-meta">
-          <div class="footer-brand-title">PINK OAKS RESIDENCE.</div>
-          <div class="footer-copyright">©2026 ALL RIGHTS RESERVED</div>
-          <div class="footer-links-row">
-            <a href="#" class="footer-legal-link">PRIVACY POLICY</a>
-            <span class="footer-legal-divider">,</span>
-            <a href="#" class="footer-legal-link">TERMS OF USE</a>
-          </div>
-          <!-- Social Handles -->
-          <div class="footer-social-row">
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-            </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Facebook">
-              <svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram">
-              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            </a>
-          </div>
-        </div>
-        <div class="footer-right-credits">
-          <div class="footer-made-by">BANI PARK, JAIPUR</div>
-        </div>
+      <div class="footer-right-credits">
+        <div class="footer-made-by">Bani Park, Jaipur</div>
       </div>
     </div>
   </footer>
-
-  <!-- LUXURY BOOK A CALL LEAD MODAL -->
-  <div id="book-call-modal" class="lux-modal-overlay" aria-hidden="true">
-    <div class="lux-modal-backdrop"></div>
-    <div class="lux-modal-content book-call-modal-content">
-      <button class="modal-close-trigger" aria-label="Close Modal">&times;</button>
-      <div class="book-call-modal-inner">
-        <h2 class="font-didone modal-call-title">BOOK A CALL</h2>
-        <p class="modal-call-subtitle">Leave your details and our private sales concierge will reach out to you within 24 hours.</p>
-        <form class="book-call-form" onsubmit="event.preventDefault(); this.querySelector('.book-call-success').style.display='block'; this.querySelector('.book-call-fields').style.display='none';">
-          <div class="book-call-fields">
-            <div class="modal-form-group">
-              <label class="modal-form-label" for="lead-name-c">YOUR NAME *</label>
-              <input class="modal-form-input" id="lead-name-c" type="text" required placeholder="Enter your full name" />
-            </div>
-            <div class="modal-form-group">
-              <label class="modal-form-label" for="lead-email-c">EMAIL ADDRESS *</label>
-              <input class="modal-form-input" id="lead-email-c" type="email" required placeholder="name@domain.com" />
-            </div>
-            <div class="modal-form-group">
-              <label class="modal-form-label" for="lead-phone-c">PHONE NUMBER *</label>
-              <input class="modal-form-input" id="lead-phone-c" type="tel" required placeholder="+91 98765 43210" />
-            </div>
-            <div class="modal-form-group">
-              <label class="modal-form-label" for="lead-msg-c">MESSAGE (OPTIONAL)</label>
-              <textarea class="modal-form-input modal-form-textarea" id="lead-msg-c" rows="2" placeholder="Preferred time or unit interest"></textarea>
-            </div>
-            <div class="modal-privacy-agreement">
-              <input type="checkbox" id="lead-privacy-c" required checked />
-              <label for="lead-privacy-c">By submitting, you agree to our <a href="#" target="_blank">Privacy Policy</a>.</label>
-            </div>
-            <button class="modal-submit-btn" type="submit">REQUEST A CALL</button>
-          </div>
-          <div class="book-call-success" style="display:none; padding:20px 0; text-align:center;">
-            <h3 class="font-didone" style="font-size:24px; color:var(--color-navy); margin-bottom:8px;">THANK YOU</h3>
-            <p style="font-size:12.5px; line-height:1.6; color:rgba(15,31,61,0.75);">We have received your details. Our private sales manager will get in touch with you shortly.</p>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <!-- COOKIE CONSENT BANNER -->
-  <aside id="cookie-consent-banner" class="cookie-consent-banner" aria-label="Cookie Consent Banner">
-    <div class="cookie-consent-text">
-      This website uses cookies to enhance your browsing experience and deliver tailored real estate services. Read our <a href="#">Privacy Policy</a>.
-    </div>
-    <div class="cookie-btn-group">
-      <button class="cookie-btn cookie-btn-accept" type="button">Accept</button>
-      <button class="cookie-btn cookie-btn-decline" type="button">Decline</button>
-    </div>
-  </aside>
 
   <!-- Scripts -->
   <script src="assets/js/vendor/jquery.min.js"></script>
