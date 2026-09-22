@@ -30,8 +30,76 @@
 </head>
 <body class="editorial-page apartments-page-canvas">
 
-  <!-- Top-Right Hanging Bougainvillea Cluster -->
-  <div class="apart-top-bougainvillea-corner" aria-hidden="true">
+  <!-- ============================================================
+       DESKTOP NAVBAR (visible on screens > 991px)
+       Left Rail: Rotating Logo Badge + Scroll Bar + Scroll Arrow
+       Right: Stacked Nav Links (Image 1 + Image 2)
+       ============================================================ -->
+
+  <!-- Desktop Left Rail: Rotating Logo Badge (Top-Left) -->
+  <a href="index.html" class="header-logo b-desk" aria-label="Pink Oaks Home">
+    <div class="logo_symbol header" aria-label="Pink Oaks">
+      <div class="logo w-embed">
+        <img alt="Pink Oaks" src="assets/images/logo.webp" style="width:100%;height:100%;object-fit:contain;" />
+      </div>
+    </div>
+    <div class="header-logo_bg b-desk w-embed">
+      <svg fill="none" height="100%" viewBox="0 0 120 120" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 60, 60 m -47, 0 a 47,47 0 1,1 94,0 a 47,47 0 1,1 -94,0" fill="none" id="circle-desk-aparts"></path>
+        <text fill="currentColor" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-size="7.6" font-weight="700" letter-spacing="2.0px">
+          <textPath href="#circle-desk-aparts" startOffset="0%">RESIDENCE • PINK OAKS • RESIDENCE • PINK OAKS •
+          </textPath>
+        </text>
+      </svg>
+    </div>
+  </a>
+
+  <!-- Desktop Left Rail: Scroll Progress Bar -->
+  <div class="s-bar-w b-desk" data-theme="">
+    <div class="s-bar" data-s-bar="">
+      <div class="s-bar_track"></div>
+      <div class="s-bar_fill" data-s-bar-fill="" style="height: 0%;"></div>
+      <div class="s-bar_thumb" data-s-bar-thumb="">
+        <div class="l1 a-center" data-s-bar-label="">00</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Desktop Left Rail: Scroll Down Arrow + Label -->
+  <a class="s-down b-desk" href="#apartments-grid-section" aria-label="Scroll to apartments">
+    <div class="l2">Scroll</div>
+    <div class="s-down_arrow">
+      <svg viewBox="0 0 14 14" width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7 1v12M1 7l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </a>
+
+  <!-- Desktop Right Nav: Stacked Links (Image 2) -->
+  <nav class="header-nav b-desk" aria-label="Desktop Navigation">
+    <ul class="header-nav_list f-desk" role="list">
+      <li>
+        <a href="apartments.html" class="link" aria-current="page">
+          <div class="h6 font-didone" style="text-decoration:underline;text-underline-offset:4px;">SELECT<br>AN APARTMENT</div>
+        </a>
+      </li>
+      <li>
+        <button type="button" class="nav-item nav-btn-action" id="desk-book-call-btn">BOOK A CALL</button>
+      </li>
+      <li>
+        <a href="contact.html" class="nav-item">CONTACT</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ============================================================
+       MOBILE NAVBAR (visible on screens ≤ 991px)
+       Top-Right Bougainvillea + Header Bar (Logo + MENU button)
+       + Fullscreen Menu Overlay
+       ============================================================ -->
+
+  <!-- Mobile: Top-Right Hanging Bougainvillea Cluster -->
+  <div class="apart-top-bougainvillea-corner b-mob" aria-hidden="true" style="display:none;">
     <video class="bougainvillea-corner-video" autoplay loop muted playsinline webkit-playsinline="true" disablepictureinpicture poster="assets/images/flowers/bougainvillea-flowers_01.avif">
       <source src="assets/video/bougainvillea.webm" type="video/webm">
       <source src="assets/video/bougainvillea.mp4" type="video/mp4">
@@ -39,17 +107,8 @@
     </video>
   </div>
 
-  <!-- Left Vertical Breadcrumb (Desktop) -->
-  <div class="vertical-breadcrumb b-desk" aria-label="Breadcrumb Navigation">
-    <div class="vertical-breadcrumb-line"></div>
-    <div class="vertical-breadcrumb-text">
-      <a href="index.html" class="breadcrumb-home-link"><span class="faded">HOME</span></a> / SELECT AN APARTMENT
-    </div>
-  </div>
-
-    <!-- Top Header Bar (Logo Left + MENU Button Right) -->
-  <header class="top-header-bar" role="banner">
-    <!-- Top-Left Rotating Circular Badge Logo -->
+  <!-- Mobile: Top Header Bar (Logo Left + MENU Button Right) -->
+  <header class="top-header-bar b-mob" role="banner" style="display:none;">
     <a href="index.html" class="brand-badge-logo" aria-label="Pink Oaks Home">
       <div class="brand-badge-circle-bg">
         <div class="brand-badge-emblem">
@@ -65,8 +124,6 @@
         </svg>
       </div>
     </a>
-
-    <!-- Top-Right MENU Trigger Button -->
     <button type="button" class="top-header-menu-btn" id="open-full-menu-btn" aria-label="Open Navigation Menu" aria-haspopup="dialog" aria-expanded="false">
       <span class="menu-btn-label">MENU</span>
       <span class="menu-btn-icon" aria-hidden="true">
@@ -79,11 +136,9 @@
     </button>
   </header>
 
-    <!-- Fullscreen Signature Pink Oaks Menu Overlay -->
+  <!-- Fullscreen Signature Pink Oaks Menu Overlay (Mobile) -->
   <div class="signature-menu-overlay" id="pink-oaks-full-menu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Main Menu">
     <div class="signature-menu-canvas">
-      
-      <!-- Top Bar inside Menu: Logo Left + CLOSE Button Right -->
       <div class="signature-menu-topbar">
         <a href="index.html" class="brand-badge-logo" aria-label="Pink Oaks Home">
           <div class="brand-badge-circle-bg">
@@ -100,7 +155,6 @@
             </svg>
           </div>
         </a>
-
         <button type="button" class="signature-menu-close-btn" id="close-full-menu-btn" aria-label="Close Navigation Menu">
           <span class="close-btn-label">CLOSE</span>
           <span class="close-btn-icon" aria-hidden="true">
@@ -110,39 +164,23 @@
           </span>
         </button>
       </div>
-
-      <!-- Center Container: "The MENU" Display Title + Navigation Links -->
       <div class="signature-menu-center">
-        <!-- Title: "The MENU" -->
         <div class="signature-menu-title-wrap">
           <div class="menu-script-the">The</div>
           <div class="menu-didone-heading font-didone">MENU</div>
         </div>
-
-        <!-- Vertical Stacked Navigation Links -->
         <nav class="signature-menu-nav-links" aria-label="Menu Links">
-          <a href="index.html" class="signature-nav-link">
-            <span class="nav-link-text">HOME</span>
-          </a>
-          <a href="apartments.html" class="signature-nav-link is-active" aria-current="page">
-            <span class="nav-link-text">SELECT AN APARTMENT</span>
-          </a>
-          <button type="button" class="signature-nav-link nav-btn-link" id="menu-overlay-book-call-btn">
-            <span class="nav-link-text">BOOK A CALL</span>
-          </button>
-          <a href="contact.html" class="signature-nav-link">
-            <span class="nav-link-text">CONTACT</span>
-          </a>
+          <a href="index.html" class="signature-nav-link"><span class="nav-link-text">HOME</span></a>
+          <a href="apartments.html" class="signature-nav-link is-active" aria-current="page"><span class="nav-link-text">SELECT AN APARTMENT</span></a>
+          <button type="button" class="signature-nav-link nav-btn-link" id="menu-overlay-book-call-btn"><span class="nav-link-text">BOOK A CALL</span></button>
+          <a href="contact.html" class="signature-nav-link"><span class="nav-link-text">CONTACT</span></a>
         </nav>
       </div>
-
-      <!-- Bottom Motif: Floating Pink Leaf -->
       <div class="signature-menu-bottom">
         <div class="menu-bottom-leaf">
           <img src="assets/images/pink-oaks-leaf.webp" alt="Pink Oaks Leaf Emblem" loading="eager"/>
         </div>
       </div>
-
     </div>
   </div>
 
@@ -1794,7 +1832,9 @@
     const openBookBtns = [
       document.getElementById('open-book-modal-btn'),
       document.getElementById('mob-book-call-btn'),
-      document.getElementById('cta-book-modal-trigger')
+      document.getElementById('cta-book-modal-trigger'),
+      document.getElementById('desk-book-call-btn'),
+      document.getElementById('menu-overlay-book-call-btn')
     ];
     const closeBookBtn = document.getElementById('book-call-modal-close');
     const prefSelect = document.getElementById('book-residence-pref');
