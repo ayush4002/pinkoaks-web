@@ -58,9 +58,9 @@
 
     <!-- Top-Right Navigation (Desktop) -->
     <nav class="top-right-nav" aria-label="Main Navigation">
-      <a href="apartments.html" class="top-nav-primary">Select an Apartment</a>
+      <a href="apartments.html" class="top-nav-primary is-active">Select an Apartment</a>
       <div class="top-nav-secondary-row">
-        <a href="contact.html#book-call" class="top-nav-secondary-link book-call-trigger">Book a Call</a>
+        <a href="#book-call" class="top-nav-secondary-link book-call-trigger">Book a Call</a>
         <a href="contact.html" class="top-nav-secondary-link">Contact</a>
       </div>
     </nav>
@@ -84,7 +84,7 @@
     <nav class="mobile-menu-nav-links">
       <a href="index.html" class="mobile-menu-nav-item">Home</a>
       <a href="apartments.html" class="mobile-menu-nav-item is-active">Select an Apartment</a>
-      <a href="contact.html#book-call" class="mobile-menu-nav-item book-call-trigger">Book a Call</a>
+      <a href="#book-call" class="mobile-menu-nav-item book-call-trigger">Book a Call</a>
       <a href="contact.html" class="mobile-menu-nav-item">Contact</a>
     </nav>
     <div class="mobile-menu-footer-meta">
@@ -687,7 +687,7 @@
         </div>
 
         <!-- Interactive Outlined Rotating Circle Button -->
-        <a href="contact.html#book-call" class="cta-circle-action-btn book-call-trigger" aria-label="Connect with sales team">
+        <a href="#book-call" class="cta-circle-action-btn book-call-trigger" aria-label="Connect with sales team">
           <svg class="cta-circle-svg-ring" viewBox="0 0 160 160">
             <circle cx="80" cy="80" r="76" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="80 160" transform="rotate(-90 80 80)"></circle>
             <circle cx="80" cy="80" r="76" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="40 200" transform="rotate(90 80 80)"></circle>
@@ -711,7 +711,7 @@
         <a href="tel:+919829012345" class="footer-phone-link">+91 98290 12345</a>
         <div class="footer-sales-label">SALES OFFICE</div>
         <a href="https://maps.google.com/?q=Pink+Oaks+Bani+Park+Jaipur" target="_blank" rel="noopener noreferrer" class="footer-address-link">
-          Pink Oaks, Bani Park, Jaipur, Rajasthan 302016
+          D-169, Bhrigu Marg, Bani Park<br/>Jaipur, Rajasthan 302016
         </a>
       </div>
 
@@ -727,7 +727,7 @@
           </div>
         </div>
         <div class="footer-right-credits">
-          <div class="footer-made-by">MADE BY WE PITCH</div>
+          <div class="footer-made-by">BANI PARK, JAIPUR</div>
         </div>
       </div>
     </div>
@@ -764,6 +764,43 @@
           <a class="modal-inquiry-btn modal-download-pdf" href="assets/plans/011.pdf" target="_blank" download>Download PDF Plan</a>
           <a class="modal-inquiry-btn modal-schedule-btn" href="contact.html">Schedule Visit</a>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LUXURY BOOK A CALL LEAD MODAL -->
+  <div id="book-call-modal" class="lux-modal-overlay" aria-hidden="true">
+    <div class="lux-modal-backdrop"></div>
+    <div class="lux-modal-content book-call-modal-content">
+      <button class="modal-close-trigger" aria-label="Close Modal">&times;</button>
+      <div class="book-call-modal-inner">
+        <h2 class="font-didone modal-call-title">BOOK A CALL</h2>
+        <p class="modal-call-subtitle">Leave your details and our private sales concierge will reach out to you within 24 hours.</p>
+        <form class="book-call-form" onsubmit="event.preventDefault(); this.querySelector('.book-call-success').style.display='block'; this.querySelector('.book-call-fields').style.display='none';">
+          <div class="book-call-fields">
+            <div class="modal-form-group">
+              <label class="modal-form-label" for="lead-name-a">YOUR NAME *</label>
+              <input class="modal-form-input" id="lead-name-a" type="text" required placeholder="Enter your full name" />
+            </div>
+            <div class="modal-form-group">
+              <label class="modal-form-label" for="lead-email-a">EMAIL ADDRESS *</label>
+              <input class="modal-form-input" id="lead-email-a" type="email" required placeholder="name@domain.com" />
+            </div>
+            <div class="modal-form-group">
+              <label class="modal-form-label" for="lead-phone-a">PHONE NUMBER *</label>
+              <input class="modal-form-input" id="lead-phone-a" type="tel" required placeholder="+91 98765 43210" />
+            </div>
+            <div class="modal-form-group">
+              <label class="modal-form-label" for="lead-msg-a">MESSAGE (OPTIONAL)</label>
+              <textarea class="modal-form-input modal-form-textarea" id="lead-msg-a" rows="2" placeholder="Preferred unit or requirement"></textarea>
+            </div>
+            <button class="modal-submit-btn" type="submit">REQUEST A CALL</button>
+          </div>
+          <div class="book-call-success" style="display:none; padding:20px 0; text-align:center;">
+            <h3 class="font-didone" style="font-size:24px; color:var(--color-navy); margin-bottom:8px;">THANK YOU</h3>
+            <p style="font-size:12.5px; line-height:1.6; color:rgba(15,31,61,0.75);">We have received your details. Our private sales manager will get in touch with you shortly.</p>
+          </div>
+        </form>
       </div>
     </div>
   </div>

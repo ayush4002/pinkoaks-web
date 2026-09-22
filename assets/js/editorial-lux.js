@@ -383,6 +383,43 @@
     });
   }
 
+  // --- BOOK A CALL MODAL ---
+  function initBookCallModal() {
+    const modal = document.getElementById('book-call-modal');
+    if (!modal) return;
+
+    const triggers = document.querySelectorAll('.book-call-trigger, a[href="#book-call"]');
+    const closeBtn = modal.querySelector('.modal-close-trigger');
+
+    function openModal(e) {
+      if (e) e.preventDefault();
+      modal.classList.add('is-active');
+      document.body.classList.add('modal-open');
+    }
+
+    function closeModal() {
+      modal.classList.remove('is-active');
+      document.body.classList.remove('modal-open');
+    }
+
+    triggers.forEach((trigger) => {
+      trigger.addEventListener('click', openModal);
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target.classList.contains('lux-modal-backdrop') || e.target === modal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('is-active')) {
+        closeModal();
+      }
+    });
+  }
+
   // --- MAP INTERACTION ---
   function initMapInteractivity() {
     const pin = document.querySelector('.contact-map-sales-pin');
@@ -401,9 +438,14 @@
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initEditorialExperience);
-  } else {
+  function initAll() {
     initEditorialExperience();
+    initBookCallModal();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAll);
+  } else {
+    initAll();
   }
 })();

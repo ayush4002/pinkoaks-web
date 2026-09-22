@@ -145,10 +145,14 @@ body.modal-open {
   font-size: clamp(20px, 1.8vw, 24px);
   text-transform: uppercase;
   color: var(--color-navy);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: opacity 0.25s ease, text-decoration 0.25s ease;
+}
+
+.top-nav-primary.is-active {
   text-decoration: underline;
   text-underline-offset: 4px;
-  letter-spacing: 0.02em;
-  transition: opacity 0.25s ease;
 }
 
 .top-nav-secondary-row {
@@ -164,7 +168,13 @@ body.modal-open {
   text-transform: uppercase;
   color: var(--color-navy);
   text-decoration: none;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease, text-decoration 0.25s ease;
+}
+
+.top-nav-secondary-link.is-active {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  opacity: 1;
 }
 
 @media (hover: hover) {
@@ -600,7 +610,8 @@ body.modal-open {
   z-index: 20;
 }
 
-.apart-top-bougainvillea-corner img {
+.apart-top-bougainvillea-corner img,
+.apart-top-bougainvillea-corner video {
   width: 100%;
   height: auto;
   display: block;
@@ -1132,27 +1143,66 @@ body.modal-open {
 }
 
 .cta-circle-action-btn {
-  min-height: 48px;
-  display: inline-flex;
+  position: relative;
+  width: clamp(130px, 14vw, 160px);
+  height: clamp(130px, 14vw, 160px);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: transparent;
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 32px;
-  border-radius: 30px;
-  background: #FFFFFF;
-  color: var(--color-navy);
-  font-size: 11.5px;
+  text-decoration: none;
+  color: #FFFFFF;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.cta-circle-svg-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  animation: rotateBadge 16s linear infinite;
+  transform-origin: center center;
+}
+
+.cta-circle-btn-text {
+  font-family: var(--font-ui);
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  text-decoration: none;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
-  transition: transform 0.3s ease, background 0.3s ease;
-  -webkit-tap-highlight-color: transparent;
+  text-align: center;
+  max-width: 105px;
+  line-height: 1.4;
+  color: #FFFFFF;
+  transition: color 0.3s ease;
+  z-index: 2;
+}
+
+@media (hover: hover) {
+  .cta-circle-action-btn:hover {
+    background: #FFFFFF;
+    border-color: #FFFFFF;
+    transform: scale(1.05);
+  }
+  
+  .cta-circle-action-btn:hover .cta-circle-btn-text {
+    color: var(--color-navy);
+  }
 }
 
 .cta-circle-action-btn:active {
   transform: scale(0.96);
-  background: #f0f0f0;
+  background: #FFFFFF;
+}
+
+.cta-circle-action-btn:active .cta-circle-btn-text {
+  color: var(--color-navy);
 }
 
 /* --------------------------------------------------------------------------
@@ -1172,7 +1222,67 @@ body.modal-open {
   left: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  opacity: 0.08;
+  opacity: 0.06;
+  width: clamp(200px, 30vw, 360px);
+  height: clamp(200px, 30vw, 360px);
+}
+
+.footer-emblem-watermark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.footer-content-wrap {
+  position: relative;
+  z-index: 2;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.footer-sales-office-block {
+  margin-bottom: clamp(36px, 5vw, 56px);
+}
+
+.footer-phone-link {
+  font-family: var(--font-ui);
+  font-size: clamp(20px, 2.5vw, 32px);
+  font-weight: 700;
+  color: #FFFFFF;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 16px;
+  letter-spacing: 0.04em;
+  transition: opacity 0.25s ease;
+}
+
+.footer-phone-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.footer-sales-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 8px;
+}
+
+.footer-address-link {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  display: inline-block;
+  line-height: 1.6;
+  transition: color 0.25s ease;
+}
+
+.footer-address-link:hover {
+  color: #FFFFFF;
+  text-decoration: underline;
 }
 
 .footer-bottom-grid {
@@ -1182,41 +1292,189 @@ body.modal-open {
   position: relative;
   z-index: 2;
   gap: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 24px;
 }
 
 .footer-brand-title {
-  font-family: var(--font-didone);
-  font-size: clamp(24px, 3.5vw, 36px);
-  margin-bottom: 8px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
 }
 
 .footer-copyright {
-  font-size: 11.5px;
+  font-size: 11px;
   color: rgba(255, 255, 255, 0.6);
   letter-spacing: 0.08em;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .footer-links-row {
   display: flex;
-  gap: 16px;
+  gap: 6px;
+  align-items: center;
 }
 
 .footer-legal-link {
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.footer-legal-link:hover {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+.footer-legal-divider {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 11px;
 }
 
 .footer-made-by {
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.6);
+}
+
+/* --------------------------------------------------------------------------
+   LUXURY BOOK A CALL MODAL
+   -------------------------------------------------------------------------- */
+.lux-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.lux-modal-overlay.is-active {
+  display: flex !important;
+}
+
+.lux-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 31, 61, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.book-call-modal-content {
+  position: relative;
+  z-index: 2;
+  background: var(--color-apart-bg);
+  border-radius: 16px;
+  max-width: 520px;
+  width: 100%;
+  padding: clamp(28px, 5vw, 44px);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(15, 31, 61, 0.1);
+}
+
+.modal-close-trigger {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: var(--color-navy);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.modal-call-title {
+  font-family: var(--font-didone);
+  font-size: clamp(28px, 4vw, 38px);
+  text-transform: uppercase;
+  color: var(--color-navy);
+  margin: 0 0 6px;
+}
+
+.modal-call-subtitle {
+  font-size: 12px;
+  color: rgba(15, 31, 61, 0.7);
+  line-height: 1.5;
+  margin: 0 0 24px;
+}
+
+.book-call-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.modal-form-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(15, 31, 61, 0.6);
+}
+
+.modal-form-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(15, 31, 61, 0.25);
+  padding: 8px 0;
+  font-family: var(--font-ui);
+  font-size: 13.5px;
+  color: var(--color-navy);
+  outline: none;
+  border-radius: 0;
+  transition: border-color 0.25s ease;
+}
+
+.modal-form-input:focus {
+  border-bottom-color: var(--color-navy);
+}
+
+.modal-form-textarea {
+  resize: vertical;
+  min-height: 50px;
+}
+
+.modal-submit-btn {
+  margin-top: 10px;
+  padding: 14px 24px;
+  background: var(--color-navy);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 30px;
+  font-family: var(--font-ui);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.25s ease, transform 0.2s ease;
+}
+
+.modal-submit-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.modal-submit-btn:active {
+  transform: scale(0.98);
 }
 
 /* --------------------------------------------------------------------------
