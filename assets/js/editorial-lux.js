@@ -438,9 +438,64 @@
     });
   }
 
+  // --- COOKIE CONSENT BANNER ---
+  function initCookieConsent() {
+    const banner = document.getElementById('cookie-consent-banner');
+    if (!banner) return;
+
+    try {
+      const consent = localStorage.getItem('pinkoaks_cookie_consent');
+      if (!consent) {
+        setTimeout(() => {
+          banner.classList.add('is-visible');
+        }, 1200);
+      }
+    } catch (e) {
+      // localStorage disabled fallback
+      banner.classList.add('is-visible');
+    }
+
+    const acceptBtn = banner.querySelector('.cookie-btn-accept');
+    const declineBtn = banner.querySelector('.cookie-btn-decline');
+
+    if (acceptBtn) {
+      acceptBtn.addEventListener('click', () => {
+        try { localStorage.setItem('pinkoaks_cookie_consent', 'accepted'); } catch (e) {}
+        banner.classList.remove('is-visible');
+      });
+    }
+
+    if (declineBtn) {
+      declineBtn.addEventListener('click', () => {
+        try { localStorage.setItem('pinkoaks_cookie_consent', 'declined'); } catch (e) {}
+        banner.classList.remove('is-visible');
+      });
+    }
+  }
+
+  // --- CTA SMOOTH SCROLL TO LISTING ---
+  function initCtaScroll() {
+    const ctaScrollLinks = document.querySelectorAll('a[href="#apartments-grid"]');
+    ctaScrollLinks.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        const target = document.getElementById('apartments-grid');
+        if (target) {
+          e.preventDefault();
+          if (lenis) {
+            lenis.scrollTo(target, { offset: -100, duration: 1.2 });
+          } else {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+  }
+
   function initAll() {
     initEditorialExperience();
     initBookCallModal();
+    initCookieConsent();
+    initCtaScroll();
   }
 
   if (document.readyState === 'loading') {
