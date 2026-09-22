@@ -23,165 +23,151 @@
   
   <!-- Stylesheets -->
   <link href="assets/css/webflow.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/shared/reset-quote.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/shared/selection.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/shared/text-contrast.css" rel="stylesheet" type="text/css"/>
   <link href="assets/css/shared/tokens.css" rel="stylesheet" type="text/css"/>
   <link href="assets/css/shared/components.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/shared/refinements.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/shared/sections.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/shared/enhancements.css" rel="stylesheet" type="text/css"/>
   <link href="assets/css/vendor/lenis.css" rel="stylesheet" type="text/css"/>
   <link href="assets/css/editorial-lux.css" rel="stylesheet" type="text/css"/>
 </head>
 <body class="editorial-page apartments-page-canvas">
 
-  <!-- ============================================================
-       DESKTOP NAVBAR (visible on screens > 991px)
-       Left Rail: Rotating Logo Badge + Scroll Bar + Scroll Arrow
-       Right: Stacked Nav Links (Image 1 + Image 2)
-       ============================================================ -->
+  <!-- ===== NAVBAR: Same structure as index.html ===== -->
 
-  <!-- Desktop Left Rail: Rotating Logo Badge (Top-Left) -->
-  <a href="index.html" class="header-logo b-desk" aria-label="Pink Oaks Home">
-    <div class="logo_symbol header" aria-label="Pink Oaks">
-      <div class="logo w-embed">
-        <img alt="Pink Oaks" src="assets/images/logo.webp" style="width:100%;height:100%;object-fit:contain;" />
-      </div>
+  <!-- Left Rail: Rotating Logo Badge (Top-Left) -->
+  <a aria-label="Home" class="header-logo w-inline-block" data-theme="" href="index.html">
+    <div aria-label="Pink Oaks" class="logo_symbol header" data-modal-close="menu"
+      style="width:72px;height:48px;display:flex;align-items:center;justify-content:center;">
+      <div class="logo w-embed"
+        style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;"><img
+          alt="Pink Oaks" src="assets/images/logo.webp"
+          style="width:100%;height:100%;object-fit:contain;background:transparent;border:none;" /></div>
     </div>
-    <div class="header-logo_bg b-desk w-embed">
-      <svg fill="none" height="100%" viewBox="0 0 120 120" width="100%" xmlns="http://www.w3.org/2000/svg">
+    <div class="header-logo_bg b-desk w-embed"><svg fill="none" height="100%" viewBox="0 0 120 120" width="100%"
+        xmlns="http://www.w3.org/2000/svg">
         <path d="M 60, 60 m -47, 0 a 47,47 0 1,1 94,0 a 47,47 0 1,1 -94,0" fill="none" id="circle-desk-aparts"></path>
-        <text fill="currentColor" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-size="7.6" font-weight="700" letter-spacing="2.0px">
+        <text fill="currentColor" font-family="'Inter', sans-serif" font-size="7.6" font-weight="700"
+          letter-spacing="2.0px">
           <textPath href="#circle-desk-aparts" startOffset="0%">RESIDENCE • PINK OAKS • RESIDENCE • PINK OAKS •
           </textPath>
         </text>
-      </svg>
-    </div>
+      </svg></div>
+    <div class="header-logo_bg b-mob w-embed"><svg fill="none" height="100%" viewBox="0 0 80 80" width="100%"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="M 40, 40 m -31, 0 a 31,31 0 1,1 62,0 a 31,31 0 1,1 -62,0" fill="none" id="circle-mob-aparts"></path>
+        <text fill="currentColor" font-family="'Inter', sans-serif" font-size="5.0" font-weight="700"
+          letter-spacing="1.3px">
+          <textPath href="#circle-mob-aparts" startOffset="0%">RESIDENCE • PINK OAKS • RESIDENCE • PINK OAKS •
+          </textPath>
+        </text>
+      </svg></div>
   </a>
 
-  <!-- Desktop Left Rail: Scroll Progress Bar -->
-  <div class="s-bar-w b-desk" data-theme="">
+  <!-- Right: Nav links (desktop) + Menu button (mobile) -->
+  <div class="header-nav" data-theme="">
+    <!-- Mobile: Menu / Close toggle -->
+    <div class="header-nav_list f-mob">
+      <div class="btn-menu" data-modal-menu-btn="mob" hover-nav-item-l2-trigger="">
+        <div class="btn-menu_label is-active"><a aria-label="Menu" class="nav-item w-inline-block"
+            hover-nav-item-l2="" href="#">
+            <div class="nav-item_label">
+              <div class="nav-item_label_text" hover="text">
+                <div class="l2">Menu</div>
+              </div>
+              <div class="nav-item_label_text is-2" hover="text">
+                <div class="l2">Menu</div>
+              </div>
+            </div>
+          </a></div>
+        <div class="btn-menu_label"><a aria-label="Close" class="nav-item w-inline-block" hover-nav-item-l2=""
+            href="#">
+            <div class="nav-item_label">
+              <div class="nav-item_label_text" hover="text">
+                <div class="l2">Close</div>
+              </div>
+              <div class="nav-item_label_text is-2" hover="text">
+                <div class="l2">Close</div>
+              </div>
+            </div>
+          </a></div>
+        <div class="ico-24">
+          <div class="ico">
+            <div class="ico w-embed" data-ico-menu="is-1"><svg fill="none" height="100%" viewBox="0 0 24 24"
+                width="100%" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.5 19C13.5 19.8284 12.8284 20.5 12 20.5C11.1716 20.5 10.5 19.8284 10.5 19C10.5 18.1716 11.1716 17.5 12 17.5C12.8284 17.5 13.5 18.1716 13.5 19Z" fill="currentColor"></path>
+                <path d="M13.5 12C13.5 12.8284 12.8284 13.5 12 13.5C11.1716 13.5 10.5 12.8284 10.5 12C10.5 11.1716 11.1716 10.5 12 10.5C12.8284 10.5 13.5 11.1716 13.5 12Z" fill="currentColor"></path>
+                <path d="M13.5 5C13.5 5.82843 12.8284 6.5 12 6.5C11.1716 6.5 10.5 5.82843 10.5 5C10.5 4.17157 11.1716 3.5 12 3.5C12.8284 3.5 13.5 4.17157 13.5 5Z" fill="currentColor"></path>
+              </svg></div>
+            <div class="ico ia-2 w-embed" data-ico-menu="is-2"><svg fill="none" height="100%" viewBox="0 0 24 24"
+                width="100%" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.5 19C13.5 19.8284 12.8284 20.5 12 20.5C11.1716 20.5 10.5 19.8284 10.5 19C10.5 18.1716 11.1716 17.5 12 17.5C12.8284 17.5 13.5 18.1716 13.5 19Z" fill="currentColor"></path>
+                <path d="M13.5 12C13.5 12.8284 12.8284 13.5 12 13.5C11.1716 13.5 10.5 12.8284 10.5 12C10.5 11.1716 11.1716 10.5 12 10.5C12.8284 10.5 13.5 11.1716 13.5 12Z" fill="currentColor"></path>
+                <path d="M13.5 5C13.5 5.82843 12.8284 6.5 12 6.5C11.1716 6.5 10.5 5.82843 10.5 5C10.5 4.17157 11.1716 3.5 12 3.5C12.8284 3.5 13.5 4.17157 13.5 5Z" fill="currentColor"></path>
+              </svg></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Desktop: Stacked nav links (right) -->
+    <div class="header-nav_list f-desk"><a aria-label="Select an Apartment" class="link w-inline-block"
+        hover-link="" href="apartments.html" aria-current="page">
+        <div class="link_label">
+          <div class="link_label_text">
+            <div class="h6" hover="text">Select <br />an Apartment</div>
+          </div>
+          <div class="link_label_text is-2">
+            <div class="h6" hover="text">Select <br />an Apartment</div>
+          </div>
+        </div>
+      </a>
+      <div class="u-24"></div><a aria-label="Book a call" class="nav-item w-inline-block" data-modal-cta-btn="book-a-call"
+        hover-nav-item-l2="" href="#" id="desk-book-call-btn">
+        <div class="nav-item_label">
+          <div class="nav-item_label_text" hover="text">
+            <div class="l2">Book a call</div>
+          </div>
+          <div class="nav-item_label_text is-2" hover="text">
+            <div class="l2">Book a call</div>
+          </div>
+        </div>
+      </a>
+      <div class="u-4"></div><a aria-label="Contact" class="nav-item w-inline-block" hover-nav-item-l2="" href="contact.html">
+        <div class="nav-item_label">
+          <div class="nav-item_label_text" hover="text">
+            <div class="l2">Contact</div>
+          </div>
+          <div class="nav-item_label_text is-2" hover="text">
+            <div class="l2">Contact</div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Left Rail: Scroll Progress Bar -->
+  <div class="s-bar-w" data-theme="">
     <div class="s-bar" data-s-bar="">
-      <div class="s-bar_track"></div>
-      <div class="s-bar_fill" data-s-bar-fill="" style="height: 0%;"></div>
       <div class="s-bar_thumb" data-s-bar-thumb="">
         <div class="l1 a-center" data-s-bar-label="">00</div>
       </div>
+      <div class="s-bar_fill" data-s-bar-fill=""></div>
+      <div class="s-bar_track" data-s-bar-track=""></div>
     </div>
   </div>
 
-  <!-- Desktop Left Rail: Scroll Down Arrow + Label -->
-  <a class="s-down b-desk" href="#apartments-grid-section" aria-label="Scroll to apartments">
+  <!-- Left Rail: Scroll Down Arrow + Label -->
+  <div class="s-down" data-theme="">
+    <div class="s-down_arrow w-embed"><svg fill="none" height="100%" viewBox="0 0 48 12" width="100%"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M7.36533 3C7.10389 3.54701 6.85117 4.02564 6.60716 4.4359C6.34572 4.84615 6.09299 5.18804 5.84899 5.46154L45 5.46154L45 6.53846L5.84899 6.53846C6.09299 6.82906 6.34572 7.17949 6.60716 7.58974C6.85117 8 7.10389 8.47009 7.36533 9L6.45029 9C5.35226 7.75214 4.20193 6.82906 2.99932 6.23077L2.99932 5.76923C4.20193 5.18804 5.35226 4.26496 6.45029 3L7.36533 3Z"
+          fill="currentColor"></path>
+      </svg></div>
     <div class="l2">Scroll</div>
-    <div class="s-down_arrow">
-      <svg viewBox="0 0 14 14" width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M7 1v12M1 7l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-  </a>
-
-  <!-- Desktop Right Nav: Stacked Links (Image 2) -->
-  <nav class="header-nav b-desk" aria-label="Desktop Navigation">
-    <ul class="header-nav_list f-desk" role="list">
-      <li>
-        <a href="apartments.html" class="link" aria-current="page">
-          <div class="h6 font-didone" style="text-decoration:underline;text-underline-offset:4px;">SELECT<br>AN APARTMENT</div>
-        </a>
-      </li>
-      <li>
-        <button type="button" class="nav-item nav-btn-action" id="desk-book-call-btn">BOOK A CALL</button>
-      </li>
-      <li>
-        <a href="contact.html" class="nav-item">CONTACT</a>
-      </li>
-    </ul>
-  </nav>
-
-  <!-- ============================================================
-       MOBILE NAVBAR (visible on screens ≤ 991px)
-       Top-Right Bougainvillea + Header Bar (Logo + MENU button)
-       + Fullscreen Menu Overlay
-       ============================================================ -->
-
-  <!-- Mobile: Top-Right Hanging Bougainvillea Cluster -->
-  <div class="apart-top-bougainvillea-corner b-mob" aria-hidden="true" style="display:none;">
-    <video class="bougainvillea-corner-video" autoplay loop muted playsinline webkit-playsinline="true" disablepictureinpicture poster="assets/images/flowers/bougainvillea-flowers_01.avif">
-      <source src="assets/video/bougainvillea.webm" type="video/webm">
-      <source src="assets/video/bougainvillea.mp4" type="video/mp4">
-      <img alt="Pink Oaks Bougainvillea" src="assets/images/flowers/bougainvillea-flowers_01.avif" loading="eager" />
-    </video>
-  </div>
-
-  <!-- Mobile: Top Header Bar (Logo Left + MENU Button Right) -->
-  <header class="top-header-bar b-mob" role="banner" style="display:none;">
-    <a href="index.html" class="brand-badge-logo" aria-label="Pink Oaks Home">
-      <div class="brand-badge-circle-bg">
-        <div class="brand-badge-emblem">
-          <img alt="Pink Oaks" src="assets/images/logo.webp"/>
-        </div>
-      </div>
-      <div class="brand-badge-text-ring">
-        <svg viewBox="0 0 100 100" width="100%" height="100%">
-          <path id="apart-badge-text-path" d="M 50, 50 m -39, 0 a 39,39 0 1,1 78,0 a 39,39 0 1,1 -78,0" fill="none"/>
-          <text fill="#122a4d" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-size="6.5" font-weight="700" letter-spacing="2.0px">
-            <textPath href="#apart-badge-text-path" startOffset="0%">RESIDENCE • PINK OAKS • RESIDENCE • PINK OAKS • </textPath>
-          </text>
-        </svg>
-      </div>
-    </a>
-    <button type="button" class="top-header-menu-btn" id="open-full-menu-btn" aria-label="Open Navigation Menu" aria-haspopup="dialog" aria-expanded="false">
-      <span class="menu-btn-label">MENU</span>
-      <span class="menu-btn-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-          <circle cx="12" cy="5" r="1.8"/>
-          <circle cx="12" cy="12" r="1.8"/>
-          <circle cx="12" cy="19" r="1.8"/>
-        </svg>
-      </span>
-    </button>
-  </header>
-
-  <!-- Fullscreen Signature Pink Oaks Menu Overlay (Mobile) -->
-  <div class="signature-menu-overlay" id="pink-oaks-full-menu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Main Menu">
-    <div class="signature-menu-canvas">
-      <div class="signature-menu-topbar">
-        <a href="index.html" class="brand-badge-logo" aria-label="Pink Oaks Home">
-          <div class="brand-badge-circle-bg">
-            <div class="brand-badge-emblem">
-              <img alt="Pink Oaks" src="assets/images/logo.webp"/>
-            </div>
-          </div>
-          <div class="brand-badge-text-ring">
-            <svg viewBox="0 0 100 100" width="100%" height="100%">
-              <path id="menu-overlay-badge-path" d="M 50, 50 m -39, 0 a 39,39 0 1,1 78,0 a 39,39 0 1,1 -78,0" fill="none"/>
-              <text fill="#122a4d" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-size="6.5" font-weight="700" letter-spacing="2.0px">
-                <textPath href="#menu-overlay-badge-path" startOffset="0%">RESIDENCE • PINK OAKS • RESIDENCE • PINK OAKS • </textPath>
-              </text>
-            </svg>
-          </div>
-        </a>
-        <button type="button" class="signature-menu-close-btn" id="close-full-menu-btn" aria-label="Close Navigation Menu">
-          <span class="close-btn-label">CLOSE</span>
-          <span class="close-btn-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-              <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-            </svg>
-          </span>
-        </button>
-      </div>
-      <div class="signature-menu-center">
-        <div class="signature-menu-title-wrap">
-          <div class="menu-script-the">The</div>
-          <div class="menu-didone-heading font-didone">MENU</div>
-        </div>
-        <nav class="signature-menu-nav-links" aria-label="Menu Links">
-          <a href="index.html" class="signature-nav-link"><span class="nav-link-text">HOME</span></a>
-          <a href="apartments.html" class="signature-nav-link is-active" aria-current="page"><span class="nav-link-text">SELECT AN APARTMENT</span></a>
-          <button type="button" class="signature-nav-link nav-btn-link" id="menu-overlay-book-call-btn"><span class="nav-link-text">BOOK A CALL</span></button>
-          <a href="contact.html" class="signature-nav-link"><span class="nav-link-text">CONTACT</span></a>
-        </nav>
-      </div>
-      <div class="signature-menu-bottom">
-        <div class="menu-bottom-leaf">
-          <img src="assets/images/pink-oaks-leaf.webp" alt="Pink Oaks Leaf Emblem" loading="eager"/>
-        </div>
-      </div>
-    </div>
   </div>
 
   <main id="main-content">
