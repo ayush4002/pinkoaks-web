@@ -112,8 +112,6 @@ img, video {
   height: 100%;
   object-fit: contain;
   object-position: top right;
-  transform: scaleX(-1);
-  transform-origin: center center;
 }
 
 @media (max-width: 768px) {
