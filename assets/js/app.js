@@ -320,99 +320,116 @@ function initPageTransitions() {
     if (window.ScrollTrigger) ScrollTrigger.refresh(!0);
   });
 
-  barba.init({
-    debug: false,
-    prevent: () => location.protocol === "file:",
-    timeout: 4000,
-    transitions: [{
-      name: "default",
-      sync: false,
-      once(data) {
-        resetGlobalState();
-        initScripts();
-      },
-      async beforeLeave(data) {
-        if (isNavigating) {
+  const hasBarbaWrapper = document.querySelector("[data-barba='wrapper']");
+  if (!hasBarbaWrapper || typeof barba === "undefined" || !barba.init) {
+    resetGlobalState();
+    initScripts();
+    return;
+  }
+
+  try {
+    barba.init({
+      debug: false,
+      prevent: () => location.protocol === "file:",
+      timeout: 4000,
+      transitions: [{
+        name: "default",
+        sync: false,
+        once(data) {
           resetGlobalState();
-        }
-        isNavigating = true;
-        if (data.current && data.current.container) {
-          animateVisibleElements(data.current.container, "hide");
-        }
-      },
-      async leave(data) {
-        if (!data.current || !data.current.container) return;
-        return gsap.to(data.current.container, {
-          opacity: 0,
-          duration: durM,
-          ease: "In"
-        });
-      },
-      async afterLeave(data) {
-        scrollToTop();
-        if (window.ScrollTrigger) {
-          ScrollTrigger.getAll().forEach(st => st.kill());
-        }
-        localLenisInstances.forEach(inst => {
-          if (inst._ticker) gsap.ticker.remove(inst._ticker);
-          inst.destroy();
-        });
-        localLenisInstances = [];
-        if (data.current && data.current.container) {
-          gsap.killTweensOf(data.current.container);
-          data.current.container.remove();
-        }
-      },
-      async beforeEnter(data) {
-        scrollToTop();
-        if (data.next && data.next.container) {
-          gsap.killTweensOf(data.next.container);
-          gsap.set(data.next.container, { opacity: 0 });
-          data.next.container.querySelectorAll("[data-prevent-flicker]").forEach(el => {
-            el.style.visibility = "visible";
+          initScripts();
+        },
+        async beforeLeave(data) {
+          if (isNavigating) {
+            resetGlobalState();
+          }
+          isNavigating = true;
+          if (data.current && data.current.container) {
+            animateVisibleElements(data.current.container, "hide");
+          }
+        },
+        async leave(data) {
+          if (!data.current || !data.current.container) return;
+          return gsap.to(data.current.container, {
+            opacity: 0,
+            duration: durM,
+            ease: "In"
           });
+        },
+        async afterLeave(data) {
+          scrollToTop();
+          if (window.ScrollTrigger) {
+            ScrollTrigger.getAll().forEach(st => st.kill());
+          }
+          localLenisInstances.forEach(inst => {
+            if (inst._ticker) gsap.ticker.remove(inst._ticker);
+            inst.destroy();
+          });
+          localLenisInstances = [];
+          if (data.current && data.current.container) {
+            gsap.killTweensOf(data.current.container);
+            data.current.container.remove();
+          }
+        },
+        async beforeEnter(data) {
+          scrollToTop();
+          if (data.next && data.next.container) {
+            gsap.killTweensOf(data.next.container);
+            gsap.set(data.next.container, { opacity: 0 });
+            data.next.container.querySelectorAll("[data-prevent-flicker]").forEach(el => {
+              el.style.visibility = "visible";
+            });
+          }
+          initScripts();
+          initAllParallax();
+          if (window.ScrollTrigger) ScrollTrigger.refresh(!0);
+          if (data.next && data.next.container) {
+            animateVisibleElements(data.next.container, "reveal");
+          }
+        },
+        async enter(data) {
+          if (!data.next || !data.next.container) return;
+          return gsap.to(data.next.container, {
+            opacity: 1,
+            duration: durM,
+            ease: "InOut"
+          });
+        },
+        async afterEnter(data) {
+          if (data.next && data.next.container) {
+            forceCleanupContainer(data.next.container);
+          }
+          initResetWebflow(data);
+          if (window.ScrollTrigger) ScrollTrigger.refresh(!0);
+          if (data.next && data.next.container) {
+            animateVisibleElements(data.next.container, "reveal");
+          }
+          isNavigating = false;
+          unlockScroll();
         }
-        initScripts();
-        initAllParallax();
-        if (window.ScrollTrigger) ScrollTrigger.refresh(!0);
-        if (data.next && data.next.container) {
-          animateVisibleElements(data.next.container, "reveal");
-        }
-      },
-      async enter(data) {
-        if (!data.next || !data.next.container) return;
-        return gsap.to(data.next.container, {
-          opacity: 1,
-          duration: durM,
-          ease: "InOut"
-        });
-      },
-      async afterEnter(data) {
-        if (data.next && data.next.container) {
-          forceCleanupContainer(data.next.container);
-        }
-        initResetWebflow(data);
-        if (window.ScrollTrigger) ScrollTrigger.refresh(!0);
-        if (data.next && data.next.container) {
-          animateVisibleElements(data.next.container, "reveal");
-        }
-        isNavigating = false;
-        unlockScroll();
-      }
-    }]
-  });
+      }]
+    });
 
-  barba.hooks.error((data, error) => {
-    console.error("Barba navigation error, falling back:", error);
-    resetGlobalState();
-    if (data && data.next && data.next.url) {
-      window.location.href = data.next.url.href;
+    if (barba.hooks && typeof barba.hooks.error === "function") {
+      barba.hooks.error((data, error) => {
+        console.error("Barba navigation error, falling back:", error);
+        resetGlobalState();
+        if (data && data.next && data.next.url) {
+          window.location.href = data.next.url.href;
+        }
+      });
     }
-  });
 
-  barba.hooks.after(() => {
+    if (barba.hooks && typeof barba.hooks.after === "function") {
+      barba.hooks.after(() => {
+        resetGlobalState();
+      });
+    }
+  } catch (err) {
+    console.warn("Barba initialization skipped or encountered error:", err);
     resetGlobalState();
-  });
+    initScripts();
+  }
 }
 
 function initScripts() {

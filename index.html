@@ -35,7 +35,6 @@
   <link href="assets/css/shared/initials.css" rel="stylesheet" type="text/css" />
   <link href="assets/css/shared/refinements.css" rel="stylesheet" type="text/css" />
   <link href="assets/css/shared/sections.css" rel="stylesheet" type="text/css" />
-  <link href="assets/css/editorial-lux.css" rel="stylesheet" type="text/css" />
   <script src="assets/fonts/typekit.js" type="text/javascript"></script>
   <script type="text/javascript">try { Typekit.load(); } catch (e) { }</script>
   <script
@@ -260,11 +259,8 @@
     <main class="transition-container" data-barba="container" data-barba-namespace="home">
       <div class="theme_on-color"><a aria-label="Home" class="header-logo w-inline-block" data-theme=""
           href="index.html">
-          <div aria-label="Pink Oaks" class="logo_symbol header" data-modal-close="menu"
-            style="width:72px;height:48px;display:flex;align-items:center;justify-content:center;">
-            <div class="logo w-embed"
-              style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;"><img
-                alt="Pink Oaks" src="assets/images/logo.webp"
+          <div aria-label="Pink Oaks" class="logo_symbol header" data-modal-close="menu">
+            <div class="logo w-embed"><img alt="Pink Oaks" src="assets/images/logo.webp"
                 style="width:100%;height:100%;object-fit:contain;background:transparent;border:none;" /></div>
           </div>
           <div class="header-logo_bg b-desk w-embed"><svg fill="none" height="100%" viewbox="0 0 120 120" width="100%"
@@ -347,10 +343,10 @@
               hover-link="" href="apartments.html">
               <div class="link_label">
                 <div class="link_label_text">
-                  <div class="h6 font-didone" hover="text">Select <br />an Apartment</div>
+                  <div class="h6" hover="text">Select <br />an Apartment</div>
                 </div>
                 <div class="link_label_text is-2">
-                  <div class="h6 font-didone" hover="text">Select <br />an Apartment</div>
+                  <div class="h6" hover="text">Select <br />an Apartment</div>
                 </div>
               </div>
             </a>
@@ -676,69 +672,42 @@
           </div>
         </div>
       </section>
-      <section class="section z-2 theme_on-brand">
-        <div class="container">
-          <div class="quote-w">
-            <div class="quote-s b-desk theme_on-color">
-              <div class="grid">
-                <div class="quote-s_c w-clearfix">
-                  <div class="grid _4-columns">
-                    <div class="quote-s_ico">
-                      <div class="ico-48" data-scroll-reveal="ctn">
-                        <div class="ico w-embed"><svg fill="none" height="100%" viewbox="0 0 48 48" width="100%"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                              d="M23.232 30.912C23.232 34.752 20.544 38.208 16.32 38.208C11.328 38.208 5.76 33.984 5.76 22.272C5.76 14.016 9.408 6.14399 19.392 6.14399C19.968 6.14399 23.616 6.336 23.616 7.488C23.616 7.87199 23.424 8.63999 22.656 8.63999C21.888 8.63999 20.928 8.256 19.008 8.256C11.904 8.256 8.64 14.4 8.64 20.928C8.64 23.808 9.984 25.536 12.096 25.536C14.016 25.536 14.592 23.808 17.472 23.808C20.736 23.808 23.232 26.88 23.232 30.912ZM43.2 30.912C43.2 34.752 40.512 38.208 36.096 38.208C31.296 38.208 25.536 33.984 25.536 22.272C25.536 14.016 29.376 6.14399 39.36 6.14399C39.936 6.14399 43.584 6.336 43.584 7.488C43.584 7.87199 43.392 8.63999 42.624 8.63999C41.664 8.63999 40.704 8.256 38.976 8.256C31.68 8.256 28.608 14.4 28.608 20.928C28.608 23.808 29.952 25.536 32.064 25.536C33.984 25.536 34.56 23.808 37.248 23.808C40.704 23.808 43.2 26.88 43.2 30.912Z"
-                              fill="currentColor"></path>
-                          </svg></div>
-                      </div>
-                      <div class="u-32">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="red-line">
-                  </div>
-                  <h4 class="h5" data-scroll-reveal="p" data-tab="p">Instead of corridors, walking paths connect the
-                    apartments — making Pink Oaks feel closer to a group of private homes than a standard</h4>
-                  <div class="u-64">
-                  </div>
-                  <div class="grid _4-columns">
-                    <div class="quote-s_author">
-                      <div class="l1" data-scroll-reveal="p">Architecture Team</div>
-                      <div class="l1 reg" data-scroll-reveal="p">Pink Oaks</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="u-48">
-              </div>
+      <!-- Full-Bleed Architectural Statement Section (Twilight View) -->
+      <section class="section z-2 quote-full-section" data-theme="dark"
+        style="position:relative;width:100vw;min-height:100vh;margin:0;padding:0;background:#0c1829;overflow:hidden;display:flex;align-items:center;justify-content:center;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;">
+        <!-- Full-Bleed Centered Twilight Building Image -->
+        <div style="position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;z-index:1;overflow:hidden;">
+          <picture style="width:100%;height:100%;display:block;">
+            <source srcset="assets/images/hero_nahargarh_twilight.webp" type="image/webp" />
+            <img alt="Pink Oaks Boutique Residences with Nahargarh Twilight View" loading="eager"
+              src="assets/images/hero_nahargarh_twilight.png"
+              style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block;" />
+          </picture>
+          <!-- Gradient overlay for text legibility -->
+          <div
+            style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(12,24,41,0.25) 0%, rgba(12,24,41,0.45) 50%, rgba(12,24,41,0.85) 100%);pointer-events:none;">
+          </div>
+        </div>
+        <!-- Quote Content Layer -->
+        <div class="quote-content-container"
+          style="position:relative;z-index:5;width:100%;max-width:1100px;margin:0 auto;padding:5rem 2rem 5rem 2rem;box-sizing:border-box;color:#ffffff;display:flex;flex-direction:column;justify-content:center;">
+          <div style="margin-bottom:1.5rem;">
+            <div class="ico-48" style="color:#ffffff;">
+              <svg fill="none" height="48" viewbox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M23.232 30.912C23.232 34.752 20.544 38.208 16.32 38.208C11.328 38.208 5.76 33.984 5.76 22.272C5.76 14.016 9.408 6.14399 19.392 6.14399C19.968 6.14399 23.616 6.336 23.616 7.488C23.616 7.87199 23.424 8.63999 22.656 8.63999C21.888 8.63999 20.928 8.256 19.008 8.256C11.904 8.256 8.64 14.4 8.64 20.928C8.64 23.808 9.984 25.536 12.096 25.536C14.016 25.536 14.592 23.808 17.472 23.808C20.736 23.808 23.232 26.88 23.232 30.912ZM43.2 30.912C43.2 34.752 40.512 38.208 36.096 38.208C31.296 38.208 25.536 33.984 25.536 22.272C25.536 14.016 29.376 6.14399 39.36 6.14399C39.936 6.14399 43.584 6.336 43.584 7.488C43.584 7.87199 43.392 8.63999 42.624 8.63999C41.664 8.63999 40.704 8.256 38.976 8.256C31.68 8.256 28.608 14.4 28.608 20.928C28.608 23.808 29.952 25.536 32.064 25.536C33.984 25.536 34.56 23.808 37.248 23.808C40.704 23.808 43.2 26.88 43.2 30.912Z"
+                  fill="#ffffff"></path>
+              </svg>
             </div>
-            <div class="quote-w_bg" data-parallax="w">
-              <div class="img-w h-auto quote-w_bg_img">
-                <div class="img-over-grad from-bot bot _4x b-desk">
-                </div>
-                <div class="img-over-grad from-bot bot _4x b-desk">
-                </div>
-                <picture>
-                  <source srcset="assets/images/hero_nahargarh_twilight.webp" type="image/webp" />
-                  <img alt="Pink Oaks Boutique Residences with Nahargarh Twilight View"
-                    class="img h-auto quote-w_bg_img" data-parallax="img-out" loading="eager"
-                    sizes="(max-width: 1920px) 100vw, 1920px" src="assets/images/hero_nahargarh_twilight.png" />
-                </picture>
-              </div>
-            </div>
-            <div class="w_themes">
-              <div class="w_themes_row fill">
-                <div class="quote-w_themes_color-1" data-bg="color">
-                </div>
-                <div class="quote-w_themes_light-1" data-bg="light">
-                </div>
-              </div>
-              <div class="w_themes_row">
-                <div class="quote-w_themes_color-2" data-bg="color">
-                </div>
-              </div>
-            </div>
+          </div>
+          <div style="width:60px;height:2px;background:rgba(255,255,255,0.6);margin-bottom:1.5rem;"></div>
+          <h3 class="h5"
+            style="color:#ffffff;font-size:24px;line-height:1.4;max-width:850px;text-transform:uppercase;letter-spacing:0.02em;margin:0 0 2rem 0;text-shadow:0 2px 14px rgba(0,0,0,0.85);">
+            Instead of corridors, walking paths connect the apartments — making Pink Oaks feel closer to a group of
+            private homes than a standard</h3>
+          <div style="color:#ffffff;text-shadow:0 1px 8px rgba(0,0,0,0.7);">
+            <div class="l1" style="font-weight:700;color:#ffffff;font-size:14px;letter-spacing:0.05em;">Architecture Team</div>
+            <div class="l1 reg" style="color:rgba(255,255,255,0.85);font-size:13px;margin-top:2px;">Pink Oaks</div>
           </div>
         </div>
       </section>
@@ -2625,7 +2594,7 @@
           </div>
         </div>
       </section>
-      <section class="section theme_on-color" data-bg="color">
+      <section class="section theme_on-color cta-section-wrap" data-bg="color">
         <div class="container" data-footer-clip="">
           <div class="cta-w">
             <div class="cta-s">

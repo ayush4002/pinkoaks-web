@@ -154,3 +154,595 @@
 .header-cramps.theme_on-light .data-divider {
   background-color: rgba(18, 42, 77, 0.45) !important;
 }
+
+/* ---------------------------------------------------------------------------
+   6. Header logo badge emblem sizing & containment
+   Ensures the Pink Oaks emblem sits comfortably inside the circular text track
+   with ample padding on all screens (especially mobile) so boundaries never touch.
+   --------------------------------------------------------------------------- */
+.header-logo .logo_symbol.header {
+  width: 56px !important;
+  height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.header-logo .logo_symbol.header .logo,
+.header-logo .logo_symbol.header .logo img,
+.header-logo .logo_symbol.header img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+@media screen and (max-width: 991px) {
+  .header-logo .logo_symbol.header {
+    width: 36px !important;
+    height: 24px !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .header-logo .logo_symbol.header {
+    width: 32px !important;
+    height: 20px !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   7. Full-bleed Quote / Building Twilight Section
+   Image covers the full section (no letterbox / no pink bars).
+   Text is clearly visible on both desktop & mobile.
+   --------------------------------------------------------------------------- */
+.quote-full-section {
+  position: relative !important;
+  width: 100vw !important;
+  left: 50% !important;
+  right: 50% !important;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+  min-height: 100vh !important;
+  overflow: hidden !important;
+  background-color: #0c1829 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.quote-full-section picture,
+.quote-full-section img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+}
+
+.quote-w_bg {
+  position: absolute !important;
+  inset: 0% !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  aspect-ratio: auto !important;
+  z-index: 1 !important;
+  overflow: hidden !important;
+}
+
+.quote-w_bg .img-w,
+.quote-w_bg_img {
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute !important;
+  inset: 0% !important;
+}
+
+.quote-w_bg picture,
+.quote-w_bg img,
+.img.h-auto.quote-w_bg_img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+}
+
+/* Dark gradient overlay so text stands out crisply over the image on all devices */
+.quote-w_bg::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0% !important;
+  background: linear-gradient(180deg, rgba(12, 24, 41, 0.2) 0%, rgba(12, 24, 41, 0.45) 50%, rgba(12, 24, 41, 0.88) 100%) !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+}
+
+/* Quote content overlay */
+.quote-s {
+  position: relative !important;
+  z-index: 5 !important;
+  display: block !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  padding: 3rem var(--_special-units---offset-l, 2.5rem) 4rem var(--_special-units---offset-l, 2.5rem) !important;
+}
+
+.quote-s .grid {
+  display: block !important;
+}
+
+.quote-s .quote-s_c {
+  grid-area: auto !important;
+  width: 100% !important;
+  max-width: 820px !important;
+  color: #FFFFFF !important;
+}
+
+.quote-s h4,
+.quote-s .h5 {
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.75) !important;
+  font-size: 26px !important;
+  line-height: 1.35 !important;
+  max-width: 820px !important;
+}
+
+.quote-s .quote-s_author .l1 {
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6) !important;
+}
+
+.quote-s .quote-s_author .l1.reg {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.quote-s .ico svg,
+.quote-s .ico svg path {
+  fill: #FFFFFF !important;
+}
+
+.quote-s .red-line {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+@media screen and (max-width: 991px) {
+  .quote-full-section,
+  .section.z-2.theme_on-brand,
+  .quote-w,
+  .quote-full-section .container {
+    min-height: 85vh !important;
+    height: auto !important;
+  }
+  .quote-s {
+    padding: 2rem 1.5rem 3rem 1.5rem !important;
+  }
+  .quote-s h4,
+  .quote-s .h5 {
+    font-size: 20px !important;
+    line-height: 1.4 !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .quote-full-section,
+  .section.z-2.theme_on-brand,
+  .quote-w,
+  .quote-full-section .container {
+    min-height: 80vh !important;
+  }
+  .quote-s {
+    padding: 1.5rem 1rem 2.5rem 1rem !important;
+  }
+  .quote-s h4,
+  .quote-s .h5 {
+    font-size: 17px !important;
+    line-height: 1.4 !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   8. Interior Section Title ("The space to Live in") Desktop-like Layout
+   Prevents single/double-letter word wrapping on mobile screens.
+   Matches desktop presentation: 3 clean centered words + cursive overlay.
+   --------------------------------------------------------------------------- */
+.interior-s .grid:has(.interior-s_title),
+.interior-s_title {
+  grid-column: 1 / -1 !important;
+  grid-area: auto !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.interior-s_title .h1,
+.interior-s_title h2.h1 {
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  white-space: nowrap !important;
+  font-size: clamp(34px, 12vw, 110px) !important;
+  line-height: 0.95 !important;
+  letter-spacing: -0.01em !important;
+  text-align: center !important;
+  margin: 0 auto !important;
+}
+
+.interior-s_title .h1 .split-word {
+  display: block !important;
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  text-align: center !important;
+  margin: 0 auto !important;
+}
+
+.interior-s_title .h1 .split-char {
+  display: inline-block !important;
+  white-space: nowrap !important;
+  position: relative !important;
+}
+
+.interior-s_title_a {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-top: -0.4em !important;
+  margin-left: 0 !important;
+  transform: rotate(-10deg) !important;
+}
+
+.interior-s_title_a .a1,
+.interior-s_title_a h3.a1 {
+  font-size: clamp(30px, 11vw, 95px) !important;
+  font-family: var(--_fonts---font-accent, 'Alex Brush', 'Corinthia', cursive) !important;
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  line-height: 1 !important;
+}
+
+@media screen and (max-width: 991px) {
+  .section.arch {
+    border-top-left-radius: 50vw !important;
+    border-top-right-radius: 50vw !important;
+    position: relative !important;
+    z-index: 10 !important;
+    background-color: var(--_colors---other--bg, #f7f4ee) !important;
+  }
+
+  .interior-w {
+    margin-top: -35vh !important;
+    position: relative !important;
+    width: 100% !important;
+    z-index: 10 !important;
+  }
+
+  .interior-s_title {
+    grid-column: 1 / -1 !important;
+    grid-area: auto !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .interior-s_title h2.h1,
+  .interior-s_title .h1 {
+    font-size: clamp(34px, 11vw, 72px) !important;
+    line-height: 0.88 !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+  }
+
+  .interior-s_title h2.h1 br,
+  .interior-s_title .h1 br {
+    display: none !important;
+  }
+
+  .interior-s_title .h1 .split-word {
+    display: block !important;
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 0.88 !important;
+    text-align: center !important;
+  }
+
+  .interior-s_title .h1 .split-char {
+    display: inline-block !important;
+    white-space: nowrap !important;
+    position: relative !important;
+  }
+
+  .interior-s_title_a {
+    margin-top: -0.36em !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    transform: rotate(-8deg) !important;
+  }
+
+  .interior-s_title_a .a1 {
+    font-size: clamp(36px, 12vw, 76px) !important;
+    font-family: var(--_fonts---font-accent, 'Alex Brush', 'Corinthia', cursive) !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .section.arch {
+    border-top-left-radius: 50vw !important;
+    border-top-right-radius: 50vw !important;
+  }
+
+  .interior-w {
+    margin-top: -30vh !important;
+  }
+
+  .interior-s_title h2.h1,
+  .interior-s_title .h1 {
+    font-size: clamp(30px, 11vw, 56px) !important;
+    line-height: 0.88 !important;
+    text-align: center !important;
+  }
+
+  .interior-s_title h2.h1 br,
+  .interior-s_title .h1 br {
+    display: none !important;
+  }
+
+  .interior-s_title h2.h1 .split-word,
+  .interior-s_title .h1 .split-word {
+    display: block !important;
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 0.88 !important;
+    text-align: center !important;
+  }
+
+  .interior-s_title h2.h1 .split-char,
+  .interior-s_title .h1 .split-char {
+    display: inline-block !important;
+    white-space: nowrap !important;
+    position: relative !important;
+  }
+
+  .interior-s_title_a {
+    margin-top: -0.36em !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    transform: rotate(-8deg) !important;
+  }
+
+  .interior-s_title_a .a1 {
+    font-size: clamp(34px, 12.5vw, 62px) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: var(--_fonts---font-accent, 'Alex Brush', 'Corinthia', cursive) !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+    line-height: 1 !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   9. CTA / Nahargarh Rooftop Terrace Section Full Coverage on Mobile
+   Ensures the rooftop terrace background image fully covers the entire section
+   from top to bottom with no uncovered gaps.
+   --------------------------------------------------------------------------- */
+.cta-section-wrap {
+  position: relative !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  background-color: #0c1829 !important;
+}
+
+.cta-section-wrap .container,
+.cta-section-wrap .container[data-footer-clip] {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  position: relative !important;
+}
+
+.cta-w {
+  position: relative !important;
+  width: 100% !important;
+  min-height: 100vh !important;
+  overflow: hidden !important;
+}
+
+.cta-w .w_bg {
+  position: absolute !important;
+  inset: 0% !important;
+  top: 0% !important;
+  bottom: 0% !important;
+  left: 0% !important;
+  right: 0% !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  z-index: 1 !important;
+  overflow: hidden !important;
+}
+
+.cta-w .w_bg .img-w,
+.cta-w .w_bg picture {
+  position: absolute !important;
+  inset: 0% !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+}
+
+.cta-w .w_bg img,
+.cta-w .w_bg .img-p {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  object-fit: cover !important;
+  object-position: center bottom !important;
+  display: block !important;
+}
+
+/* Gradient overlay so the white text is beautifully legible from top to bottom */
+.cta-w .w_bg::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0% !important;
+  background: linear-gradient(180deg, rgba(12, 24, 41, 0.45) 0%, rgba(12, 24, 41, 0.2) 35%, rgba(12, 24, 41, 0.6) 100%) !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+}
+
+.cta-s {
+  position: relative !important;
+  z-index: 5 !important;
+  height: 100% !important;
+  min-height: 100vh !important;
+  aspect-ratio: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  padding: 3.5rem var(--_special-units---offset-l, 1.5rem) 4rem var(--_special-units---offset-l, 1.5rem) !important;
+  box-sizing: border-box !important;
+  pointer-events: auto !important;
+}
+
+.cta-s_desc {
+  margin-top: 1rem !important;
+  margin-bottom: 2rem !important;
+  width: 100% !important;
+  max-width: 650px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.cta-s_desc p {
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8) !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+  text-align: center !important;
+}
+
+.cta-s_title {
+  margin-top: auto !important;
+  margin-bottom: 2rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.cta-s_title h2.h1,
+.cta-s_title .h1 {
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.9) !important;
+  font-size: clamp(34px, 11vw, 72px) !important;
+  line-height: 0.95 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.cta-s_title h3.c1,
+.cta-s_title .c1 {
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.8) !important;
+  font-size: clamp(13px, 4vw, 22px) !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  margin-bottom: 2rem !important;
+}
+
+.cta-s_title_btn {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+@media screen and (max-width: 991px) {
+  .cta-section-wrap,
+  .section.theme_on-color.cta-section-wrap {
+    padding: 0 !important;
+    background: #0c1829 !important;
+  }
+
+  .cta-w {
+    min-height: 90vh !important;
+  }
+
+  .cta-s {
+    min-height: 90vh !important;
+    padding: 2.5rem 1.25rem 3.5rem 1.25rem !important;
+  }
+
+  .cta-s .u-272,
+  .cta-s .u-48,
+  .cta-s .u-160 {
+    display: none !important;
+  }
+
+  .cta-w .w_bg img,
+  .cta-w .w_bg .img-p {
+    object-fit: cover !important;
+    object-position: center bottom !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .cta-w {
+    min-height: 85vh !important;
+  }
+
+  .cta-s {
+    min-height: 85vh !important;
+    padding: 2rem 1rem 3rem 1rem !important;
+  }
+
+  .cta-s_title h2.h1 {
+    font-size: clamp(28px, 10vw, 48px) !important;
+  }
+
+  .cta-s_title h3.c1 {
+    font-size: 12px !important;
+    letter-spacing: 0.12em !important;
+    margin-bottom: 1.5rem !important;
+  }
+}
+
+
+
+
+
