@@ -695,14 +695,28 @@
     display: block !important;
   }
 
+  /* Sit the bougainvillea flush into the pink panel's top-right corner. It was
+     at top:-24 right:-16, which hung it outside and let it spill onto the cream
+     background; 0/0 tucks it against both edges with no gap. */
   .flower.interior {
     position: absolute !important;
-    top: -24px !important;
-    right: -16px !important;
-    width: 130px !important;
-    height: 130px !important;
+    top: 0 !important;
+    right: 0 !important;
+    width: 128px !important;
+    height: 128px !important;
     pointer-events: none !important;
     z-index: 10 !important;
+    /* app.js gives this a data-parallax="ctn-up" scroll transform
+       (translate(0%,10%) = ~13px), which lifts it off the corner and keeps
+       moving as you scroll. Cancel it on phones so it stays tucked in.
+       An !important author rule outranks GSAP's inline style. */
+    transform: none !important;
+    translate: none !important;
+  }
+
+  /* belt and braces: keep any decoration within the panel's rounded corners */
+  .interior-s_l_img-w {
+    overflow: hidden !important;
   }
 
   .interior-s_l_desc {

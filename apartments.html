@@ -33,6 +33,7 @@
   <link href="assets/css/shared/enhancements.css" rel="stylesheet" type="text/css"/>
   <link href="assets/css/vendor/lenis.css" rel="stylesheet" type="text/css"/>
   <link href="assets/css/editorial-lux.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/shared/mobile-menu.css" rel="stylesheet" type="text/css"/>
 </head>
 <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
 <body class="editorial-page apartments-page-canvas">
@@ -41,111 +42,41 @@
   <!-- ===== NAVBAR: Same structure as index.html ===== -->
 
   <!-- Left Rail: Rotating Logo Badge (Top-Left) -->
-  <a aria-label="Home" class="header-logo w-inline-block theme_on-light" data-theme="" href="index.html">
-    <div aria-label="Pink Oaks" class="logo_symbol header" data-modal-close="menu">
-      <div class="logo w-embed"><img alt="Pink Oaks" src="assets/images/logo.webp"
-          style="width:100%;height:100%;object-fit:contain;background:transparent;border:none;" /></div>
-    </div>
-    <div class="header-logo_bg b-desk w-embed"><svg fill="none" height="100%" viewBox="0 0 120 120" width="100%"
-        xmlns="http://www.w3.org/2000/svg">
-        <path d="M 60, 60 m -47, 0 a 47,47 0 1,1 94,0 a 47,47 0 1,1 -94,0" fill="none" id="circle-desk-aparts"></path>
-        <text fill="currentColor" font-family="'Inter', sans-serif" font-size="7.6" font-weight="700"
-          letter-spacing="2.0px">
-          <textPath href="#circle-desk-aparts" startOffset="0%">RESIDENCE • PINK OAKS • RESIDENCE • PINK OAKS •
-          </textPath>
-        </text>
-      </svg></div>
-    <div class="header-logo_bg b-mob w-embed"><svg fill="none" height="100%" viewBox="0 0 80 80" width="100%"
-        xmlns="http://www.w3.org/2000/svg">
-        <path d="M 40, 40 m -31, 0 a 31,31 0 1,1 62,0 a 31,31 0 1,1 -62,0" fill="none" id="circle-mob-aparts"></path>
-        <text fill="currentColor" font-family="'Inter', sans-serif" font-size="5.0" font-weight="700"
-          letter-spacing="1.3px">
-          <textPath href="#circle-mob-aparts" startOffset="0%">RESIDENCE • PINK OAKS • RESIDENCE • PINK OAKS •
-          </textPath>
-        </text>
-      </svg></div>
-  </a>
-
-  <!-- Right: Nav links (desktop) + Menu button (mobile) -->
-  <div class="header-nav theme_on-light" data-theme="">
-    <!-- Mobile: Menu / Close toggle -->
-    <div class="header-nav_list f-mob">
-      <div class="btn-menu" data-modal-menu-btn="mob" hover-nav-item-l2-trigger="">
-        <div class="btn-menu_label is-active"><a aria-label="Menu" class="nav-item w-inline-block"
-            hover-nav-item-l2="" href="#">
-            <div class="nav-item_label">
-              <div class="nav-item_label_text" hover="text">
-                <div class="l2">Menu</div>
-              </div>
-              <div class="nav-item_label_text is-2" hover="text">
-                <div class="l2">Menu</div>
-              </div>
-            </div>
-          </a></div>
-        <div class="btn-menu_label"><a aria-label="Close" class="nav-item w-inline-block" hover-nav-item-l2=""
-            href="#">
-            <div class="nav-item_label">
-              <div class="nav-item_label_text" hover="text">
-                <div class="l2">Close</div>
-              </div>
-              <div class="nav-item_label_text is-2" hover="text">
-                <div class="l2">Close</div>
-              </div>
-            </div>
-          </a></div>
-        <div class="ico-24">
-          <div class="ico">
-            <div class="ico w-embed" data-ico-menu="is-1"><svg fill="none" height="100%" viewBox="0 0 24 24"
-                width="100%" xmlns="http://www.w3.org/2000/svg">
-                <path d="M13.5 19C13.5 19.8284 12.8284 20.5 12 20.5C11.1716 20.5 10.5 19.8284 10.5 19C10.5 18.1716 11.1716 17.5 12 17.5C12.8284 17.5 13.5 18.1716 13.5 19Z" fill="currentColor"></path>
-                <path d="M13.5 12C13.5 12.8284 12.8284 13.5 12 13.5C11.1716 13.5 10.5 12.8284 10.5 12C10.5 11.1716 11.1716 10.5 12 10.5C12.8284 10.5 13.5 11.1716 13.5 12Z" fill="currentColor"></path>
-                <path d="M13.5 5C13.5 5.82843 12.8284 6.5 12 6.5C11.1716 6.5 10.5 5.82843 10.5 5C10.5 4.17157 11.1716 3.5 12 3.5C12.8284 3.5 13.5 4.17157 13.5 5Z" fill="currentColor"></path>
-              </svg></div>
-            <div class="ico ia-2 w-embed" data-ico-menu="is-2"><svg fill="none" height="100%" viewBox="0 0 24 24"
-                width="100%" xmlns="http://www.w3.org/2000/svg">
-                <path d="M13.5 19C13.5 19.8284 12.8284 20.5 12 20.5C11.1716 20.5 10.5 19.8284 10.5 19C10.5 18.1716 11.1716 17.5 12 17.5C12.8284 17.5 13.5 18.1716 13.5 19Z" fill="currentColor"></path>
-                <path d="M13.5 12C13.5 12.8284 12.8284 13.5 12 13.5C11.1716 13.5 10.5 12.8284 10.5 12C10.5 11.1716 11.1716 10.5 12 10.5C12.8284 10.5 13.5 11.1716 13.5 12Z" fill="currentColor"></path>
-                <path d="M13.5 5C13.5 5.82843 12.8284 6.5 12 6.5C11.1716 6.5 10.5 5.82843 10.5 5C10.5 4.17157 11.1716 3.5 12 3.5C12.8284 3.5 13.5 4.17157 13.5 5Z" fill="currentColor"></path>
-              </svg></div>
-          </div>
-        </div>
+  <header class="top-header-bar">
+    <!-- Top-Left Rotating Badge Logo (~80px) -->
+    <a href="index.html" class="brand-badge-logo" aria-label="Pink Oaks Home">
+      <div class="brand-badge-emblem">
+        <img alt="Pink Oaks Leaf Emblem" src="assets/images/pink-oaks-leaf.webp"/>
       </div>
-    </div>
-    <!-- Desktop: Stacked nav links (right) -->
-    <div class="header-nav_list f-desk"><a aria-label="Select an Apartment" class="link w-inline-block"
-        hover-link="" href="apartments.html" aria-current="page">
-        <div class="link_label">
-          <div class="link_label_text">
-            <div class="h6" hover="text">Select <br />an Apartment</div>
-          </div>
-          <div class="link_label_text is-2">
-            <div class="h6" hover="text">Select <br />an Apartment</div>
-          </div>
-        </div>
-      </a>
-      <div class="u-24"></div><a aria-label="Book a call" class="nav-item w-inline-block" data-modal-cta-btn="book-a-call"
-        hover-nav-item-l2="" href="#" id="desk-book-call-btn">
-        <div class="nav-item_label">
-          <div class="nav-item_label_text" hover="text">
-            <div class="l2">Book a call</div>
-          </div>
-          <div class="nav-item_label_text is-2" hover="text">
-            <div class="l2">Book a call</div>
-          </div>
-        </div>
-      </a>
-      <div class="u-4"></div><a aria-label="Contact" class="nav-item w-inline-block" hover-nav-item-l2="" href="contact.html">
-        <div class="nav-item_label">
-          <div class="nav-item_label_text" hover="text">
-            <div class="l2">Contact</div>
-          </div>
-          <div class="nav-item_label_text is-2" hover="text">
-            <div class="l2">Contact</div>
-          </div>
-        </div>
-      </a>
-    </div>
-  </div>
+      <div class="brand-badge-text-ring">
+        <svg viewBox="0 0 100 100" width="100%" height="100%">
+          <path id="apart-badge-text-path" d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" fill="none"/>
+          <text fill="#0F1F3D" font-family="'Syne', 'Inter', sans-serif" font-size="6.6" font-weight="700" letter-spacing="2.0px">
+            <textPath href="#apart-badge-text-path" startOffset="0%">RESIDENCE • PINK OAKS • RESIDENCE • PINK OAKS • </textPath>
+          </text>
+        </svg>
+      </div>
+    </a>
+
+    <!-- Top-Right Navigation (Desktop) -->
+    <nav class="top-right-nav" aria-label="Main Navigation">
+      <a href="apartments.html" class="top-nav-primary is-active">Select an Apartment</a>
+      <div class="top-nav-secondary-row">
+        <a href="#book-call" class="top-nav-secondary-link book-call-trigger">Book a Call</a>
+        <a href="contact.html" class="top-nav-secondary-link">Contact</a>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu Trigger Button (<768px) -->
+    <button class="mobile-menu-trigger-btn" type="button" aria-label="Open Navigation Menu">
+      <div class="mobile-menu-burger-lines">
+        <span></span>
+        <span></span>
+      </div>
+      <span>Menu</span>
+    </button>
+  </header>
+
 
   <!-- Left Rail: Scroll Progress Bar -->
   <div class="s-bar-w theme_on-light" data-theme="">
@@ -185,9 +116,7 @@
           <h1 class="apartments-headline">Apartments</h1>
           <p class="apartments-subheadline">18 Exclusive 3 &amp; 4 BHK Luxury Residences in Bani Park, Jaipur with Nahargarh Fort Views &amp; Vastu Harmony.</p>
         </div>
-        <div class="apartments-count-badge" id="apartments-live-counter" aria-live="polite" title="Matching Residences">
-          18
-        </div>
+        <div class="apartments-count-badge" id="apartments-live-counter" aria-live="polite" title="Matching plan types">3</div>
       </div>
 
       <!-- Filter & Sort Bar -->
@@ -337,17 +266,16 @@
     <!-- 3-Column Catalogue Grid (18 Units + Interspersed Editorial Breaks) -->
     <section class="apartments-grid-section" data-bg="light">
       <div class="apartments-catalogue-grid" id="apartments-inventory-grid">
-        <!-- Unit Card № G01 (Flat A) -->
+        <!-- UNIT PLAN A (3 BHK) -->
         <article class="apart-card-item" 
-                 data-unit-id="G01" 
+                 data-unit-type="A" 
                  data-flat="A"
                  data-typology="3 BHK" 
                  data-beds="3" 
-                 data-floor="GROUND"
                  data-area="2321"
                  tabindex="0"
                  role="button"
-                 aria-label="View Apartment № G01, Flat A, 3 BHK, 2,321 sq.ft.">
+                 aria-label="View UNIT PLAN A, 3 BHK, 2,321 sq.ft.">
           
           <div class="apart-card-head">
             <span class="apart-card-type">3 BHK LUXURY RESIDENCE</span>
@@ -357,7 +285,7 @@
           <div class="apart-card-plan-graphic">
             <img class="apart-plan-image" 
                  src="assets/images/units/unit_a_3bhk.webp" 
-                 alt="Floor Plan Schematic for Unit № G01 Flat A" 
+                 alt="Floor plan for UNIT PLAN A, 3 BHK"  
                  loading="lazy" 
                  decoding="async"/>
             <div class="apart-card-zoom-badge" aria-hidden="true">
@@ -372,7 +300,7 @@
           </div>
 
           <div class="apart-card-footer">
-            <div class="apart-card-meta-tag">№ G01 · FLAT A · GROUND FLOOR</div>
+            <div class="apart-card-meta-tag">UNIT PLAN A · 3 BHK</div>
             <div class="apart-card-main-figures font-didone">
               <span class="figures-beds">3 BED</span>
               <span class="figures-sep">|</span>
@@ -391,17 +319,16 @@
             </div>
           </div>
         </article>
-        <!-- Unit Card № G02 (Flat B) -->
+        <!-- UNIT PLAN B (4 BHK) -->
         <article class="apart-card-item" 
-                 data-unit-id="G02" 
+                 data-unit-type="B" 
                  data-flat="B"
                  data-typology="4 BHK" 
                  data-beds="4" 
-                 data-floor="GROUND"
                  data-area="2680"
                  tabindex="0"
                  role="button"
-                 aria-label="View Apartment № G02, Flat B, 4 BHK, 2,680 sq.ft.">
+                 aria-label="View UNIT PLAN B, 4 BHK, 2,680 sq.ft.">
           
           <div class="apart-card-head">
             <span class="apart-card-type">4 BHK GRAND RESIDENCE</span>
@@ -411,7 +338,7 @@
           <div class="apart-card-plan-graphic">
             <img class="apart-plan-image" 
                  src="assets/images/units/unit_b_4bhk.webp" 
-                 alt="Floor Plan Schematic for Unit № G02 Flat B" 
+                 alt="Floor plan for UNIT PLAN B, 4 BHK"  
                  loading="lazy" 
                  decoding="async"/>
             <div class="apart-card-zoom-badge" aria-hidden="true">
@@ -426,7 +353,7 @@
           </div>
 
           <div class="apart-card-footer">
-            <div class="apart-card-meta-tag">№ G02 · FLAT B · GROUND FLOOR</div>
+            <div class="apart-card-meta-tag">UNIT PLAN B · 4 BHK</div>
             <div class="apart-card-main-figures font-didone">
               <span class="figures-beds">4 BED</span>
               <span class="figures-sep">|</span>
@@ -445,17 +372,16 @@
             </div>
           </div>
         </article>
-        <!-- Unit Card № G03 (Flat C) -->
+        <!-- UNIT PLAN C (3 BHK) -->
         <article class="apart-card-item" 
-                 data-unit-id="G03" 
+                 data-unit-type="C" 
                  data-flat="C"
                  data-typology="3 BHK" 
                  data-beds="3" 
-                 data-floor="GROUND"
                  data-area="2240"
                  tabindex="0"
                  role="button"
-                 aria-label="View Apartment № G03, Flat C, 3 BHK, 2,240 sq.ft.">
+                 aria-label="View UNIT PLAN C, 3 BHK, 2,240 sq.ft.">
           
           <div class="apart-card-head">
             <span class="apart-card-type">3 BHK LUXURY RESIDENCE</span>
@@ -465,7 +391,7 @@
           <div class="apart-card-plan-graphic">
             <img class="apart-plan-image" 
                  src="assets/images/units/unit_c_3bhk.webp" 
-                 alt="Floor Plan Schematic for Unit № G03 Flat C" 
+                 alt="Floor plan for UNIT PLAN C, 3 BHK"  
                  loading="lazy" 
                  decoding="async"/>
             <div class="apart-card-zoom-badge" aria-hidden="true">
@@ -480,169 +406,7 @@
           </div>
 
           <div class="apart-card-footer">
-            <div class="apart-card-meta-tag">№ G03 · FLAT C · GROUND FLOOR</div>
-            <div class="apart-card-main-figures font-didone">
-              <span class="figures-beds">3 BED</span>
-              <span class="figures-sep">|</span>
-              <span class="figures-area">2,240 SQ.FT.</span>
-            </div>
-            <div class="apart-card-sub-terrace">
-              <span class="built-up-tag">BUILT-UP: 1,620 SQ.FT.</span>
-              <span class="balcony-tag">+ DUAL BALCONIES & UTILITY</span>
-            </div>
-            <div class="apart-card-vastu-badge">
-              <svg viewBox="0 0 12 12" width="12" height="12" fill="currentColor">
-                <circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.2"/>
-                <circle cx="6" cy="6" r="2"/>
-              </svg>
-              <span>VASTU HARMONIZED (265°)</span>
-            </div>
-          </div>
-        </article>
-        <!-- Unit Card № 101 (Flat A) -->
-        <article class="apart-card-item" 
-                 data-unit-id="101" 
-                 data-flat="A"
-                 data-typology="3 BHK" 
-                 data-beds="3" 
-                 data-floor="MID"
-                 data-area="2321"
-                 tabindex="0"
-                 role="button"
-                 aria-label="View Apartment № 101, Flat A, 3 BHK, 2,321 sq.ft.">
-          
-          <div class="apart-card-head">
-            <span class="apart-card-type">3 BHK LUXURY RESIDENCE</span>
-            <span class="apart-card-completion">COMPLETION: Q4 2026</span>
-          </div>
-
-          <div class="apart-card-plan-graphic">
-            <img class="apart-plan-image" 
-                 src="assets/images/units/unit_a_3bhk.webp" 
-                 alt="Floor Plan Schematic for Unit № 101 Flat A" 
-                 loading="lazy" 
-                 decoding="async"/>
-            <div class="apart-card-zoom-badge" aria-hidden="true">
-              <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="9" cy="9" r="6"/>
-                <line x1="13.5" y1="13.5" x2="18" y2="18"/>
-                <line x1="9" y1="6" x2="9" y2="12"/>
-                <line x1="6" y1="9" x2="12" y2="9"/>
-              </svg>
-              <span>Inspect Plan</span>
-            </div>
-          </div>
-
-          <div class="apart-card-footer">
-            <div class="apart-card-meta-tag">№ 101 · FLAT A · 1ST FLOOR</div>
-            <div class="apart-card-main-figures font-didone">
-              <span class="figures-beds">3 BED</span>
-              <span class="figures-sep">|</span>
-              <span class="figures-area">2,321 SQ.FT.</span>
-            </div>
-            <div class="apart-card-sub-terrace">
-              <span class="built-up-tag">BUILT-UP: 1,675 SQ.FT.</span>
-              <span class="balcony-tag">+ EXPANSIVE PRIVATE BALCONIES</span>
-            </div>
-            <div class="apart-card-vastu-badge">
-              <svg viewBox="0 0 12 12" width="12" height="12" fill="currentColor">
-                <circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.2"/>
-                <circle cx="6" cy="6" r="2"/>
-              </svg>
-              <span>VASTU HARMONIZED (265°)</span>
-            </div>
-          </div>
-        </article>
-        <!-- Unit Card № 102 (Flat B) -->
-        <article class="apart-card-item" 
-                 data-unit-id="102" 
-                 data-flat="B"
-                 data-typology="4 BHK" 
-                 data-beds="4" 
-                 data-floor="MID"
-                 data-area="2680"
-                 tabindex="0"
-                 role="button"
-                 aria-label="View Apartment № 102, Flat B, 4 BHK, 2,680 sq.ft.">
-          
-          <div class="apart-card-head">
-            <span class="apart-card-type">4 BHK GRAND RESIDENCE</span>
-            <span class="apart-card-completion">COMPLETION: Q4 2026</span>
-          </div>
-
-          <div class="apart-card-plan-graphic">
-            <img class="apart-plan-image" 
-                 src="assets/images/units/unit_b_4bhk.webp" 
-                 alt="Floor Plan Schematic for Unit № 102 Flat B" 
-                 loading="lazy" 
-                 decoding="async"/>
-            <div class="apart-card-zoom-badge" aria-hidden="true">
-              <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="9" cy="9" r="6"/>
-                <line x1="13.5" y1="13.5" x2="18" y2="18"/>
-                <line x1="9" y1="6" x2="9" y2="12"/>
-                <line x1="6" y1="9" x2="12" y2="9"/>
-              </svg>
-              <span>Inspect Plan</span>
-            </div>
-          </div>
-
-          <div class="apart-card-footer">
-            <div class="apart-card-meta-tag">№ 102 · FLAT B · 1ST FLOOR</div>
-            <div class="apart-card-main-figures font-didone">
-              <span class="figures-beds">4 BED</span>
-              <span class="figures-sep">|</span>
-              <span class="figures-area">2,680 SQ.FT.</span>
-            </div>
-            <div class="apart-card-sub-terrace">
-              <span class="built-up-tag">BUILT-UP: 1,935 SQ.FT.</span>
-              <span class="balcony-tag">+ NAHARGARH ORIENTED BALCONY</span>
-            </div>
-            <div class="apart-card-vastu-badge">
-              <svg viewBox="0 0 12 12" width="12" height="12" fill="currentColor">
-                <circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.2"/>
-                <circle cx="6" cy="6" r="2"/>
-              </svg>
-              <span>VASTU HARMONIZED (265°)</span>
-            </div>
-          </div>
-        </article>
-        <!-- Unit Card № 103 (Flat C) -->
-        <article class="apart-card-item" 
-                 data-unit-id="103" 
-                 data-flat="C"
-                 data-typology="3 BHK" 
-                 data-beds="3" 
-                 data-floor="MID"
-                 data-area="2240"
-                 tabindex="0"
-                 role="button"
-                 aria-label="View Apartment № 103, Flat C, 3 BHK, 2,240 sq.ft.">
-          
-          <div class="apart-card-head">
-            <span class="apart-card-type">3 BHK LUXURY RESIDENCE</span>
-            <span class="apart-card-completion">COMPLETION: Q4 2026</span>
-          </div>
-
-          <div class="apart-card-plan-graphic">
-            <img class="apart-plan-image" 
-                 src="assets/images/units/unit_c_3bhk.webp" 
-                 alt="Floor Plan Schematic for Unit № 103 Flat C" 
-                 loading="lazy" 
-                 decoding="async"/>
-            <div class="apart-card-zoom-badge" aria-hidden="true">
-              <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="9" cy="9" r="6"/>
-                <line x1="13.5" y1="13.5" x2="18" y2="18"/>
-                <line x1="9" y1="6" x2="9" y2="12"/>
-                <line x1="6" y1="9" x2="12" y2="9"/>
-              </svg>
-              <span>Inspect Plan</span>
-            </div>
-          </div>
-
-          <div class="apart-card-footer">
-            <div class="apart-card-meta-tag">№ 103 · FLAT C · 1ST FLOOR</div>
+            <div class="apart-card-meta-tag">UNIT PLAN C · 3 BHK</div>
             <div class="apart-card-main-figures font-didone">
               <span class="figures-beds">3 BED</span>
               <span class="figures-sep">|</span>
@@ -675,330 +439,6 @@
             </div>
           </div>
         </article>
-        <!-- Unit Card № 201 (Flat A) -->
-        <article class="apart-card-item" 
-                 data-unit-id="201" 
-                 data-flat="A"
-                 data-typology="3 BHK" 
-                 data-beds="3" 
-                 data-floor="MID"
-                 data-area="2321"
-                 tabindex="0"
-                 role="button"
-                 aria-label="View Apartment № 201, Flat A, 3 BHK, 2,321 sq.ft.">
-          
-          <div class="apart-card-head">
-            <span class="apart-card-type">3 BHK LUXURY RESIDENCE</span>
-            <span class="apart-card-completion">COMPLETION: Q4 2026</span>
-          </div>
-
-          <div class="apart-card-plan-graphic">
-            <img class="apart-plan-image" 
-                 src="assets/images/units/unit_a_3bhk.webp" 
-                 alt="Floor Plan Schematic for Unit № 201 Flat A" 
-                 loading="lazy" 
-                 decoding="async"/>
-            <div class="apart-card-zoom-badge" aria-hidden="true">
-              <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="9" cy="9" r="6"/>
-                <line x1="13.5" y1="13.5" x2="18" y2="18"/>
-                <line x1="9" y1="6" x2="9" y2="12"/>
-                <line x1="6" y1="9" x2="12" y2="9"/>
-              </svg>
-              <span>Inspect Plan</span>
-            </div>
-          </div>
-
-          <div class="apart-card-footer">
-            <div class="apart-card-meta-tag">№ 201 · FLAT A · 2ND FLOOR</div>
-            <div class="apart-card-main-figures font-didone">
-              <span class="figures-beds">3 BED</span>
-              <span class="figures-sep">|</span>
-              <span class="figures-area">2,321 SQ.FT.</span>
-            </div>
-            <div class="apart-card-sub-terrace">
-              <span class="built-up-tag">BUILT-UP: 1,675 SQ.FT.</span>
-              <span class="balcony-tag">+ EXPANSIVE PRIVATE BALCONIES</span>
-            </div>
-            <div class="apart-card-vastu-badge">
-              <svg viewBox="0 0 12 12" width="12" height="12" fill="currentColor">
-                <circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.2"/>
-                <circle cx="6" cy="6" r="2"/>
-              </svg>
-              <span>VASTU HARMONIZED (265°)</span>
-            </div>
-          </div>
-        </article>
-        <!-- Unit Card № 202 (Flat B) -->
-        <article class="apart-card-item" 
-                 data-unit-id="202" 
-                 data-flat="B"
-                 data-typology="4 BHK" 
-                 data-beds="4" 
-                 data-floor="MID"
-                 data-area="2680"
-                 tabindex="0"
-                 role="button"
-                 aria-label="View Apartment № 202, Flat B, 4 BHK, 2,680 sq.ft.">
-          
-          <div class="apart-card-head">
-            <span class="apart-card-type">4 BHK GRAND RESIDENCE</span>
-            <span class="apart-card-completion">COMPLETION: Q4 2026</span>
-          </div>
-
-          <div class="apart-card-plan-graphic">
-            <img class="apart-plan-image" 
-                 src="assets/images/units/unit_b_4bhk.webp" 
-                 alt="Floor Plan Schematic for Unit № 202 Flat B" 
-                 loading="lazy" 
-                 decoding="async"/>
-            <div class="apart-card-zoom-badge" aria-hidden="true">
-              <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="9" cy="9" r="6"/>
-                <line x1="13.5" y1="13.5" x2="18" y2="18"/>
-                <line x1="9" y1="6" x2="9" y2="12"/>
-                <line x1="6" y1="9" x2="12" y2="9"/>
-              </svg>
-              <span>Inspect Plan</span>
-            </div>
-          </div>
-
-          <div class="apart-card-footer">
-            <div class="apart-card-meta-tag">№ 202 · FLAT B · 2ND FLOOR</div>
-            <div class="apart-card-main-figures font-didone">
-              <span class="figures-beds">4 BED</span>
-              <span class="figures-sep">|</span>
-              <span class="figures-area">2,680 SQ.FT.</span>
-            </div>
-            <div class="apart-card-sub-terrace">
-              <span class="built-up-tag">BUILT-UP: 1,935 SQ.FT.</span>
-              <span class="balcony-tag">+ NAHARGARH ORIENTED BALCONY</span>
-            </div>
-            <div class="apart-card-vastu-badge">
-              <svg viewBox="0 0 12 12" width="12" height="12" fill="currentColor">
-                <circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.2"/>
-                <circle cx="6" cy="6" r="2"/>
-              </svg>
-              <span>VASTU HARMONIZED (265°)</span>
-            </div>
-          </div>
-        </article>
-        <!-- Unit Card № 203 (Flat C) -->
-        <article class="apart-card-item" 
-                 data-unit-id="203" 
-                 data-flat="C"
-                 data-typology="3 BHK" 
-                 data-beds="3" 
-                 data-floor="MID"
-                 data-area="2240"
-                 tabindex="0"
-                 role="button"
-                 aria-label="View Apartment № 203, Flat C, 3 BHK, 2,240 sq.ft.">
-          
-          <div class="apart-card-head">
-            <span class="apart-card-type">3 BHK LUXURY RESIDENCE</span>
-            <span class="apart-card-completion">COMPLETION: Q4 2026</span>
-          </div>
-
-          <div class="apart-card-plan-graphic">
-            <img class="apart-plan-image" 
-                 src="assets/images/units/unit_c_3bhk.webp" 
-                 alt="Floor Plan Schematic for Unit № 203 Flat C" 
-                 loading="lazy" 
-                 decoding="async"/>
-            <div class="apart-card-zoom-badge" aria-hidden="true">
-              <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="9" cy="9" r="6"/>
-                <line x1="13.5" y1="13.5" x2="18" y2="18"/>
-                <line x1="9" y1="6" x2="9" y2="12"/>
-                <line x1="6" y1="9" x2="12" y2="9"/>
-              </svg>
-              <span>Inspect Plan</span>
-            </div>
-          </div>
-
-          <div class="apart-card-footer">
-            <div class="apart-card-meta-tag">№ 203 · FLAT C · 2ND FLOOR</div>
-            <div class="apart-card-main-figures font-didone">
-              <span class="figures-beds">3 BED</span>
-              <span class="figures-sep">|</span>
-              <span class="figures-area">2,240 SQ.FT.</span>
-            </div>
-            <div class="apart-card-sub-terrace">
-              <span class="built-up-tag">BUILT-UP: 1,620 SQ.FT.</span>
-              <span class="balcony-tag">+ DUAL BALCONIES & UTILITY</span>
-            </div>
-            <div class="apart-card-vastu-badge">
-              <svg viewBox="0 0 12 12" width="12" height="12" fill="currentColor">
-                <circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.2"/>
-                <circle cx="6" cy="6" r="2"/>
-              </svg>
-              <span>VASTU HARMONIZED (265°)</span>
-            </div>
-          </div>
-        </article>
-        <!-- Unit Card № 301 (Flat A) -->
-        <article class="apart-card-item" 
-                 data-unit-id="301" 
-                 data-flat="A"
-                 data-typology="3 BHK" 
-                 data-beds="3" 
-                 data-floor="MID"
-                 data-area="2321"
-                 tabindex="0"
-                 role="button"
-                 aria-label="View Apartment № 301, Flat A, 3 BHK, 2,321 sq.ft.">
-          
-          <div class="apart-card-head">
-            <span class="apart-card-type">3 BHK LUXURY RESIDENCE</span>
-            <span class="apart-card-completion">COMPLETION: Q4 2026</span>
-          </div>
-
-          <div class="apart-card-plan-graphic">
-            <img class="apart-plan-image" 
-                 src="assets/images/units/unit_a_3bhk.webp" 
-                 alt="Floor Plan Schematic for Unit № 301 Flat A" 
-                 loading="lazy" 
-                 decoding="async"/>
-            <div class="apart-card-zoom-badge" aria-hidden="true">
-              <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="9" cy="9" r="6"/>
-                <line x1="13.5" y1="13.5" x2="18" y2="18"/>
-                <line x1="9" y1="6" x2="9" y2="12"/>
-                <line x1="6" y1="9" x2="12" y2="9"/>
-              </svg>
-              <span>Inspect Plan</span>
-            </div>
-          </div>
-
-          <div class="apart-card-footer">
-            <div class="apart-card-meta-tag">№ 301 · FLAT A · 3RD FLOOR</div>
-            <div class="apart-card-main-figures font-didone">
-              <span class="figures-beds">3 BED</span>
-              <span class="figures-sep">|</span>
-              <span class="figures-area">2,321 SQ.FT.</span>
-            </div>
-            <div class="apart-card-sub-terrace">
-              <span class="built-up-tag">BUILT-UP: 1,675 SQ.FT.</span>
-              <span class="balcony-tag">+ EXPANSIVE PRIVATE BALCONIES</span>
-            </div>
-            <div class="apart-card-vastu-badge">
-              <svg viewBox="0 0 12 12" width="12" height="12" fill="currentColor">
-                <circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.2"/>
-                <circle cx="6" cy="6" r="2"/>
-              </svg>
-              <span>VASTU HARMONIZED (265°)</span>
-            </div>
-          </div>
-        </article>
-        <!-- Unit Card № 302 (Flat B) -->
-        <article class="apart-card-item" 
-                 data-unit-id="302" 
-                 data-flat="B"
-                 data-typology="4 BHK" 
-                 data-beds="4" 
-                 data-floor="MID"
-                 data-area="2680"
-                 tabindex="0"
-                 role="button"
-                 aria-label="View Apartment № 302, Flat B, 4 BHK, 2,680 sq.ft.">
-          
-          <div class="apart-card-head">
-            <span class="apart-card-type">4 BHK GRAND RESIDENCE</span>
-            <span class="apart-card-completion">COMPLETION: Q4 2026</span>
-          </div>
-
-          <div class="apart-card-plan-graphic">
-            <img class="apart-plan-image" 
-                 src="assets/images/units/unit_b_4bhk.webp" 
-                 alt="Floor Plan Schematic for Unit № 302 Flat B" 
-                 loading="lazy" 
-                 decoding="async"/>
-            <div class="apart-card-zoom-badge" aria-hidden="true">
-              <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="9" cy="9" r="6"/>
-                <line x1="13.5" y1="13.5" x2="18" y2="18"/>
-                <line x1="9" y1="6" x2="9" y2="12"/>
-                <line x1="6" y1="9" x2="12" y2="9"/>
-              </svg>
-              <span>Inspect Plan</span>
-            </div>
-          </div>
-
-          <div class="apart-card-footer">
-            <div class="apart-card-meta-tag">№ 302 · FLAT B · 3RD FLOOR</div>
-            <div class="apart-card-main-figures font-didone">
-              <span class="figures-beds">4 BED</span>
-              <span class="figures-sep">|</span>
-              <span class="figures-area">2,680 SQ.FT.</span>
-            </div>
-            <div class="apart-card-sub-terrace">
-              <span class="built-up-tag">BUILT-UP: 1,935 SQ.FT.</span>
-              <span class="balcony-tag">+ NAHARGARH ORIENTED BALCONY</span>
-            </div>
-            <div class="apart-card-vastu-badge">
-              <svg viewBox="0 0 12 12" width="12" height="12" fill="currentColor">
-                <circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.2"/>
-                <circle cx="6" cy="6" r="2"/>
-              </svg>
-              <span>VASTU HARMONIZED (265°)</span>
-            </div>
-          </div>
-        </article>
-        <!-- Unit Card № 303 (Flat C) -->
-        <article class="apart-card-item" 
-                 data-unit-id="303" 
-                 data-flat="C"
-                 data-typology="3 BHK" 
-                 data-beds="3" 
-                 data-floor="MID"
-                 data-area="2240"
-                 tabindex="0"
-                 role="button"
-                 aria-label="View Apartment № 303, Flat C, 3 BHK, 2,240 sq.ft.">
-          
-          <div class="apart-card-head">
-            <span class="apart-card-type">3 BHK LUXURY RESIDENCE</span>
-            <span class="apart-card-completion">COMPLETION: Q4 2026</span>
-          </div>
-
-          <div class="apart-card-plan-graphic">
-            <img class="apart-plan-image" 
-                 src="assets/images/units/unit_c_3bhk.webp" 
-                 alt="Floor Plan Schematic for Unit № 303 Flat C" 
-                 loading="lazy" 
-                 decoding="async"/>
-            <div class="apart-card-zoom-badge" aria-hidden="true">
-              <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="9" cy="9" r="6"/>
-                <line x1="13.5" y1="13.5" x2="18" y2="18"/>
-                <line x1="9" y1="6" x2="9" y2="12"/>
-                <line x1="6" y1="9" x2="12" y2="9"/>
-              </svg>
-              <span>Inspect Plan</span>
-            </div>
-          </div>
-
-          <div class="apart-card-footer">
-            <div class="apart-card-meta-tag">№ 303 · FLAT C · 3RD FLOOR</div>
-            <div class="apart-card-main-figures font-didone">
-              <span class="figures-beds">3 BED</span>
-              <span class="figures-sep">|</span>
-              <span class="figures-area">2,240 SQ.FT.</span>
-            </div>
-            <div class="apart-card-sub-terrace">
-              <span class="built-up-tag">BUILT-UP: 1,620 SQ.FT.</span>
-              <span class="balcony-tag">+ DUAL BALCONIES & UTILITY</span>
-            </div>
-            <div class="apart-card-vastu-badge">
-              <svg viewBox="0 0 12 12" width="12" height="12" fill="currentColor">
-                <circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.2"/>
-                <circle cx="6" cy="6" r="2"/>
-              </svg>
-              <span>VASTU HARMONIZED (265°)</span>
-            </div>
-          </div>
-        </article>
         <!-- Editorial Photo Break 2: Rooftop Nahargarh View -->
         <article class="apart-photo-card-item" aria-label="Nahargarh View Terrace">
           <div class="apart-photo-img-wrap">
@@ -1010,330 +450,6 @@
               <span class="photo-card-tag">PANORAMIC TERRACE DECK</span>
               <h2 class="photo-card-title font-didone">Where Your Address Comes With a Nahargarh View</h2>
               <p class="photo-card-subtext">A dedicated rooftop viewing telescope offers direct panoramic sightlines to Nahargarh Fort and the Aravalli hills.</p>
-            </div>
-          </div>
-        </article>
-        <!-- Unit Card № 401 (Flat A) -->
-        <article class="apart-card-item" 
-                 data-unit-id="401" 
-                 data-flat="A"
-                 data-typology="3 BHK" 
-                 data-beds="3" 
-                 data-floor="UPPER"
-                 data-area="2321"
-                 tabindex="0"
-                 role="button"
-                 aria-label="View Apartment № 401, Flat A, 3 BHK, 2,321 sq.ft.">
-          
-          <div class="apart-card-head">
-            <span class="apart-card-type">3 BHK LUXURY RESIDENCE</span>
-            <span class="apart-card-completion">COMPLETION: Q4 2026</span>
-          </div>
-
-          <div class="apart-card-plan-graphic">
-            <img class="apart-plan-image" 
-                 src="assets/images/units/unit_a_3bhk.webp" 
-                 alt="Floor Plan Schematic for Unit № 401 Flat A" 
-                 loading="lazy" 
-                 decoding="async"/>
-            <div class="apart-card-zoom-badge" aria-hidden="true">
-              <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="9" cy="9" r="6"/>
-                <line x1="13.5" y1="13.5" x2="18" y2="18"/>
-                <line x1="9" y1="6" x2="9" y2="12"/>
-                <line x1="6" y1="9" x2="12" y2="9"/>
-              </svg>
-              <span>Inspect Plan</span>
-            </div>
-          </div>
-
-          <div class="apart-card-footer">
-            <div class="apart-card-meta-tag">№ 401 · FLAT A · 4TH FLOOR</div>
-            <div class="apart-card-main-figures font-didone">
-              <span class="figures-beds">3 BED</span>
-              <span class="figures-sep">|</span>
-              <span class="figures-area">2,321 SQ.FT.</span>
-            </div>
-            <div class="apart-card-sub-terrace">
-              <span class="built-up-tag">BUILT-UP: 1,675 SQ.FT.</span>
-              <span class="balcony-tag">+ EXPANSIVE PRIVATE BALCONIES</span>
-            </div>
-            <div class="apart-card-vastu-badge">
-              <svg viewBox="0 0 12 12" width="12" height="12" fill="currentColor">
-                <circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.2"/>
-                <circle cx="6" cy="6" r="2"/>
-              </svg>
-              <span>VASTU HARMONIZED (265°)</span>
-            </div>
-          </div>
-        </article>
-        <!-- Unit Card № 402 (Flat B) -->
-        <article class="apart-card-item" 
-                 data-unit-id="402" 
-                 data-flat="B"
-                 data-typology="4 BHK" 
-                 data-beds="4" 
-                 data-floor="UPPER"
-                 data-area="2680"
-                 tabindex="0"
-                 role="button"
-                 aria-label="View Apartment № 402, Flat B, 4 BHK, 2,680 sq.ft.">
-          
-          <div class="apart-card-head">
-            <span class="apart-card-type">4 BHK GRAND RESIDENCE</span>
-            <span class="apart-card-completion">COMPLETION: Q4 2026</span>
-          </div>
-
-          <div class="apart-card-plan-graphic">
-            <img class="apart-plan-image" 
-                 src="assets/images/units/unit_b_4bhk.webp" 
-                 alt="Floor Plan Schematic for Unit № 402 Flat B" 
-                 loading="lazy" 
-                 decoding="async"/>
-            <div class="apart-card-zoom-badge" aria-hidden="true">
-              <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="9" cy="9" r="6"/>
-                <line x1="13.5" y1="13.5" x2="18" y2="18"/>
-                <line x1="9" y1="6" x2="9" y2="12"/>
-                <line x1="6" y1="9" x2="12" y2="9"/>
-              </svg>
-              <span>Inspect Plan</span>
-            </div>
-          </div>
-
-          <div class="apart-card-footer">
-            <div class="apart-card-meta-tag">№ 402 · FLAT B · 4TH FLOOR</div>
-            <div class="apart-card-main-figures font-didone">
-              <span class="figures-beds">4 BED</span>
-              <span class="figures-sep">|</span>
-              <span class="figures-area">2,680 SQ.FT.</span>
-            </div>
-            <div class="apart-card-sub-terrace">
-              <span class="built-up-tag">BUILT-UP: 1,935 SQ.FT.</span>
-              <span class="balcony-tag">+ NAHARGARH ORIENTED BALCONY</span>
-            </div>
-            <div class="apart-card-vastu-badge">
-              <svg viewBox="0 0 12 12" width="12" height="12" fill="currentColor">
-                <circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.2"/>
-                <circle cx="6" cy="6" r="2"/>
-              </svg>
-              <span>VASTU HARMONIZED (265°)</span>
-            </div>
-          </div>
-        </article>
-        <!-- Unit Card № 403 (Flat C) -->
-        <article class="apart-card-item" 
-                 data-unit-id="403" 
-                 data-flat="C"
-                 data-typology="3 BHK" 
-                 data-beds="3" 
-                 data-floor="UPPER"
-                 data-area="2240"
-                 tabindex="0"
-                 role="button"
-                 aria-label="View Apartment № 403, Flat C, 3 BHK, 2,240 sq.ft.">
-          
-          <div class="apart-card-head">
-            <span class="apart-card-type">3 BHK LUXURY RESIDENCE</span>
-            <span class="apart-card-completion">COMPLETION: Q4 2026</span>
-          </div>
-
-          <div class="apart-card-plan-graphic">
-            <img class="apart-plan-image" 
-                 src="assets/images/units/unit_c_3bhk.webp" 
-                 alt="Floor Plan Schematic for Unit № 403 Flat C" 
-                 loading="lazy" 
-                 decoding="async"/>
-            <div class="apart-card-zoom-badge" aria-hidden="true">
-              <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="9" cy="9" r="6"/>
-                <line x1="13.5" y1="13.5" x2="18" y2="18"/>
-                <line x1="9" y1="6" x2="9" y2="12"/>
-                <line x1="6" y1="9" x2="12" y2="9"/>
-              </svg>
-              <span>Inspect Plan</span>
-            </div>
-          </div>
-
-          <div class="apart-card-footer">
-            <div class="apart-card-meta-tag">№ 403 · FLAT C · 4TH FLOOR</div>
-            <div class="apart-card-main-figures font-didone">
-              <span class="figures-beds">3 BED</span>
-              <span class="figures-sep">|</span>
-              <span class="figures-area">2,240 SQ.FT.</span>
-            </div>
-            <div class="apart-card-sub-terrace">
-              <span class="built-up-tag">BUILT-UP: 1,620 SQ.FT.</span>
-              <span class="balcony-tag">+ DUAL BALCONIES & UTILITY</span>
-            </div>
-            <div class="apart-card-vastu-badge">
-              <svg viewBox="0 0 12 12" width="12" height="12" fill="currentColor">
-                <circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.2"/>
-                <circle cx="6" cy="6" r="2"/>
-              </svg>
-              <span>VASTU HARMONIZED (265°)</span>
-            </div>
-          </div>
-        </article>
-        <!-- Unit Card № 501 (Flat A) -->
-        <article class="apart-card-item" 
-                 data-unit-id="501" 
-                 data-flat="A"
-                 data-typology="3 BHK" 
-                 data-beds="3" 
-                 data-floor="UPPER"
-                 data-area="2321"
-                 tabindex="0"
-                 role="button"
-                 aria-label="View Apartment № 501, Flat A, 3 BHK, 2,321 sq.ft.">
-          
-          <div class="apart-card-head">
-            <span class="apart-card-type">3 BHK PENTHOUSE LEVEL</span>
-            <span class="apart-card-completion">COMPLETION: Q4 2026</span>
-          </div>
-
-          <div class="apart-card-plan-graphic">
-            <img class="apart-plan-image" 
-                 src="assets/images/units/unit_a_3bhk.webp" 
-                 alt="Floor Plan Schematic for Unit № 501 Flat A" 
-                 loading="lazy" 
-                 decoding="async"/>
-            <div class="apart-card-zoom-badge" aria-hidden="true">
-              <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="9" cy="9" r="6"/>
-                <line x1="13.5" y1="13.5" x2="18" y2="18"/>
-                <line x1="9" y1="6" x2="9" y2="12"/>
-                <line x1="6" y1="9" x2="12" y2="9"/>
-              </svg>
-              <span>Inspect Plan</span>
-            </div>
-          </div>
-
-          <div class="apart-card-footer">
-            <div class="apart-card-meta-tag">№ 501 · FLAT A · 5TH FLOOR</div>
-            <div class="apart-card-main-figures font-didone">
-              <span class="figures-beds">3 BED</span>
-              <span class="figures-sep">|</span>
-              <span class="figures-area">2,321 SQ.FT.</span>
-            </div>
-            <div class="apart-card-sub-terrace">
-              <span class="built-up-tag">BUILT-UP: 1,675 SQ.FT.</span>
-              <span class="balcony-tag">+ EXPANSIVE PRIVATE BALCONIES</span>
-            </div>
-            <div class="apart-card-vastu-badge">
-              <svg viewBox="0 0 12 12" width="12" height="12" fill="currentColor">
-                <circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.2"/>
-                <circle cx="6" cy="6" r="2"/>
-              </svg>
-              <span>VASTU HARMONIZED (265°)</span>
-            </div>
-          </div>
-        </article>
-        <!-- Unit Card № 502 (Flat B) -->
-        <article class="apart-card-item" 
-                 data-unit-id="502" 
-                 data-flat="B"
-                 data-typology="4 BHK" 
-                 data-beds="4" 
-                 data-floor="UPPER"
-                 data-area="2680"
-                 tabindex="0"
-                 role="button"
-                 aria-label="View Apartment № 502, Flat B, 4 BHK, 2,680 sq.ft.">
-          
-          <div class="apart-card-head">
-            <span class="apart-card-type">4 BHK PENTHOUSE LEVEL</span>
-            <span class="apart-card-completion">COMPLETION: Q4 2026</span>
-          </div>
-
-          <div class="apart-card-plan-graphic">
-            <img class="apart-plan-image" 
-                 src="assets/images/units/unit_b_4bhk.webp" 
-                 alt="Floor Plan Schematic for Unit № 502 Flat B" 
-                 loading="lazy" 
-                 decoding="async"/>
-            <div class="apart-card-zoom-badge" aria-hidden="true">
-              <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="9" cy="9" r="6"/>
-                <line x1="13.5" y1="13.5" x2="18" y2="18"/>
-                <line x1="9" y1="6" x2="9" y2="12"/>
-                <line x1="6" y1="9" x2="12" y2="9"/>
-              </svg>
-              <span>Inspect Plan</span>
-            </div>
-          </div>
-
-          <div class="apart-card-footer">
-            <div class="apart-card-meta-tag">№ 502 · FLAT B · 5TH FLOOR</div>
-            <div class="apart-card-main-figures font-didone">
-              <span class="figures-beds">4 BED</span>
-              <span class="figures-sep">|</span>
-              <span class="figures-area">2,680 SQ.FT.</span>
-            </div>
-            <div class="apart-card-sub-terrace">
-              <span class="built-up-tag">BUILT-UP: 1,935 SQ.FT.</span>
-              <span class="balcony-tag">+ NAHARGARH ORIENTED BALCONY</span>
-            </div>
-            <div class="apart-card-vastu-badge">
-              <svg viewBox="0 0 12 12" width="12" height="12" fill="currentColor">
-                <circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.2"/>
-                <circle cx="6" cy="6" r="2"/>
-              </svg>
-              <span>VASTU HARMONIZED (265°)</span>
-            </div>
-          </div>
-        </article>
-        <!-- Unit Card № 503 (Flat C) -->
-        <article class="apart-card-item" 
-                 data-unit-id="503" 
-                 data-flat="C"
-                 data-typology="3 BHK" 
-                 data-beds="3" 
-                 data-floor="UPPER"
-                 data-area="2240"
-                 tabindex="0"
-                 role="button"
-                 aria-label="View Apartment № 503, Flat C, 3 BHK, 2,240 sq.ft.">
-          
-          <div class="apart-card-head">
-            <span class="apart-card-type">3 BHK PENTHOUSE LEVEL</span>
-            <span class="apart-card-completion">COMPLETION: Q4 2026</span>
-          </div>
-
-          <div class="apart-card-plan-graphic">
-            <img class="apart-plan-image" 
-                 src="assets/images/units/unit_c_3bhk.webp" 
-                 alt="Floor Plan Schematic for Unit № 503 Flat C" 
-                 loading="lazy" 
-                 decoding="async"/>
-            <div class="apart-card-zoom-badge" aria-hidden="true">
-              <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="9" cy="9" r="6"/>
-                <line x1="13.5" y1="13.5" x2="18" y2="18"/>
-                <line x1="9" y1="6" x2="9" y2="12"/>
-                <line x1="6" y1="9" x2="12" y2="9"/>
-              </svg>
-              <span>Inspect Plan</span>
-            </div>
-          </div>
-
-          <div class="apart-card-footer">
-            <div class="apart-card-meta-tag">№ 503 · FLAT C · 5TH FLOOR</div>
-            <div class="apart-card-main-figures font-didone">
-              <span class="figures-beds">3 BED</span>
-              <span class="figures-sep">|</span>
-              <span class="figures-area">2,240 SQ.FT.</span>
-            </div>
-            <div class="apart-card-sub-terrace">
-              <span class="built-up-tag">BUILT-UP: 1,620 SQ.FT.</span>
-              <span class="balcony-tag">+ DUAL BALCONIES & UTILITY</span>
-            </div>
-            <div class="apart-card-vastu-badge">
-              <svg viewBox="0 0 12 12" width="12" height="12" fill="currentColor">
-                <circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.2"/>
-                <circle cx="6" cy="6" r="2"/>
-              </svg>
-              <span>VASTU HARMONIZED (265°)</span>
             </div>
           </div>
         </article>
@@ -1502,8 +618,6 @@
     <section class="apart-cta-banner-section" aria-label="Call to Action">
       <div class="cta-video-background">
         <video autoplay loop muted playsinline webkit-playsinline="true" disablepictureinpicture poster="assets/images/icons/6a0f88f3b81e88aabf6874e7_img_cta_1920-p-1600.png">
-          <source src="assets/video/bougainvillea.webm" type="video/webm">
-          <source src="assets/video/bougainvillea.mp4" type="video/mp4">
         </video>
         <div class="cta-banner-dark-overlay"></div>
       </div>
@@ -1512,7 +626,7 @@
         <p class="cta-quote-line">A SHORT CONVERSATION IS ENOUGH TO UNDERSTAND WHICH APARTMENT FITS YOUR FAMILY — WHETHER AS A LUXURY SECOND HOME, A MULTI-GENERATIONAL SANCTUARY, OR A HERITAGE ADDRESS.</p>
         <h2 class="cta-main-title font-didone">A Life Beyond Ordinary<br/>In Bani Park, Jaipur</h2>
         <div class="cta-actions-wrap">
-          <button type="button" class="cta-primary-btn" id="cta-book-modal-trigger">
+          <button type="button" class="cta-primary-btn" id="cta-book-modal-trigger" class="book-call-trigger">
             <span>Schedule a Private Viewing</span>
             <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
               <line x1="4" y1="10" x2="16" y2="10"/>
@@ -1535,7 +649,7 @@
       
       <div class="plan-modal-content-grid">
         <div class="plan-modal-visual">
-          <img id="plan-modal-img" src="" alt="Detailed Floor Plan" />
+          <img id="plan-modal-img" alt="Detailed Floor Plan" />
           <div class="plan-modal-zoom-hint">Pinch or scroll to inspect layout dimensions</div>
         </div>
         
@@ -1615,7 +729,7 @@
           <div class="form-field-group">
             <label class="form-field-label" for="book-residence-pref">PREFERRED RESIDENCE</label>
             <select id="book-residence-pref" name="residence" class="form-select-input">
-              <option value="General Inquiry">General Residence Inquiry (18 Units)</option>
+              <option value="General Inquiry">General Residence Inquiry</option>
               <option value="3 BHK Luxury - Unit A (2,321 sq.ft.)">3 BHK Luxury — Flat A (2,321 Sq.Ft.)</option>
               <option value="4 BHK Grand - Unit B (2,680 sq.ft.)">4 BHK Grand — Flat B (2,680 Sq.Ft.)</option>
               <option value="3 BHK Luxury - Unit C (2,240 sq.ft.)">3 BHK Luxury — Flat C (2,240 Sq.Ft.)</option>
@@ -1630,7 +744,7 @@
 
           <div class="form-checkbox-group">
             <label class="form-checkbox-label">
-              <input type="checkbox" id="book-consent" required checked />
+              <input type="checkbox" id="book-consent" required checked / name="consent"/>
               <span>I agree to receive project details and updates per the <a href="contact.html" target="_blank">Privacy Policy</a>.</span>
             </label>
           </div>
@@ -1708,26 +822,20 @@
           PINK OAKS RESIDENCES. &copy; 2026 ALL RIGHTS RESERVED
         </div>
         
-        <div class="footer-legal-links">
-          <a href="contact.html">PRIVACY POLICY</a>
-          <span class="footer-legal-sep">·</span>
-          <a href="contact.html">TERMS OF USE</a>
-          <span class="footer-legal-sep">·</span>
-          <a href="contact.html">DISCLAIMER</a>
-        </div>
+        
 
         <div class="footer-social-links">
-          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+          <a href="https://www.instagram.com/pinkoaksjaipur" target="_blank" rel="noopener" aria-label="Instagram">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
             </svg>
           </a>
-          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+          <a href="https://www.facebook.com/pinkoaksjaipur" target="_blank" rel="noopener" aria-label="Facebook">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
               <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
             </svg>
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/company/pinkoaks" target="_blank" rel="noopener" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
               <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
             </svg>
@@ -1762,6 +870,8 @@
   <script src="assets/js/vendor/lottie.min.js"></script>
   <script src="assets/js/app.js"></script>
   <script src="assets/js/site.js"></script>
+  <script src="assets/js/editorial-lux.js"></script>
+  <script src="assets/js/forms.js"></script>
 
   <!-- Apartments-specific: Filtering, Plan Viewer & Book Modal -->
   <script>
@@ -2193,5 +1303,25 @@
 
   })();
   </script>
+<div class="lux-mobile-menu-overlay" aria-hidden="true">
+    <div class="mobile-menu-header">
+      <div class="mobile-menu-brand-tag">Pink Oaks Residence</div>
+      <button class="mobile-menu-close-btn" type="button" aria-label="Close Menu">&times;</button>
+    </div>
+    <nav class="mobile-menu-nav-links">
+      <a href="index.html" class="mobile-menu-nav-item">Home</a>
+      <a href="apartments.html" class="mobile-menu-nav-item is-active">Select an Apartment</a>
+      <a href="#book-call" class="mobile-menu-nav-item book-call-trigger">Book a Call</a>
+      <a href="contact.html" class="mobile-menu-nav-item">Contact</a>
+    </nav>
+    <div class="mobile-menu-footer-meta">
+      <a class="mobile-menu-contact-line" href="tel:+919116965636">+91 91169 65636</a>
+      <a class="mobile-menu-contact-line" href="mailto:sales@pinkoaks.in">sales@pinkoaks.in</a>
+      <div class="mobile-menu-social-row">
+        <a href="https://www.instagram.com/pinkoaksjaipur" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.facebook.com/pinkoaksjaipur" target="_blank" rel="noopener noreferrer">Facebook</a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

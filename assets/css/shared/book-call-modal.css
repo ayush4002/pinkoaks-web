@@ -1,0 +1,228 @@
+/* book-call-modal.css
+   Styling for the "Book a Call" lead modal on contact.html and the three
+   apartment variant pages.
+
+   The markup and the JS (initBookCallModal in editorial-lux.js, which toggles
+   `.is-active`) were both in place, but not one of these classes was defined in
+   any stylesheet. The modal opened as an unstyled block and its inputs rendered
+   at 58x9px with 3.75px text — unusable. This is the missing half. */
+
+:root {
+  --bcm-navy: #122a4d;
+  --bcm-cream: #F2EFE7;
+  --bcm-line: rgba(18, 42, 77, 0.16);
+}
+
+
+/* ------------------------------------------------------------------ shell */
+.lux-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.35s ease, visibility 0s linear 0.35s;
+}
+
+.lux-modal-overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.35s ease, visibility 0s;
+}
+
+.lux-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(18, 42, 77, 0.55);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.lux-modal-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 520px;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background: var(--bcm-cream);
+  border-radius: 16px;
+  box-shadow: 0 30px 70px -20px rgba(18, 42, 77, 0.45);
+  transform: translateY(12px);
+  transition: transform 0.35s ease;
+}
+
+.lux-modal-overlay.is-active .lux-modal-content {
+  transform: translateY(0);
+}
+
+/* stop the page behind scrolling while the modal is up */
+body.modal-open {
+  overflow: hidden;
+}
+
+.book-call-modal-inner {
+  padding: 40px 36px 36px;
+}
+
+.modal-close-trigger {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--bcm-line);
+  border-radius: 50%;
+  background: none;
+  color: var(--bcm-navy);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+
+/* ------------------------------------------------------------------ copy */
+.modal-call-title {
+  /* keep clear of the close button in the top-right corner */
+  padding-right: 52px;
+  font-size: clamp(26px, 5vw, 36px);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  color: var(--bcm-navy);
+  margin: 0 0 10px;
+}
+
+.modal-call-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: rgba(18, 42, 77, 0.72);
+  margin: 0 0 26px;
+}
+
+
+/* ----------------------------------------------------------------- fields */
+.modal-form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.modal-form-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(18, 42, 77, 0.6);
+  margin-bottom: 7px;
+}
+
+.modal-form-input {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid var(--bcm-line);
+  border-radius: 8px;
+  background: #FFFFFF;
+  font-family: 'Inter', sans-serif;
+  /* 16px keeps mobile Safari from zooming the page on focus */
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--bcm-navy);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.modal-form-input::placeholder {
+  color: rgba(18, 42, 77, 0.38);
+}
+
+.modal-form-input:focus {
+  outline: none;
+  border-color: var(--bcm-navy);
+  box-shadow: 0 0 0 3px rgba(18, 42, 77, 0.1);
+}
+
+.modal-form-textarea {
+  min-height: 84px;
+  resize: vertical;
+}
+
+
+/* ---------------------------------------------------------------- consent */
+.modal-privacy-agreement {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 4px 0 22px;
+}
+
+.modal-privacy-agreement input[type="checkbox"] {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  accent-color: var(--bcm-navy);
+}
+
+.modal-privacy-agreement label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: rgba(18, 42, 77, 0.7);
+}
+
+
+/* ----------------------------------------------------------------- submit */
+.modal-submit-btn {
+  width: 100%;
+  min-height: 52px;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 30px;
+  background: var(--bcm-navy);
+  color: var(--bcm-cream);
+  font-family: 'Inter', sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.modal-submit-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+
+/* ------------------------------------------------------------- responsive */
+@media (max-width: 520px) {
+
+  .lux-modal-overlay {
+    padding: 14px;
+  }
+
+  .book-call-modal-inner {
+    padding: 34px 22px 26px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .lux-modal-overlay,
+  .lux-modal-content,
+  .modal-submit-btn {
+    transition: none;
+  }
+}

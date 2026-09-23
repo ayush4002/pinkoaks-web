@@ -1,0 +1,206 @@
+/* mobile-menu.css
+   The full-screen mobile navigation used by apartments.html and contact.html.
+
+   The markup and the JS (initMobileMenu in editorial-lux.js) were already in
+   place, but no stylesheet ever defined these classes, so the overlay had no
+   position, no background and no hidden state — the menu could not work. This
+   supplies them. The JS only toggles `.is-active` on the overlay and
+   `menu-open` on <body>; everything else is here. */
+
+:root {
+  --mm-navy: #122a4d;
+  --mm-cream: #F2EFE7;
+  --mm-pink: #F9C0D1;
+}
+
+
+/* ----------------------------------------------------------- trigger button */
+.mobile-menu-trigger-btn {
+  display: none;              /* desktop uses the text nav instead */
+  position: relative;
+  z-index: 1002;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid rgba(18, 42, 77, 0.18);
+  border-radius: 50%;
+  background: rgba(242, 239, 231, 0.9);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-menu-burger-lines {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 20px;
+}
+
+.mobile-menu-burger-lines span {
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: var(--mm-navy);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+body.menu-open .mobile-menu-burger-lines span:first-child {
+  transform: translateY(3.25px) rotate(45deg);
+}
+
+body.menu-open .mobile-menu-burger-lines span:last-child {
+  transform: translateY(-3.25px) rotate(-45deg);
+}
+
+
+/* ----------------------------------------------------------------- overlay */
+.lux-mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 24px 40px;
+  background: var(--mm-pink);
+  /* hidden but still focusable-safe: removed from the tab order via inert-ish
+     pointer-events, and faded out rather than display:none so it can animate */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-12px);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s linear 0.4s;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.lux-mobile-menu-overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s;
+}
+
+/* stop the page scrolling behind the open menu */
+body.menu-open {
+  overflow: hidden;
+}
+
+
+/* ------------------------------------------------------------ menu header */
+.mobile-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(18, 42, 77, 0.14);
+}
+
+.mobile-menu-brand-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mm-navy);
+}
+
+.mobile-menu-close-btn {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(18, 42, 77, 0.18);
+  border-radius: 50%;
+  background: none;
+  color: var(--mm-navy);
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+
+/* -------------------------------------------------------------- nav links */
+.mobile-menu-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 36px 0 24px;
+}
+
+.mobile-menu-nav-item {
+  display: block;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(18, 42, 77, 0.08);
+  font-family: var(--_fonts---font-display, 'Playfair Display', serif);
+  font-size: clamp(26px, 8vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--mm-navy);
+  text-decoration: none;
+}
+
+.mobile-menu-nav-item.is-active {
+  opacity: 0.55;
+}
+
+
+/* ------------------------------------------------------------ footer meta */
+.mobile-menu-footer-meta {
+  margin-top: auto;
+  padding-top: 28px;
+  border-top: 1px solid rgba(18, 42, 77, 0.14);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mobile-menu-contact-line {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--mm-navy);
+  text-decoration: none;
+}
+
+.mobile-menu-social-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 10px;
+}
+
+.mobile-menu-social-row a {
+  font-family: 'Inter', sans-serif;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(18, 42, 77, 0.7);
+  text-decoration: none;
+}
+
+
+/* --------------------------------------------------------------- breakpoint */
+@media (max-width: 767px) {
+
+  .mobile-menu-trigger-btn {
+    display: flex;
+  }
+
+  .top-right-nav {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .lux-mobile-menu-overlay,
+  .mobile-menu-burger-lines span {
+    transition: none;
+  }
+}

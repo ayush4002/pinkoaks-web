@@ -186,7 +186,84 @@ image instead of firing failed requests.
 
 `EXTERNAL-URLS.md` has the full account, including three images that need your eye.
 
+## Post-migration fixes (23 Sep)
+
+After the rebuild was migrated back in, these were found and fixed:
+
+1. **`initScripts()` ran twice**, doubling every ScrollTrigger (358 on the home page)
+   and double-binding the menu, so the overlay opened and then never closed. It is now
+   guarded on the container element in `app.js`; the home page is back to 186 triggers
+   and the menu toggles cleanly.
+2. **The mobile menu had no CSS at all.** The markup and `initMobileMenu()` existed but
+   not one class was defined anywhere, so the overlay could not work. Added as
+   `assets/css/shared/mobile-menu.css`.
+3. **The Book-a-Call modal had no CSS either** — its inputs rendered at 58x9px with
+   3.75px text on four pages. Added as `assets/css/shared/book-call-modal.css`.
+4. **`apartments.html` never loaded `editorial-lux.js`**, only its stylesheet, so the
+   menu, filters, floorplan modal and booking modal were all dead on that page.
+5. **`refinements.css` was not linked** on `contact.html` or the three apartment
+   variants, so none of the earlier accessibility and mobile fixes reached them.
+6. **Horizontal scroll**: `contact.html` and the variants overflowed on a phone (413px
+   in a 375px viewport) from unclamped display headings; the home page scrolled 8px
+   sideways on desktop from a `100vw` full-bleed section. Fixed with a mobile type clamp
+   and `overflow-x: clip` (not `hidden`, which would break the five `position: sticky`
+   elements driving the pinned animations).
+7. **`build_pages.py` had drifted** from the shipped pages — it emits 25 cards with
+   `data-unit` attributes while `apartments.html` carries 18 hand-refined ones. Moved to
+   `tools/` (it was being served publicly from `assets/js/`) and it now refuses to run
+   without `--force`.
+8. Dead `assets/video/` sources removed, the empty `<img src="">` dropped, the dangling
+   "you agree to our ." sentence completed, one phone number sitewide
+   (`+91 91169 65636`), and the Spain-era LinkedIn (`pinkoaksestepona`) plus placeholder
+   social links replaced with the real handles.
+
+**Still open, needing your decision:** the forms post nowhere (the modal only shows a
+success message via inline `onsubmit`); the copy still says 18 residences while
+`apartments.json` holds 25 units; and "sea views", "Mediterranean" and
+"Bani Park, Jaipur, Malaga, Jaipur" remain in the copy.
+
+## Forms — now connected
+
+All 31 pages submit through `assets/js/forms.js`, which handles the four different
+form shapes on the site. Before this, none of them sent anything: the Webflow forms had
+no `action`, and the two modal forms ran an inline `onsubmit` that hid the fields and
+showed "THANK YOU" without transmitting a thing.
+
+**You must set the destination before going live.** Two options:
+
+1. **Your own hosting (default).** `form-handler.php` sits in the site root. Open it and
+   set `$TO` to the address that should receive leads. Works on Hostinger/cPanel with no
+   signup. It emails the lead *and* appends it to `leads.csv` as a backup, so nothing is
+   lost if the mail server hiccups. Until `$TO` is set it refuses submissions loudly
+   rather than dropping them silently.
+2. **A hosted service.** Put the URL in `window.PINKOAKS_FORM.endpoint` at the top of
+   `assets/js/forms.js` — Formspree, Web3Forms and Getform all accept the JSON it posts.
+
+Every submission carries: name, email, phone, message, residence, `page_url`,
+`page_title`, any `utm_*` in the query string, and a timestamp.
+
+Also included: client-side validation with inline messages, a "Sending…" state, a
+honeypot spam trap, and a genuine error path — if the endpoint fails the form shows the
+error and keeps the user's input instead of pretending it worked.
+
+### One thing to be aware of
+
+On the 26 Webflow pages a stray `</div>` closes `<form>` before its own fields, so the
+browser parks 11 of the 12 inputs — and the submit button — *outside* the form element.
+That is why the button did nothing at all on those pages: `app.js` looks for
+`closest('form')` and finds none. `forms.js` works around it by searching the surrounding
+container and binding the orphaned button directly. Repairing that nesting is still worth
+doing; see the known issues below.
+
 ## Known issues carried over from the original
+
+0. **Encoded CDN URLs in dead Webflow CMS templates.** The 25 unit pages each carry two
+   `<script type="text/x-wf-template">` blocks holding URL-encoded markup that still
+   points at `cdn.prod.website-files.com`. They are inert — verified at runtime: zero
+   requests reach that host and zero images come from it — because nothing decodes or
+   injects them. They survived the asset localisation only because the URLs are
+   percent-encoded (`%3A%2F%2F`), so the rewriter never matched them. Harmless today,
+   but worth deleting as dead weight.
 
 These were in the source export. They are **not** fixed here, so that this port stays a
 faithful copy — each one is a deliberate decision waiting on you.

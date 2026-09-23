@@ -432,7 +432,23 @@ function initPageTransitions() {
   }
 }
 
+// initScripts() is reached from several places: the boot path, Barba's `once`
+// hook, and each page transition. None of the init* functions below are
+// idempotent — they add listeners and create ScrollTriggers unconditionally — so
+// running twice on the same container doubled every trigger and left the mobile
+// menu with two competing click handlers, which meant it would never close.
+// The guard keys on the container element, so a Barba swap (new container) still
+// re-initialises exactly once.
+let scriptsInitedOn = null;
+
 function initScripts() {
+  const scope = document.querySelector('[data-barba="container"]') || document.body;
+  if (scriptsInitedOn === scope) return;
+  scriptsInitedOn = scope;
+  runPageScripts();
+}
+
+function runPageScripts() {
   initTranistionFlow(), initLocalLenis(), initThemeChange(), initSnapSections(), initForm(), initUtmFields(), initPlayPauseVideoScroll(), initOther(), initIndexCounter(), fitText(), initBenefitCards(), initScrollRevealFirst(), initScrollElementsReveal(), initMagneticEffect(), initNavItemHover(), initLinkHover(), initBtnCircleHover(), initSelect(), initPins(), initLogo(), initScrollBar(), initTFTLjson(), initCardParts(), initAccordion(), initSlider(), initCarousel(), initLightbox(), initImageZoom(), initTabs(), initTabsHilight(), initTabsHero(), initModalCta(), initModalMenu(), initModalTip(), initFloatingTips(), initFilter(), initSort(), initReset()
 }
 

@@ -161,8 +161,14 @@
    with ample padding on all screens (especially mobile) so boundaries never touch.
    --------------------------------------------------------------------------- */
 .header-logo .logo_symbol.header {
-  width: 56px !important;
-  height: 36px !important;
+  /* Square now, not 56x36. The inner image used to be logo.webp, the full
+     horizontal lockup (1600x651), so a wide letterbox made sense — but it
+     shrank the mark to ~32x20 on a phone and repeated the name the rotating
+     ring already shows. The inner image is now the leaf alone (511x439), so a
+     square box lets it fill the circle instead of letterboxing. */
+  /* the desktop ring renders ~122px, so ~50% of it reads well */
+  width: 62px !important;
+  height: 62px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -184,15 +190,15 @@
 
 @media screen and (max-width: 991px) {
   .header-logo .logo_symbol.header {
-    width: 36px !important;
-    height: 24px !important;
+    width: 42px !important;
+    height: 42px !important;
   }
 }
 
 @media screen and (max-width: 479px) {
   .header-logo .logo_symbol.header {
-    width: 32px !important;
-    height: 20px !important;
+    width: 38px !important;
+    height: 38px !important;
   }
 }
 
@@ -946,3 +952,128 @@
 
 
 
+
+
+/* ---------------------------------------------------------------------------
+   6. Oversized display headings must not widen the page on a phone
+
+   contact.html rendered "Contact Us" at 86px inside a 375px viewport, which
+   pushed the document to 413px wide and gave the whole page a horizontal
+   scrollbar. The headings are sized in vw/px without an upper bound at the
+   small end, so they overflow their own box.
+
+   This caps them to the viewport and lets long words break rather than spill.
+   --------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+
+  /* editorial-lux.css is linked after this file, so these need !important to
+     land; everything else in this stylesheet relies on load order alone. */
+  .contact-page-title,
+  .cta-banner-headline,
+  .apart-hero-title,
+  .apartments-hero-title,
+  .font-didone {
+    max-width: 100% !important;
+    font-size: clamp(30px, 11vw, 52px) !important;
+    overflow-wrap: break-word !important;
+    word-break: normal;
+    hyphens: auto;
+  }
+
+}
+
+
+/* ---------------------------------------------------------------------------
+   7. Kill the sideways scroll from the full-bleed quote section
+
+   `section.z-2` and its children use the classic `width: 100vw` + negative
+   margin full-bleed. 100vw counts the scrollbar but the content box does not,
+   so the section hangs ~8px past each edge and the whole page scrolls sideways.
+
+   `clip` rather than `hidden`: hidden would turn <body> into a scroll container
+   and break the five position:sticky elements that drive the pinned hero,
+   location and architecture animations. `clip` trims the overhang and leaves
+   sticky alone.
+   --------------------------------------------------------------------------- */
+html,
+body {
+  overflow-x: clip;
+}
+
+
+/* ---------------------------------------------------------------------------
+   8. Form validation feedback (used by assets/js/forms.js)
+   --------------------------------------------------------------------------- */
+.po-field-error {
+  margin-top: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: #B3261E;
+}
+
+[aria-invalid="true"] {
+  border-color: #B3261E !important;
+}
+
+.po-form-status {
+  display: none;
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: rgba(18, 42, 77, 0.06);
+  border: 1px solid rgba(18, 42, 77, 0.16);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #122a4d;
+}
+
+.po-form-status.is-error {
+  background: rgba(179, 38, 30, 0.07);
+  border-color: rgba(179, 38, 30, 0.3);
+  color: #B3261E;
+}
+
+
+/* ---------------------------------------------------------------------------
+   9. Rotating brand badge — keep the leaf inside the ring
+
+   editorial-lux.css declares `.brand-badge-emblem` twice. The first, meant for
+   this badge, is `position:absolute; width:32px`. The second belongs to the
+   `.brand-badge-l` variant that wraps the emblem in a navy `.brand-badge-circle-bg`
+   and sets `width:100%`. The second one wins, so on apartments.html, contact.html
+   and the three variants — none of which have a circle background — the leaf
+   rendered at 80x80, the full badge, covering the rotating "PINK OAKS • RESIDENCE"
+   ring and spilling past the circle.
+
+   Scoped through .top-header-bar so specificity (0,3,0) beats the stray rule
+   regardless of stylesheet order: on apartments.html editorial-lux.css loads
+   after this file.
+
+   The ring's text sits at 38% radius, leaving roughly 63% of the badge clear,
+   so 45% keeps the leaf comfortably inside it.
+   --------------------------------------------------------------------------- */
+.top-header-bar .brand-badge-logo > .brand-badge-emblem {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 45%;
+  height: 45%;
+  z-index: 2;
+}
+
+/* restore the intended sizing when the navy circle variant IS present */
+.top-header-bar .brand-badge-circle-bg > .brand-badge-emblem {
+  position: static;
+  transform: none;
+  width: 62%;
+  height: 62%;
+}
+
+.top-header-bar .brand-badge-logo > .brand-badge-emblem img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

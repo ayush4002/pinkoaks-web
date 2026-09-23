@@ -1,4 +1,35 @@
-import json, os
+"""Generator for apartments*.html and contact.html.
+
+    !!  THE SHIPPED PAGES HAVE DIVERGED FROM THIS SCRIPT.  !!
+
+apartments.html now carries 18 hand-refined cards written as
+`<div class="apart-card-item">`, while this script emits 25 cards carrying
+data-unit / data-typology / data-bedrooms / data-area / data-floor attributes,
+one per entry in assets/data/apartments.json.
+
+Running it therefore REPLACES the live pages with different markup and a
+different unit count, and editorial-lux.js filters on those cards, so the
+filtering behaviour changes too.
+
+Reconcile the JSON and the card template with the live pages before trusting it
+again. Until then it refuses to run without --force.
+
+Run from the project root:
+    python tools/build_pages.py --force
+"""
+import sys, os
+
+if '--force' not in sys.argv:
+    sys.exit(
+        "Refusing to run: this generator is out of sync with the shipped pages.\n"
+        "It would overwrite apartments.html (18 cards) with 25 generated cards.\n"
+        "Read the docstring at the top of this file, then re-run with --force."
+    )
+
+# paths in this script are relative to the project root
+os.chdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
+
+import json
 
 # 1. Load apartments data
 with open('assets/data/apartments.json', 'r', encoding='utf-8') as f:
