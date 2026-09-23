@@ -222,8 +222,11 @@
 
 @media screen and (min-width: 992px) {
   .quote-full-section {
-    height: 100vh !important;
-    min-height: 700px !important;
+    width: 100vw !important;
+    aspect-ratio: 1493 / 1054 !important;
+    height: calc(100vw * 1054 / 1493) !important;
+    min-height: unset !important;
+    max-height: unset !important;
   }
 
   .quote-full-section .quote-bg-wrap {
