@@ -198,8 +198,8 @@
 
 /* ---------------------------------------------------------------------------
    7. Full-bleed Quote / Building Twilight Section
-   Image covers the full section (no letterbox / no pink bars).
-   Text is clearly visible on both desktop & mobile.
+   Desktop: Full image (entire building from rooftop to ground) with text on the left.
+   Mobile: Full cover with centered readable text.
    --------------------------------------------------------------------------- */
 .quote-full-section {
   position: relative !important;
@@ -210,7 +210,7 @@
   margin-right: -50vw !important;
   min-height: 100vh !important;
   overflow: hidden !important;
-  background-color: #0c1829 !important;
+  background-color: #031326 !important;
   display: flex !important;
   flex-direction: column !important;
   justify-content: center !important;
@@ -220,13 +220,212 @@
   margin-bottom: 0 !important;
 }
 
-.quote-full-section picture,
-.quote-full-section img {
+@media screen and (min-width: 992px) {
+  .quote-full-section {
+    height: 100vh !important;
+    min-height: 700px !important;
+  }
+
+  .quote-full-section .quote-bg-wrap {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #031326 !important;
+  }
+
+  .quote-full-section picture {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .quote-full-section picture img,
+  .quote-full-section .twilight-img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    display: block !important;
+  }
+
+  .quote-full-section .quote-content-container {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 5 !important;
+    width: 100% !important;
+    max-width: 1540px !important;
+    margin: 0 auto !important;
+    padding: 0 clamp(2rem, 5vw, 6rem) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    pointer-events: none !important;
+    box-sizing: border-box !important;
+  }
+
+  .quote-full-section .quote-content-box {
+    max-width: 440px !important;
+    pointer-events: auto !important;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9) !important;
+  }
+
+  .quote-full-section .quote-text {
+    font-size: clamp(20px, 1.8vw, 26px) !important;
+    line-height: 1.4 !important;
+    max-width: 440px !important;
+    margin: 0 0 2rem 0 !important;
+  }
+
+  .quote-full-section .twilight-overlay {
+    background: linear-gradient(90deg, rgba(3,19,38,0.72) 0%, rgba(3,19,38,0.35) 40%, rgba(3,19,38,0) 68%) !important;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .quote-full-section {
+    min-height: 85vh !important;
+    height: auto !important;
+  }
+
+  .quote-full-section .quote-bg-wrap {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .quote-full-section picture,
+  .quote-full-section picture img,
+  .quote-full-section .twilight-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    display: block !important;
+  }
+
+  .quote-full-section .quote-content-container {
+    position: relative !important;
+    z-index: 5 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 4.5rem 1.5rem 4rem 1.5rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  .quote-full-section .quote-content-box {
+    max-width: 100% !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .quote-full-section .quote-text {
+    font-size: 20px !important;
+    line-height: 1.4 !important;
+    text-align: center !important;
+    margin: 0 auto 2rem auto !important;
+  }
+
+  .quote-full-section .quote-divider {
+    margin: 0 auto 1.5rem auto !important;
+  }
+
+  .quote-full-section .quote-author {
+    text-align: center !important;
+  }
+
+  .quote-full-section .twilight-overlay {
+    background: linear-gradient(180deg, rgba(3,19,38,0.25) 0%, rgba(3,19,38,0.55) 50%, rgba(3,19,38,0.85) 100%) !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Location Category Tabs & Cards — Centered in both desktop and mobile views
+   --------------------------------------------------------------------------- */
+.category-section {
   width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: center center !important;
-  display: block !important;
+  max-width: 960px !important;
+  margin: 32px auto 0 auto !important;
+  padding: 0 16px !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  position: relative !important;
+  z-index: 5 !important;
+  clear: both !important;
+}
+
+.cat-nav {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  gap: 10px 14px !important;
+  margin: 0 auto 24px auto !important;
+  width: 100% !important;
+  max-width: 850px !important;
+}
+
+.cat-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+}
+
+.cat-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+  gap: 12px !important;
+  width: 100% !important;
+  max-width: 960px !important;
+  margin: 0 auto !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+}
+
+@media screen and (max-width: 767px) {
+  .category-section {
+    margin-top: 24px !important;
+    padding: 0 12px !important;
+  }
+  .cat-nav {
+    gap: 8px 10px !important;
+    margin-bottom: 20px !important;
+    justify-content: center !important;
+  }
+  .cat-btn {
+    padding: 7px 14px !important;
+    font-size: 10.5px !important;
+  }
+  .cat-grid {
+    grid-template-columns: 1fr !important;
+    max-width: 440px !important;
+    margin: 0 auto !important;
+  }
+  .s-bar-w, .s-down {
+    display: none !important;
+  }
 }
 
 .quote-w_bg {

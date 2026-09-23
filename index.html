@@ -122,7 +122,7 @@
       },
       {
         "@type": "Accommodation",
-        "name": "Ground Floor",
+        "name": "Master Bedroom / Bedroom",
         "numberOfRooms": 2,
         "floorSize": {
           "@type": "QuantitativeValue",
@@ -674,40 +674,40 @@
       </section>
       <!-- Full-Bleed Architectural Statement Section (Twilight View) -->
       <section class="section z-2 quote-full-section" data-theme="dark"
-        style="position:relative;width:100vw;min-height:100vh;margin:0;padding:0;background:#0c1829;overflow:hidden;display:flex;align-items:center;justify-content:center;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;">
+        style="position:relative;width:100vw;min-height:100vh;margin:0;padding:0;background:#031326;overflow:hidden;display:flex;align-items:center;justify-content:center;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;">
         <!-- Full-Bleed Centered Twilight Building Image -->
-        <div style="position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;z-index:1;overflow:hidden;">
+        <div class="quote-bg-wrap" style="position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;z-index:1;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#031326;">
           <picture style="width:100%;height:100%;display:block;">
             <source srcset="assets/images/hero_nahargarh_twilight.webp" type="image/webp" />
-            <img alt="Pink Oaks Boutique Residences with Nahargarh Twilight View" loading="eager"
-              src="assets/images/hero_nahargarh_twilight.png"
-              style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block;" />
+            <img alt="Pink Oaks Boutique Residences with Nahargarh Twilight View" class="twilight-img" loading="eager"
+              src="assets/images/hero_nahargarh_twilight.png" />
           </picture>
           <!-- Gradient overlay for text legibility -->
-          <div
-            style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(12,24,41,0.25) 0%, rgba(12,24,41,0.45) 50%, rgba(12,24,41,0.85) 100%);pointer-events:none;">
+          <div class="twilight-overlay"
+            style="position:absolute;inset:0;background:linear-gradient(90deg, rgba(3,19,38,0.72) 0%, rgba(3,19,38,0.35) 40%, transparent 68%);pointer-events:none;">
           </div>
         </div>
         <!-- Quote Content Layer -->
-        <div class="quote-content-container"
-          style="position:relative;z-index:5;width:100%;max-width:1100px;margin:0 auto;padding:5rem 2rem 5rem 2rem;box-sizing:border-box;color:#ffffff;display:flex;flex-direction:column;justify-content:center;">
-          <div style="margin-bottom:1.5rem;">
-            <div class="ico-48" style="color:#ffffff;">
-              <svg fill="none" height="48" viewbox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M23.232 30.912C23.232 34.752 20.544 38.208 16.32 38.208C11.328 38.208 5.76 33.984 5.76 22.272C5.76 14.016 9.408 6.14399 19.392 6.14399C19.968 6.14399 23.616 6.336 23.616 7.488C23.616 7.87199 23.424 8.63999 22.656 8.63999C21.888 8.63999 20.928 8.256 19.008 8.256C11.904 8.256 8.64 14.4 8.64 20.928C8.64 23.808 9.984 25.536 12.096 25.536C14.016 25.536 14.592 23.808 17.472 23.808C20.736 23.808 23.232 26.88 23.232 30.912ZM43.2 30.912C43.2 34.752 40.512 38.208 36.096 38.208C31.296 38.208 25.536 33.984 25.536 22.272C25.536 14.016 29.376 6.14399 39.36 6.14399C39.936 6.14399 43.584 6.336 43.584 7.488C43.584 7.87199 43.392 8.63999 42.624 8.63999C41.664 8.63999 40.704 8.256 38.976 8.256C31.68 8.256 28.608 14.4 28.608 20.928C28.608 23.808 29.952 25.536 32.064 25.536C33.984 25.536 34.56 23.808 37.248 23.808C40.704 23.808 43.2 26.88 43.2 30.912Z"
-                  fill="#ffffff"></path>
-              </svg>
+        <div class="quote-content-container">
+          <div class="quote-content-box">
+            <div class="quote-icon-wrap" style="margin-bottom:1.5rem;">
+              <div class="ico-48" style="color:#ffffff;">
+                <svg fill="none" height="48" viewbox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M23.232 30.912C23.232 34.752 20.544 38.208 16.32 38.208C11.328 38.208 5.76 33.984 5.76 22.272C5.76 14.016 9.408 6.14399 19.392 6.14399C19.968 6.14399 23.616 6.336 23.616 7.488C23.616 7.87199 23.424 8.63999 22.656 8.63999C21.888 8.63999 20.928 8.256 19.008 8.256C11.904 8.256 8.64 14.4 8.64 20.928C8.64 23.808 9.984 25.536 12.096 25.536C14.016 25.536 14.592 23.808 17.472 23.808C20.736 23.808 23.232 26.88 23.232 30.912ZM43.2 30.912C43.2 34.752 40.512 38.208 36.096 38.208C31.296 38.208 25.536 33.984 25.536 22.272C25.536 14.016 29.376 6.14399 39.36 6.14399C39.936 6.14399 43.584 6.336 43.584 7.488C43.584 7.87199 43.392 8.63999 42.624 8.63999C41.664 8.63999 40.704 8.256 38.976 8.256C31.68 8.256 28.608 14.4 28.608 20.928C28.608 23.808 29.952 25.536 32.064 25.536C33.984 25.536 34.56 23.808 37.248 23.808C40.704 23.808 43.2 26.88 43.2 30.912Z"
+                    fill="#ffffff"></path>
+                </svg>
+              </div>
             </div>
-          </div>
-          <div style="width:60px;height:2px;background:rgba(255,255,255,0.6);margin-bottom:1.5rem;"></div>
-          <h3 class="h5"
-            style="color:#ffffff;font-size:24px;line-height:1.4;max-width:850px;text-transform:uppercase;letter-spacing:0.02em;margin:0 0 2rem 0;text-shadow:0 2px 14px rgba(0,0,0,0.85);">
-            Instead of corridors, walking paths connect the apartments — making Pink Oaks feel closer to a group of
-            private homes than a standard</h3>
-          <div style="color:#ffffff;text-shadow:0 1px 8px rgba(0,0,0,0.7);">
-            <div class="l1" style="font-weight:700;color:#ffffff;font-size:14px;letter-spacing:0.05em;">Architecture Team</div>
-            <div class="l1 reg" style="color:rgba(255,255,255,0.85);font-size:13px;margin-top:2px;">Pink Oaks</div>
+            <div class="quote-divider" style="width:60px;height:2px;background:rgba(255,255,255,0.6);margin-bottom:1.5rem;"></div>
+            <h3 class="h5 quote-text"
+              style="color:#ffffff;font-size:24px;line-height:1.4;max-width:850px;text-transform:uppercase;letter-spacing:0.02em;margin:0 0 2rem 0;text-shadow:0 2px 14px rgba(0,0,0,0.85);">
+              Instead of corridors, walking paths connect the apartments — making Pink Oaks feel closer to a group of
+              private homes than a standard</h3>
+            <div class="quote-author" style="color:#ffffff;text-shadow:0 1px 8px rgba(0,0,0,0.7);">
+              <div class="l1" style="font-weight:700;color:#ffffff;font-size:14px;letter-spacing:0.05em;">Architecture Team</div>
+              <div class="l1 reg" style="color:rgba(255,255,255,0.85);font-size:13px;margin-top:2px;">Pink Oaks</div>
+            </div>
           </div>
         </div>
       </section>
@@ -939,9 +939,10 @@
                             </svg>
                           </div>
                         </div>
-                        <!-- Categorized Distance Options & Buttons -->
-                        <div class="category-section" style="max-width:960px;margin:32px auto 0;padding:0 16px;">
-                          <div class="cat-nav" style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px 12px;margin-bottom:24px;">
+                      </div>
+                      <!-- Categorized Distance Options & Buttons -->
+                      <div class="category-section" style="width:100%;max-width:960px;margin:32px auto 0;padding:0 16px;box-sizing:border-box;">
+                        <div class="cat-nav" style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 12px;margin:0 auto 24px;text-align:center;">
                             <button type="button" class="cat-btn is-active" data-cat="temple"
                               style="padding:8px 18px;border-radius:24px;border:1px solid #122a4d;background:#122a4d;color:#f7f5f0;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:all 0.2s ease;">Temples</button>
                             <button type="button" class="cat-btn" data-cat="schools"
@@ -1391,15 +1392,15 @@
                                 <div class="u-24">
                                 </div>
                                 <div class="apart-type-slide_btn" data-scroll-reveal="ctn" data-slider="ctn"><a
-                                    aria-label="Explore Ground floor" class="btn w-inline-block"
+                                    aria-label="Explore Master Bedroom / Bedroom" class="btn w-inline-block"
                                     data-wf--btn--variant="sec" hover-btn="" hover-nav-item=""
                                     href="apartments567f.html?type=ground-floor">
                                     <div class="btn_label">
                                       <div class="btn_label_text">
-                                        <div class="l1" hover="text">Explore Ground floor</div>
+                                        <div class="l1" hover="text">Explore Master Bedroom / Bedroom</div>
                                       </div>
                                       <div class="btn_label_text is-2">
-                                        <div class="l1" hover="text">Explore Ground floor</div>
+                                        <div class="l1" hover="text">Explore Master Bedroom / Bedroom</div>
                                       </div>
                                     </div>
                                     <div class="btn_bg">
@@ -1415,7 +1416,7 @@
                           <div class="apart-type-slide_b">
                             <div class="u-48 b-desk">
                             </div>
-                            <h3 class="h2 a-center" data-scroll-reveal="h" data-slider="h">Ground Floor</h3>
+                            <h3 class="h2 a-center" data-scroll-reveal="h" data-slider="h">Master Bedroom / Bedroom</h3>
                             <div class="u-32 b-mob">
                             </div>
                           </div>
@@ -1424,7 +1425,7 @@
                               <div class="img-w" data-scroll-reveal="slide" data-slider="img">
                                 <picture>
                                   <source srcset="assets/images/room.webp" type="image/webp" />
-                                  <img alt="Pink Oaks Ground Floor residence" class="img" loading="eager" sizes="100vw"
+                                  <img alt="Pink Oaks Master Bedroom / Bedroom residence" class="img" loading="eager" sizes="100vw"
                                     src="assets/images/room.jpg.jpeg" />
                                 </picture>
                               </div>
