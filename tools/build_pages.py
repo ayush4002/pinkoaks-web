@@ -384,7 +384,10 @@ def build_apartments_page():
     <!-- SECTION C: FULL-BLEED COURTYARD CTA BANNER -->
     <section class="cta-fullbleed-banner">
       <div class="cta-banner-bg">
-        <img alt="Pink Oaks Penthouse Terraces" src="assets/images/icons/6a0f88f3b81e88aabf6874e7_img_cta_1920-p-1600.png" loading="lazy"/>
+        <picture>
+          <source srcset="assets/images/PINK%20OKAS%20Brochure%20copy.webp" type="image/webp" />
+          <img alt="Pink Oaks Nahargarh Views Terraces" src="assets/images/PINK%20OKAS%20Brochure%20copy.png" loading="lazy"/>
+        </picture>
       </div>
       <div class="cta-banner-overlay"></div>
 
