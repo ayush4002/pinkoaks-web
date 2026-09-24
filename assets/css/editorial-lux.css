@@ -17,7 +17,7 @@
   --color-white: #FFFFFF;
   --color-gold: #C5A059;
 
-  --font-serif: 'Bodoni Moda', 'Playfair Display', Georgia, serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-caps: 'Plus Jakarta Sans', 'Inter', sans-serif;
 
@@ -316,7 +316,7 @@ img, video {
 
 .header-nav_list.f-desk .link .h6.font-didone,
 .header-nav_list.f-desk .link .h6 {
-  font-family: 'Bodoni Moda', 'Playfair Display', serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: 48px;
   font-weight: 400;
   line-height: 1;
@@ -2510,7 +2510,7 @@ img, video {
 }
 
 .menu-didone-heading {
-  font-family: 'Bodoni Moda', 'Playfair Display', Georgia, serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: 84px;
   font-weight: 400;
   letter-spacing: 4px;
@@ -2542,7 +2542,7 @@ img, video {
 }
 
 .signature-nav-link {
-  font-family: 'Bodoni Moda', 'Playfair Display', Georgia, serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: 23px;
   font-weight: 400;
   letter-spacing: 2.5px;
@@ -2604,4 +2604,120 @@ img, video {
 
 .menu-bottom-leaf:hover img {
   transform: scale(1.15) rotate(6deg);
+}
+
+
+/* ---------------------------------------------------------------------------
+   Playfair, 2px smaller
+   ---------------------------------------------------------------------------
+   Playfair Display sits a little larger on the line than the Didone it
+   replaced, so each size above is pulled back by 2px. These live here rather
+   than in the shared fonts stylesheet because this file is only linked on the
+   pages that use these components; hoisting them into a global file applied
+   them to pages that never had them, which blew the index header nav up to
+   48px in a 122px column.
+   --------------------------------------------------------------------------- */
+
+.header-nav_list.f-desk .link .h6.font-didone, .header-nav_list.f-desk .link .h6 {
+  font-size: calc(48px - 2px) !important !important;
+}
+
+.top-nav-primary {
+  font-size: calc(clamp(18px, 1.6vw, 26px) - 2px) !important !important;
+}
+
+.mob-nav-link {
+  font-size: calc(32px - 2px) !important !important;
+}
+
+.apartments-headline {
+  font-size: calc(72px - 2px) !important !important;
+}
+
+.apartments-count-badge {
+  font-size: calc(80px - 2px) !important !important;
+}
+
+.filter-sheet-title {
+  font-size: calc(22px - 2px) !important !important;
+}
+
+.apart-card-main-figures {
+  font-size: calc(26px - 2px) !important !important;
+}
+
+.photo-card-title {
+  font-size: calc(26px - 2px) !important !important;
+}
+
+.empty-state-title {
+  font-size: calc(24px - 2px) !important !important;
+}
+
+.concept-main-heading {
+  font-size: calc(52px - 2px) !important !important;
+}
+
+.concept-row-title {
+  font-size: calc(36px - 2px) !important !important;
+}
+
+.specs-title {
+  font-size: calc(44px - 2px) !important !important;
+}
+
+.cta-main-title {
+  font-size: calc(56px - 2px) !important !important;
+}
+
+.plan-modal-title {
+  font-size: calc(38px - 2px) !important !important;
+}
+
+.book-modal-title {
+  font-size: calc(28px - 2px) !important !important;
+}
+
+.success-heading {
+  font-size: calc(24px - 2px) !important !important;
+}
+
+.footer-large-phone {
+  font-size: calc(64px - 2px) !important !important;
+}
+
+.menu-didone-heading {
+  font-size: calc(84px - 2px) !important !important;
+}
+
+.signature-nav-link {
+  font-size: calc(23px - 2px) !important !important;
+}
+
+
+@media (max-width: 768px) {
+
+  .apartments-headline {
+    font-size: calc(44px - 2px) !important !important;
+  }
+
+  .apartments-count-badge {
+    font-size: calc(48px - 2px) !important !important;
+  }
+
+  .cta-main-title {
+    font-size: calc(36px - 2px) !important !important;
+  }
+
+  .footer-large-phone {
+    font-size: calc(38px - 2px) !important !important;
+  }
+
+  .menu-didone-heading {
+    font-size: calc(56px - 2px) !important !important;
+  }
+
+  .signature-nav-link {
+    font-size: calc(19px - 2px) !important !important;
+  }
 }

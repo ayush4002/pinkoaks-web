@@ -1077,3 +1077,174 @@ body {
   height: 100%;
   object-fit: contain;
 }
+
+
+/* ===========================================================================
+   10. Neighbourhood distance list (index.html)
+   ---------------------------------------------------------------------------
+   The category buttons and the distance cards live inside .loc-scroll-area_screen,
+   a sticky panel pinned to exactly 100vh. Anything taller than that is simply
+   painted over by the section that follows, with no scrollbar and no warning.
+
+   At 1366px the seven buttons needed 869px inside an 850px row, so they wrapped
+   to two lines. That pushed the card grid past the panel edge and all the user
+   could see was the top border of each card. The cards were never missing from
+   the markup - they were hidden under the next section.
+
+   Three changes buy back roughly 95px of vertical room:
+     - tighter buttons, so the seven fit on one line down to ~1100px
+     - the grid no longer forces 90px-tall cards for one line of text
+     - smaller gaps above and below the button row
+
+   Everything here needs !important: the original markup sets these values as
+   inline style attributes.
+   ========================================================================= */
+
+.category-section {
+  max-width: 1040px !important;
+  margin-top: 20px !important;
+}
+
+/* --- button row: one line wherever it can manage ------------------------- */
+.category-section .cat-nav {
+  gap: 6px 8px !important;
+  margin-bottom: 16px !important;
+}
+
+.category-section .cat-btn {
+  padding: 7px 12px !important;
+  font-size: 10.5px !important;
+  letter-spacing: 0.1em !important;
+  line-height: 1.3 !important;
+  white-space: nowrap;
+}
+
+/* --- cards: size to their content instead of stretching to 90px ---------- */
+.category-section .cat-grid {
+  min-height: 0 !important;
+  align-content: start;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+  gap: 8px !important;
+}
+
+.category-section .cat-item {
+  min-height: 44px;
+}
+
+/* --- short windows: give up a little more ------------------------------- */
+@media (max-height: 760px) {
+
+  .category-section {
+    margin-top: 12px !important;
+  }
+
+  .category-section .cat-nav {
+    margin-bottom: 12px !important;
+  }
+
+  .category-section .cat-item {
+    padding: 8px 12px !important;
+    min-height: 40px;
+  }
+}
+
+/* --- phone: let the button row scroll sideways rather than stack ---------- */
+@media (max-width: 767px) {
+
+  .category-section {
+    padding: 0 !important;
+  }
+
+  .category-section .cat-nav {
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 0 16px 4px !important;
+  }
+
+  .category-section .cat-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .category-section .cat-btn {
+    flex: none;
+  }
+
+  .category-section .cat-grid {
+    padding: 0 16px;
+  }
+}
+
+
+/* ===========================================================================
+   11. Full wordmark wherever the leaf stood alone
+   ---------------------------------------------------------------------------
+   Two logo treatments exist and they were being confused with each other:
+
+     .logo_symbol.header  - the leaf centred inside the rotating ring badge.
+                            The ring carries the "PINK OAKS / RESIDENCE"
+                            lettering, so the leaf alone reads correctly there.
+                            Left as it was.
+
+     .logo_symbol.ico-48  - a bare leaf with nothing around it, at the foot of
+                            the mobile menu, in the section signatures and in
+                            the contact block. With no ring and no wordmark the
+                            leaf read as a stray graphic rather than a logo.
+
+   The second group now carries .logo_lockup and draws logo.webp, the full
+   leaf-plus-script lockup - the same asset the footer already uses.
+
+   .ico-48 is a 48px square, which would letterbox a 2.46:1 lockup down to
+   about 48x19. The box is re-proportioned here instead.
+   ========================================================================= */
+
+.logo_symbol.ico-48.logo_lockup {
+  width: 168px !important;
+  height: 52px !important;
+  /* these sit in flex rows; without flex:none they shrink to nothing, and
+     min-width:0 would let that happen silently */
+  flex: none !important;
+  min-width: 168px !important;
+  min-height: 52px !important;
+  border-radius: 0 !important;
+  background: none !important;
+  border: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.logo_symbol.ico-48.logo_lockup .logo.w-embed,
+.logo_symbol.ico-48.logo_lockup img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* the ring badge's decorative backdrop must not follow the wordmark */
+.logo_symbol.ico-48.logo_lockup + .header-logo_bg,
+.logo_symbol.ico-48.logo_lockup .header-logo_bg {
+  display: none !important;
+}
+
+/* centre it in the places that stack their contents */
+.s_logo:has(.logo_lockup),
+.modal_menu_b .s_logo,
+.modal_cta_desc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 767px) {
+
+  .logo_symbol.ico-48.logo_lockup {
+    width: 140px !important;
+    min-width: 140px !important;
+    height: 44px !important;
+    min-height: 44px !important;
+  }
+}

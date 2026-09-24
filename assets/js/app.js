@@ -445,7 +445,24 @@ function initScripts() {
   const scope = document.querySelector('[data-barba="container"]') || document.body;
   if (scriptsInitedOn === scope) return;
   scriptsInitedOn = scope;
-  runPageScripts();
+
+  // Wait for the webfonts before anything measures text.
+  //
+  // SplitText rebuilds a heading into per-word and per-character boxes and
+  // freezes their widths at the moment it runs. If it runs while the fallback
+  // face is still showing, every one of those boxes is sized for the fallback;
+  // when the real face swaps in, the glyphs no longer fit the boxes that were
+  // built for them. That was pushing split headings out of alignment by a
+  // consistent 25% across the whole site.
+  //
+  // document.fonts.ready settles once the faces this page uses have loaded, so
+  // the split happens against the type people actually see. The timeout is a
+  // backstop: a font that never resolves must not stop the page booting.
+  const fontsSettled = document.fonts && document.fonts.ready
+    ? Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 2000))])
+    : Promise.resolve();
+
+  fontsSettled.then(runPageScripts);
 }
 
 function runPageScripts() {
@@ -987,7 +1004,34 @@ function fitText() {
     e.style.width = "", e.style.fontSize = a * (t / r) + "px"
   })), window.addEventListener("resize", fitText, {
     once: !0
-  })
+  });
+
+  // Re-fit once the webfonts have actually loaded.
+  //
+  // This scales a heading to exactly fill its column, from the ratio between
+  // the column width and the heading's natural width. Both are measured now,
+  // so if the fallback face is still on screen the ratio describes the wrong
+  // type: Playfair is much wider than the fallback, so the routine concluded
+  // the heading was too narrow and scaled it UP, pushing "Architecture" well
+  // past its column instead of into it.
+  //
+  // Re-running after document.fonts.ready recomputes the ratio against the
+  // real face. The flag keeps it to a single extra pass, so this cannot loop
+  // when fitText is called again by the resize handler above.
+  if (!fitText._refitQueued && document.fonts && document.fonts.ready) {
+    fitText._refitQueued = true;
+    document.fonts.ready.then(() => {
+      requestAnimationFrame(() => {
+        document.querySelectorAll("[data-fit-text]").forEach((e => {
+          e.style.whiteSpace = "nowrap", e.style.fontSize = "", e.style.width = "max-content";
+          const t = e.parentElement.clientWidth,
+            r = e.offsetWidth,
+            a = parseFloat(getComputedStyle(e).fontSize);
+          e.style.width = "", e.style.fontSize = a * (t / r) + "px"
+        }));
+      });
+    });
+  }
 }
 
 function initBenefitCards() {

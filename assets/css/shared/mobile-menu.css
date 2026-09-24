@@ -204,3 +204,19 @@ body.menu-open {
     transition: none;
   }
 }
+
+
+/* ---------------------------------------------------------------------------
+   Playfair, 2px smaller
+   ---------------------------------------------------------------------------
+   Playfair Display sits a little larger on the line than the Didone it
+   replaced, so each size above is pulled back by 2px. These live here rather
+   than in the shared fonts stylesheet because this file is only linked on the
+   pages that use these components; hoisting them into a global file applied
+   them to pages that never had them, which blew the index header nav up to
+   48px in a 122px column.
+   --------------------------------------------------------------------------- */
+
+.mobile-menu-nav-item {
+  font-size: calc(clamp(26px, 8vw, 40px) - 2px) !important !important;
+}

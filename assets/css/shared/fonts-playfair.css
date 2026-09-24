@@ -1,0 +1,336 @@
+/* fonts-playfair.css
+   Self-hosted Playfair Display, the display face used for headings.
+
+   It replaces Ambroise Francois Std, which was served from Adobe Typekit.
+   Ambroise is a Didone: its thin strokes are true hairlines, so at heading
+   sizes over a light background whole letters dropped away and the headings
+   were hard to read. Playfair Display keeps the same high-contrast editorial
+   look with strokes that survive at any size.
+
+   Self-hosted rather than linked, so the site keeps working without a round
+   trip to Google or Adobe, and so there is no Typekit licence to carry.
+
+   These are variable fonts covering weights 400-700 in a single file, which is
+   why one @font-face declares a weight range instead of four declaring one
+   weight each. Latin and Latin Extended only; the Cyrillic and Vietnamese
+   subsets Google serves are not needed here.
+
+   Licence: SIL Open Font License 1.1.
+*/
+
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('../../fonts/playfair/playfair-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('../../fonts/playfair/playfair-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+
+/* ---------------------------------------------------------------------------
+   Point the display variable at the new face.
+
+   Everything that draws a heading reads --_fonts---font-display, so redefining
+   it here switches the whole site in one place. The old value is kept as a
+   fallback purely so nothing renders in Times New Roman if a face fails.
+
+   Playfair sits slightly larger on the line than Ambroise at the same px size,
+   so headings get a fractionally tighter line-height to keep the original
+   rhythm.
+   --------------------------------------------------------------------------- */
+:root,
+.w-embed,
+body {
+  --_fonts---font-display: 'Playfair Display', 'ambroise-francois-std', Georgia, serif;
+}
+
+
+/* ===========================================================================
+   Playfair, 2px smaller than it was first set
+   ---------------------------------------------------------------------------
+   Playfair Display sits a little larger on the line than the Didones it
+   replaced, so every heading came out slightly bigger than the design called
+   for. Rather than restate each size, every rule is wrapped in a calc() that
+   subtracts 2px. That keeps the responsive clamp() ranges and the rem-based
+   Webflow scale working exactly as before.
+
+   The breakpoint blocks below mirror the source stylesheets, and they matter:
+   a flat set of top-level overrides would beat the mobile rules too and pin
+   desktop sizes onto phones. Every media query that restates one of these
+   sizes is repeated here, in source order, so the cascade lands the same way
+   it did before.
+
+   This file is linked last on every page, so these need no more specificity
+   than the !important the source rules already carry.
+   ========================================================================= */
+
+/* Webflow's heading scale. The variables are already responsive, so one rule
+   each covers every breakpoint.
+
+   Deliberately NOT !important. app.js has a fitText() routine that measures a
+   heading against its column and writes an inline font-size; an !important
+   rule here outranked that inline style and left fitText computing against a
+   size it could never apply, so "Architecture" stayed too wide for its column.
+   Plain declarations still win over Webflow's own (they are not !important and
+   this file is linked last) while leaving runtime sizing free to take over. */
+h1, .h1 { font-size: calc(var(--_fonts---h1--size) - 2px); }
+h2, .h2 { font-size: calc(var(--_fonts---h2--size) - 2px); }
+h3, .h3 { font-size: calc(var(--_fonts---h3--size) - 2px); }
+h4, .h4 { font-size: calc(var(--_fonts---h4--size) - 2px); }
+h5, .h5 { font-size: calc(var(--_fonts---h5--size) - 2px); }
+h6, .h6 { font-size: calc(var(--_fonts---h6--size) - 2px); }
+.c1     { font-size: calc(var(--_fonts---c1--size) - 2px); }
+
+
+/* --- base sizes (stylesheets every page links) ----------------------- */
+
+.po-title {
+  font-size: calc(clamp(32px, 6vw, 86px) - 2px) !important !important;
+}
+
+.po-plan-name {
+  font-size: calc(clamp(28px, 3vw, 44px) - 2px) !important !important;
+}
+
+.apart-header-title {
+  font-size: calc(clamp(68px, 9.2vw, 148px) - 2px) !important !important;
+}
+
+.apart-header-count {
+  font-size: calc(clamp(68px, 9.2vw, 148px) - 2px) !important !important;
+}
+
+.apart-card_specs-area {
+  font-size: calc(16px - 2px) !important !important;
+}
+
+.contact-hero-title {
+  font-size: calc(clamp(64px, 9.5vw, 150px) - 2px) !important !important;
+}
+
+body {
+  font-size: calc(14px - 2px) !important !important;
+}
+
+h1 {
+  font-size: calc(38px - 2px) !important !important;
+}
+
+h2 {
+  font-size: calc(32px - 2px) !important !important;
+}
+
+h3 {
+  font-size: calc(24px - 2px) !important !important;
+}
+
+h4 {
+  font-size: calc(18px - 2px) !important !important;
+}
+
+h5 {
+  font-size: calc(14px - 2px) !important !important;
+}
+
+h6 {
+  font-size: calc(12px - 2px) !important !important;
+}
+
+
+@media (max-width: 680px) {
+
+  .apart-header-title {
+    font-size: calc(52px - 2px) !important !important;
+  }
+
+  .apart-header-count {
+    font-size: calc(36px - 2px) !important !important;
+  }
+
+  .contact-hero-title {
+    font-size: calc(52px - 2px) !important !important;
+  }
+}
+
+
+@media (max-width: 767px) {
+
+  /* editorial-lux.css is linked after this file, so these need !important to land; everything else in this stylesheet relies on load order alone. */ .contact-page-title, .cta-banner-headline, .apart-hero-title, .apartments-hero-title, .font-didone {
+    font-size: calc(clamp(30px, 11vw, 52px) - 2px) !important !important;
+  }
+}
+
+
+/* ===========================================================================
+   Phone: keep display headings on one line and inside the screen
+   ---------------------------------------------------------------------------
+   Two separate faults produced the same symptom on a 375px screen.
+
+   1. Mid-word breaks. GSAP SplitText rebuilds a heading as one inline-block
+      per character. A line can then break between any two of them, which is
+      why "MENU" came apart as ME / NU, "GOLDEN" as GOLD / EN and "PENTHOUSE"
+      as PENTHOUS / E. Nothing was too wide - the word had simply stopped being
+      a word as far as the line breaker was concerned. Holding the word
+      wrappers to nowrap puts them back together.
+
+   2. Genuinely oversized headings. "Architecture" asked for 612px inside a
+      332px column while set to white-space: nowrap, so it was clipped rather
+      than wrapped. The phone number did the same at 332px inside 249px. Those
+      needed real size cuts, not a wrapping rule.
+
+   Sizes here are chosen so the longest word in each heading fits the column it
+   sits in at 375px, which is the narrowest screen worth supporting.
+   ========================================================================= */
+
+@media (max-width: 767px) {
+
+  /* --- 1. a word is a word ------------------------------------------------ */
+  .split-word {
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  .h1,
+  .h2,
+  h1,
+  h2,
+  .apartments-headline,
+  .concept-main-heading,
+  .concept-row-title,
+  .photo-card-title,
+  .cta-main-title,
+  .menu-didone-heading,
+  .apart-card-main-figures {
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    -webkit-hyphens: none;
+    hyphens: none;
+  }
+
+  /* --- 2. sizes that fit -------------------------------------------------- */
+  .h1 {
+    font-size: 64px !important;
+  }
+
+  .h2 {
+    font-size: 48px !important;
+  }
+
+  /* these three are set to nowrap in the source, so an oversized word is
+     clipped instead of wrapping. Let them wrap between words and come down to
+     a size whose longest word clears the column. */
+  .interior-s_title .h1,
+  .cta-s_title .h1 {
+    font-size: 42px !important;
+    white-space: normal !important;
+  }
+
+  /* "+91 91169 65636" ran 332px wide inside a 203px column */
+  .nav-item .h2 {
+    font-size: 30px !important;
+  }
+
+  /* "New Golden Mile" sits in a 245px column, so 64px still spilled */
+  .loc-intro-s_title .h1,
+  .loc-intro-s_title_line {
+    font-size: 54px !important;
+  }
+
+  .apartments-headline {
+    font-size: 38px !important;
+  }
+
+  .apartments-count-badge {
+    font-size: 42px !important;
+  }
+
+  /* the unit card figures - "3 BED | 2,240 SQ.FT." */
+  .apart-card-main-figures {
+    font-size: 32px !important;
+  }
+
+  .concept-main-heading {
+    font-size: 36px !important;
+  }
+
+  .concept-row-title {
+    font-size: 28px !important;
+  }
+
+  .photo-card-title {
+    font-size: 24px !important;
+  }
+
+  .specs-title,
+  .cta-main-title {
+    font-size: 32px !important;
+  }
+
+  .plan-modal-title {
+    font-size: 26px !important;
+  }
+
+  .footer-large-phone {
+    font-size: 32px !important;
+  }
+
+  .menu-didone-heading {
+    font-size: 48px !important;
+  }
+}
+
+
+/* ---------------------------------------------------------------------------
+   Index / unit-page header nav
+
+   The nav column is a fixed 122px and the links are set in uppercase, so the
+   rendered word is "APARTMENT", not "Apartment" - about 145px at the inherited
+   23px. It broke as APARTME / NT. 19px keeps the whole word on one line with a
+   little room to spare. Only index.html and the unit pages use this markup;
+   the editorial pages have their own .top-header-bar.
+   --------------------------------------------------------------------------- */
+.header-nav_list .h6 {
+  font-size: 19px !important;
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+
+
+/* ---------------------------------------------------------------------------
+   Desktop: three headings Playfair no longer fits
+
+   Playfair is a wider face than the Ambroise it replaced, so a few headings
+   that used to just fit their columns began to overrun them. All three are set
+   to white-space: nowrap or are a single unbreakable word, so there was no
+   wrap to fall back on - they were simply cut off at the column edge.
+
+   Each size below is the largest that keeps the heading inside its own column
+   at 1440px, measured from the element's scrollWidth rather than guessed.
+   --------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+
+  /* "Architecture" carries data-fit-text, so app.js sizes it to its column at
+     runtime. Overriding that here with !important defeated the fit, so it is
+     deliberately left alone - the real fix was making that measurement wait
+     for the webfont (see initScripts in app.js). */
+
+  /* "New Golden Mile" - 803px inside 670px */
+  .loc-intro-s_title .h1 {
+    font-size: 114px !important;
+  }
+
+  /* "+91 91169 65636" - 594px inside 446px */
+  .nav-item .h2 {
+    font-size: 64px !important;
+  }
+}

@@ -23,7 +23,7 @@
 }
 
 .contact-page-title {
-  font-family: var(--font-serif, 'Bodoni Moda', Georgia, serif);
+  font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
   /* was unbounded: 172px at desktop, which collided with the header nav */
   font-size: clamp(42px, 9vw, 112px);
   line-height: 1;
@@ -357,7 +357,7 @@ a.contact-info-value:hover {
 }
 
 .cta-banner-headline {
-  font-family: var(--font-serif, 'Bodoni Moda', Georgia, serif);
+  font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
   /* unbounded before, so it overflowed the viewport on small screens */
   font-size: clamp(34px, 6.4vw, 78px);
   line-height: 1.02;
@@ -457,7 +457,7 @@ a.contact-info-value:hover {
 }
 
 .footer-phone-link {
-  font-family: var(--font-serif, 'Bodoni Moda', Georgia, serif);
+  font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
   font-size: clamp(30px, 5vw, 60px);
   line-height: 1.05;
   letter-spacing: -0.01em;
@@ -703,4 +703,28 @@ a.contact-info-value:hover {
   .footer-social-link {
     transition: none;
   }
+}
+
+
+/* ---------------------------------------------------------------------------
+   Playfair, 2px smaller
+   ---------------------------------------------------------------------------
+   Playfair Display sits a little larger on the line than the Didone it
+   replaced, so each size above is pulled back by 2px. These live here rather
+   than in the shared fonts stylesheet because this file is only linked on the
+   pages that use these components; hoisting them into a global file applied
+   them to pages that never had them, which blew the index header nav up to
+   48px in a 122px column.
+   --------------------------------------------------------------------------- */
+
+.contact-page-title {
+  font-size: calc(clamp(42px, 9vw, 112px) - 2px) !important !important;
+}
+
+.cta-banner-headline {
+  font-size: calc(clamp(34px, 6.4vw, 78px) - 2px) !important !important;
+}
+
+.footer-phone-link {
+  font-size: calc(clamp(30px, 5vw, 60px) - 2px) !important !important;
 }
