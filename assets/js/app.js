@@ -996,40 +996,33 @@ function initIndexCounter() {
 }
 
 function fitText() {
-  document.querySelectorAll("[data-fit-text]").forEach((e => {
-    e.style.whiteSpace = "nowrap", e.style.fontSize = "", e.style.width = "max-content";
-    const t = e.parentElement.clientWidth,
-      r = e.offsetWidth,
-      a = parseFloat(getComputedStyle(e).fontSize);
-    e.style.width = "", e.style.fontSize = a * (t / r) + "px"
-  })), window.addEventListener("resize", fitText, {
-    once: !0
-  });
+  const calculateFit = () => {
+    document.querySelectorAll("[data-fit-text]").forEach((e => {
+      e.style.whiteSpace = "nowrap";
+      e.style.fontSize = "";
+      e.style.width = "max-content";
+      const parent = e.parentElement;
+      const t = Math.min(parent ? parent.clientWidth : window.innerWidth, window.innerWidth - 32);
+      // Give a 5% breathing margin so letters like A and E never touch or clip the screen edges
+      const targetWidth = Math.max(t * 0.92, 260);
+      const r = e.offsetWidth;
+      const a = parseFloat(getComputedStyle(e).fontSize);
+      if (r > 0 && a > 0) {
+        e.style.width = "";
+        e.style.fontSize = Math.floor(a * (targetWidth / r)) + "px";
+      }
+    }));
+  };
 
-  // Re-fit once the webfonts have actually loaded.
-  //
-  // This scales a heading to exactly fill its column, from the ratio between
-  // the column width and the heading's natural width. Both are measured now,
-  // so if the fallback face is still on screen the ratio describes the wrong
-  // type: Playfair is much wider than the fallback, so the routine concluded
-  // the heading was too narrow and scaled it UP, pushing "Architecture" well
-  // past its column instead of into it.
-  //
-  // Re-running after document.fonts.ready recomputes the ratio against the
-  // real face. The flag keeps it to a single extra pass, so this cannot loop
-  // when fitText is called again by the resize handler above.
-  if (!fitText._refitQueued && document.fonts && document.fonts.ready) {
-    fitText._refitQueued = true;
+  calculateFit();
+  window.addEventListener("resize", calculateFit);
+
+  // Re-fit once webfonts settle
+  if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(() => {
-      requestAnimationFrame(() => {
-        document.querySelectorAll("[data-fit-text]").forEach((e => {
-          e.style.whiteSpace = "nowrap", e.style.fontSize = "", e.style.width = "max-content";
-          const t = e.parentElement.clientWidth,
-            r = e.offsetWidth,
-            a = parseFloat(getComputedStyle(e).fontSize);
-          e.style.width = "", e.style.fontSize = a * (t / r) + "px"
-        }));
-      });
+      requestAnimationFrame(calculateFit);
+      setTimeout(calculateFit, 100);
+      setTimeout(calculateFit, 500);
     });
   }
 }

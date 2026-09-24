@@ -1248,3 +1248,124 @@ body {
     min-height: 44px !important;
   }
 }
+
+/* ===========================================================================
+   11. Architecture Section Typography & Vastu Quote Fit & Alignment
+   Fixes:
+   - "Architecture" title overflow / truncation on desktop, laptop, and mobile screens.
+   - Proper margin, max-width, line-height, and alignment for the Vastu quote
+     ("The architecture of Pink Oaks blends contemporary luxury with Vastu principles
+     by 265 Degree Consultants") so all words are 100% visible, beautifully aligned,
+     and perfectly legible against the building backdrop.
+   ========================================================================= */
+
+.arch-s_t {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.arch-s_t h2.h1,
+.arch-s_t .h1 {
+  max-width: 92vw !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+  letter-spacing: -0.02em !important;
+  box-sizing: border-box !important;
+}
+
+/* Ensure the Vastu quote box is spacious, well-aligned, and wraps elegantly */
+.arch-s_quote {
+  width: 100% !important;
+  max-width: 720px !important;
+  box-sizing: border-box !important;
+  padding: 0 16px !important;
+}
+
+.arch-s_quote h3.h5,
+.arch-s_quote .h5 {
+  font-family: var(--_fonts---font-display, 'Playfair Display', serif) !important;
+  font-size: clamp(20px, 2.2vw, 36px) !important;
+  line-height: 1.35 !important;
+  letter-spacing: -0.01em !important;
+  text-transform: uppercase !important;
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.95), 0 0 30px rgba(0, 0, 0, 0.75) !important;
+  margin: 0 0 1.5rem 0 !important;
+  overflow: visible !important;
+  white-space: normal !important;
+  word-break: normal !important;
+}
+
+.arch-s_quote .red-line {
+  margin-bottom: 1.25rem !important;
+}
+
+.arch-s_author {
+  margin-top: 0.5rem !important;
+}
+
+.arch-s_author .l1 {
+  font-size: 13px !important;
+  letter-spacing: 0.08em !important;
+  line-height: 1.4 !important;
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8) !important;
+}
+
+.arch-s_author .l1.reg {
+  font-size: 12px !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  margin-top: 2px !important;
+}
+
+/* Mobile & Tablet Specific Refinements */
+@media screen and (max-width: 991px) {
+  .arch-s_t h2.h1,
+  .arch-s_t .h1 {
+    font-size: clamp(34px, 10vw, 68px) !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    text-align: center !important;
+  }
+
+  .arch-s_quote {
+    max-width: 100% !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+  }
+
+  .arch-s_quote .red-line {
+    margin: 0 auto 1.25rem auto !important;
+    float: none !important;
+  }
+
+  .arch-s_quote h3.h5,
+  .arch-s_quote .h5 {
+    font-size: clamp(18px, 5.5vw, 28px) !important;
+    line-height: 1.35 !important;
+    text-align: center !important;
+  }
+
+  .arch-s_quote .grid._4-columns {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+
+  .arch-s_author {
+    text-align: center !important;
+    margin: 0.5rem auto 0 auto !important;
+  }
+}
+
