@@ -13,38 +13,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit;
 }
 
-$dbFile = __DIR__ . '/database.sqlite';
-$csvFile = __DIR__ . '/leads.csv';
+require_once __DIR__ . '/db-config.php';
 
-// Connect to SQLite Database
-function getDb() {
-    global $dbFile;
-    try {
-        $db = new PDO('sqlite:' . $dbFile);
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $db->exec("CREATE TABLE IF NOT EXISTS leads (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            submitted_at TEXT,
-            name TEXT,
-            email TEXT,
-            phone TEXT,
-            unit TEXT,
-            message TEXT,
-            page_url TEXT,
-            utm_source TEXT,
-            utm_campaign TEXT,
-            ip TEXT
-        )");
-        return $db;
-    } catch (Exception $e) {
-        return null;
-    }
-}
+$csvFile = __DIR__ . '/leads.csv';
+$dbInfo = getDatabaseConnection();
+$db = $dbInfo['pdo'];
+$dbType = $dbInfo['type']; // 'mysql', 'sqlite', or 'none'
 
 // GET: Return all leads as JSON
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $leads = [];
-    $db = getDb();
     
     if ($db) {
         try {
@@ -55,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         }
     }
 
-    // If SQLite is empty or not available, check CSV as fallback
+    // If SQL DB is empty or not available, check CSV as fallback
     if (empty($leads) && file_exists($csvFile)) {
         if (($handle = fopen($csvFile, 'r')) !== false) {
             $headers = fgetcsv($handle);
@@ -79,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     echo json_encode([
         'success' => true,
-        'storage' => $db ? 'sqlite' : 'csv',
+        'storage' => $db ? $dbType : 'csv',
         'leads' => $leads
     ]);
     exit;
@@ -102,7 +80,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $utm_campaign = $data['utm_campaign'] ?? '';
         $ip = $_SERVER['REMOTE_ADDR'] ?? '';
 
-        $db = getDb();
         if ($db) {
             $stmt = $db->prepare("INSERT INTO leads (submitted_at, name, email, phone, unit, message, page_url, utm_source, utm_campaign, ip) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             $stmt->execute([$submitted_at, $name, $email, $phone, $unit, $message, $page_url, $utm_source, $utm_campaign, $ip]);
@@ -128,7 +105,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
     $data = json_decode($raw, true);
 
     if (isset($data['action']) && $data['action'] === 'clear_all') {
-        $db = getDb();
         if ($db) {
             $db->exec("DELETE FROM leads");
         }

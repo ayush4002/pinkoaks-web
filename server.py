@@ -162,9 +162,18 @@ class PinkOaksHandler(SimpleHTTPRequestHandler):
             self.send_response(200)
             self.send_header('Content-Type', 'application/json; charset=utf-8')
             self.send_header('Content-Length', str(len(payload)))
-            self.end_headers()
-            self.wfile.write(payload)
-            return
+        # Handle schema.sql download
+        if path in ('schema.sql', 'database.sql'):
+            sql_file = os.path.join(ROOT_DIR, 'schema.sql')
+            if os.path.exists(sql_file):
+                with open(sql_file, 'rb') as f:
+                    content = f.read()
+                self.send_response(200)
+                self.send_header('Content-Type', 'application/sql; charset=utf-8')
+                self.send_header('Content-Length', str(len(content)))
+                self.end_headers()
+                self.wfile.write(content)
+                return
 
         super().do_GET()
 
@@ -257,7 +266,8 @@ if __name__ == '__main__':
     print(f"  Pink Oaks Residences — Active Dev Server")
     print(f"  Serving: http://localhost:{PORT}")
     print(f"  Admin:   http://localhost:{PORT}/admin.html")
-    print(f"  SQLite:  {DB_PATH}")
+    print(f"  SQL DB:  SQLite active ({DB_PATH})")
+    print(f"  Schema:  MySQL / MariaDB schema ready ({os.path.join(ROOT_DIR, 'schema.sql')})")
     print(f"  CSV:     {CSV_PATH}")
     print(f"=======================================================\n")
     try:

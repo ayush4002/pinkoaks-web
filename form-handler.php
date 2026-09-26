@@ -81,40 +81,30 @@ $meta = [
     'IP'               => clean($_SERVER['REMOTE_ADDR'] ?? '', 60),
 ];
 
-// --------------------------------------------------------------- SQLite Database backup
+// --------------------------------------------------------------- SQL Database backup (MySQL / MariaDB / SQLite)
 
-$DB_FILE = __DIR__ . '/database.sqlite';
-try {
-    $db = new PDO('sqlite:' . $DB_FILE);
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $db->exec("CREATE TABLE IF NOT EXISTS leads (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        submitted_at TEXT,
-        name TEXT,
-        email TEXT,
-        phone TEXT,
-        unit TEXT,
-        message TEXT,
-        page_url TEXT,
-        utm_source TEXT,
-        utm_campaign TEXT,
-        ip TEXT
-    )");
-    $stmt = $db->prepare("INSERT INTO leads (submitted_at, name, email, phone, unit, message, page_url, utm_source, utm_campaign, ip) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->execute([
-        $meta['Submitted'],
-        $name,
-        $email,
-        $phone,
-        $unit,
-        $message,
-        $meta['Page'],
-        $meta['utm_source'],
-        $meta['utm_campaign'],
-        $meta['IP']
-    ]);
-} catch (Exception $e) {
-    error_log('Database insert error: ' . $e->getMessage());
+require_once __DIR__ . '/db-config.php';
+$dbInfo = getDatabaseConnection();
+$db = $dbInfo['pdo'];
+
+if ($db) {
+    try {
+        $stmt = $db->prepare("INSERT INTO leads (submitted_at, name, email, phone, unit, message, page_url, utm_source, utm_campaign, ip) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->execute([
+            $meta['Submitted'],
+            $name,
+            $email,
+            $phone,
+            $unit,
+            $message,
+            $meta['Page'],
+            $meta['utm_source'],
+            $meta['utm_campaign'],
+            $meta['IP']
+        ]);
+    } catch (Exception $e) {
+        error_log('SQL Database insert error: ' . $e->getMessage());
+    }
 }
 
 // --------------------------------------------------------------- CSV backup

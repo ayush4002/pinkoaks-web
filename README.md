@@ -322,3 +322,35 @@ Packaging only, nothing visual:
   only file that changes how anything looks; see the stylesheet table above.
 - `index_before_redesign.html` and the unreferenced `new/` and `photo/` image folders
   were not carried over. They are still in the original `website/` folder.
+
+---
+
+## SQL Database Setup & Lead Capture
+
+Pink Oaks uses a production-ready SQL database layer with support for **MySQL / MariaDB** and zero-config **SQLite**:
+
+### 1. Database Schema (`schema.sql` / `database.sql`)
+Import `schema.sql` into MySQL, MariaDB, or via phpMyAdmin:
+```bash
+mysql -u root -p < schema.sql
+```
+This creates the `pinkoaks_db` database and the `leads` table with indexes on `submitted_at`, `email`, and `phone`.
+
+### 2. Configuration (`db-config.php`)
+Configure your MySQL credentials in `db-config.php`:
+```php
+define('DB_TYPE', 'mysql');          // 'mysql' or 'sqlite'
+define('DB_HOST', 'localhost');
+define('DB_PORT', '3306');
+define('DB_NAME', 'pinkoaks_db');
+define('DB_USER', 'your_db_user');
+define('DB_PASS', 'your_db_password');
+```
+*Note: If MySQL credentials are not configured or the MySQL server is unreachable, the system automatically falls back to SQLite (`database.sqlite`) to guarantee zero lead loss.*
+
+### 3. Admin Panel (`admin.html`)
+- Accessible at `http://localhost:8081/admin.html` (Password: `pinkoaks2026`).
+- Real-time lead management, search, filters, and status counters.
+- **Export SQL**: Click "Export SQL" to generate and download a `.sql` file with valid SQL `INSERT` statements for all captured leads.
+- **Export CSV**: Click "Export CSV" to download standard CSV spreadsheets.
+
