@@ -33,6 +33,7 @@
   <link href="assets/css/shared/enhancements.css" rel="stylesheet" type="text/css"/>
   <link href="assets/css/vendor/lenis.css" rel="stylesheet" type="text/css"/>
   <link href="assets/css/editorial-lux.css?v=20260924c" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/shared/book-call-modal.css" rel="stylesheet" type="text/css"/>
   <link href="assets/css/shared/mobile-menu.css?v=20260924c" rel="stylesheet" type="text/css"/>
   
   <link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="assets/fonts/playfair/playfair-latin.woff2" />
@@ -54,8 +55,8 @@
       </div>
       <div class="brand-badge-text-ring">
         <svg viewBox="0 0 100 100" width="100%" height="100%">
-          <path id="apart-badge-text-path" d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" fill="none"/>
-          <text fill="#0F1F3D" font-family="'Syne', 'Inter', sans-serif" font-size="6.6" font-weight="700" letter-spacing="2.0px">
+          <path id="apart-badge-text-path" d="M 50, 50 m -41.5, 0 a 41.5,41.5 0 1,1 83,0 a 41.5,41.5 0 1,1 -83,0" fill="none"/>
+          <text fill="#0F1F3D" font-family="'Syne', 'Inter', sans-serif" font-size="6.9" font-weight="700" letter-spacing="2.25px">
             <textPath href="#apart-badge-text-path" startOffset="0%">RESIDENCE • PINK OAKS • RESIDENCE • PINK OAKS • </textPath>
           </text>
         </svg>
@@ -700,75 +701,43 @@
     </div>
   </div>
 
-  <!-- "Book a Call" Slide-in Modal -->
-  <div class="book-modal-overlay" id="book-call-modal" aria-hidden="true">
-    <div class="book-modal-drawer" role="dialog" aria-modal="true" aria-labelledby="book-modal-title">
-      <div class="book-modal-header">
-        <h2 class="book-modal-title font-didone" id="book-modal-title">BOOK A CALL</h2>
-        <button type="button" class="book-modal-close" id="book-call-modal-close" aria-label="Close Modal">&times;</button>
-      </div>
-
-      <div class="book-modal-body">
-        <p class="book-modal-intro">Speak directly with our senior residence advisors regarding pricing, custom floor specifications, and site visits.</p>
-
-        <form class="book-modal-form" id="book-call-form" novalidate>
-          <div class="form-field-group">
-            <label class="form-field-label" for="book-name">FULL NAME *</label>
-            <input type="text" id="book-name" name="name" class="form-text-input" placeholder="e.g. Ayush Sharma" required />
-            <span class="form-error-msg" id="err-book-name">Please enter your full name.</span>
+  <!-- LUXURY BOOK A CALL LEAD MODAL -->
+  <div id="book-call-modal" class="lux-modal-overlay" aria-hidden="true">
+    <div class="lux-modal-backdrop"></div>
+    <div class="lux-modal-content book-call-modal-content">
+      <button class="modal-close-trigger" aria-label="Close Modal">&times;</button>
+      <div class="book-call-modal-inner">
+        <h2 class="font-didone modal-call-title">BOOK A CALL</h2>
+        <p class="modal-call-subtitle">Leave your details and our private sales concierge will reach out to you within 24 hours.</p>
+        <form class="book-call-form" id="book-call-form">
+          <div class="book-call-fields">
+            <div class="modal-form-group">
+              <label class="modal-form-label" for="lead-name-apart">YOUR NAME *</label>
+              <input class="modal-form-input" id="lead-name-apart" type="text" required placeholder="Enter your full name" name="name"/>
+            </div>
+            <div class="modal-form-group">
+              <label class="modal-form-label" for="lead-email-apart">EMAIL ADDRESS *</label>
+              <input class="modal-form-input" id="lead-email-apart" type="email" required placeholder="name@domain.com" name="email"/>
+            </div>
+            <div class="modal-form-group">
+              <label class="modal-form-label" for="lead-phone-apart">PHONE NUMBER *</label>
+              <input class="modal-form-input" id="lead-phone-apart" type="tel" required placeholder="+91 98765 43210" name="phone"/>
+            </div>
+            <div class="modal-form-group">
+              <label class="modal-form-label" for="lead-msg-apart">MESSAGE (OPTIONAL)</label>
+              <textarea class="modal-form-input modal-form-textarea" id="lead-msg-apart" rows="2" placeholder="Preferred time or unit interest" name="message"></textarea>
+            </div>
+            <div class="modal-privacy-agreement">
+              <input type="checkbox" id="lead-privacy-apart" required checked name="consent"/>
+              <label for="lead-privacy-apart">By submitting, you agree to be contacted about this enquiry.</label>
+            </div>
+            <button class="modal-submit-btn" type="submit">REQUEST A CALL</button>
           </div>
-
-          <div class="form-field-group">
-            <label class="form-field-label" for="book-phone">PHONE NUMBER *</label>
-            <input type="tel" id="book-phone" name="phone" class="form-text-input" placeholder="+91 98290 XXXXX" required />
-            <span class="form-error-msg" id="err-book-phone">Please enter a valid contact number.</span>
+          <div class="book-call-success" style="display:none; padding:20px 0; text-align:center;">
+            <h3 class="font-didone" style="font-size:24px; color:var(--color-navy); margin-bottom:8px;">THANK YOU</h3>
+            <p style="font-size:12.5px; line-height:1.6; color:rgba(15,31,61,0.75);">We have received your details. Our private sales manager will get in touch with you shortly.</p>
           </div>
-
-          <div class="form-field-group">
-            <label class="form-field-label" for="book-email">EMAIL ADDRESS *</label>
-            <input type="email" id="book-email" name="email" class="form-text-input" placeholder="name@domain.com" required />
-            <span class="form-error-msg" id="err-book-email">Please enter a valid email address.</span>
-          </div>
-
-          <div class="form-field-group">
-            <label class="form-field-label" for="book-residence-pref">PREFERRED RESIDENCE</label>
-            <select id="book-residence-pref" name="residence" class="form-select-input">
-              <option value="General Inquiry">General Residence Inquiry</option>
-              <option value="3 BHK Luxury - Unit A (2,321 sq.ft.)">3 BHK Luxury — Flat A (2,321 Sq.Ft.)</option>
-              <option value="4 BHK Grand - Unit B (2,680 sq.ft.)">4 BHK Grand — Flat B (2,680 Sq.Ft.)</option>
-              <option value="3 BHK Luxury - Unit C (2,240 sq.ft.)">3 BHK Luxury — Flat C (2,240 Sq.Ft.)</option>
-              <option value="Penthouse Level (5th Floor)">5th Floor Penthouse Level</option>
-            </select>
-          </div>
-
-          <div class="form-field-group">
-            <label class="form-field-label" for="book-message">MESSAGE (OPTIONAL)</label>
-            <textarea id="book-message" name="message" rows="3" class="form-textarea-input" placeholder="Tell us about your preferred timing, floor preference, or questions..."></textarea>
-          </div>
-
-          <div class="form-checkbox-group">
-            <label class="form-checkbox-label">
-              <input type="checkbox" id="book-consent" required checked / name="consent"/>
-              <span>I agree to receive project details and updates per the <a href="contact.html" target="_blank">Privacy Policy</a>.</span>
-            </label>
-          </div>
-
-          <button type="submit" class="form-submit-button" id="book-submit-btn">
-            <span class="btn-text">Submit Request</span>
-            <span class="btn-loader" style="display: none;">Sending...</span>
-          </button>
         </form>
-
-        <!-- Form Success State -->
-        <div class="form-status-box success" id="book-form-success" style="display: none;">
-          <h3 class="success-heading font-didone">THANK YOU</h3>
-          <p class="success-msg">We have received your request. Our sales advisory team from D-169 Bhrigu Marg, Bani Park will contact you shortly.</p>
-        </div>
-
-        <!-- Form Error State -->
-        <div class="form-status-box error" id="book-form-error" style="display: none;">
-          <p class="error-msg">Something went wrong while submitting. Please call us directly at <strong>+91 91169 65636</strong>.</p>
-        </div>
       </div>
     </div>
   </div>
@@ -910,8 +879,7 @@
       document.getElementById('desk-book-call-btn'),
       document.getElementById('menu-overlay-book-call-btn')
     ];
-    const closeBookBtn = document.getElementById('book-call-modal-close');
-    const prefSelect = document.getElementById('book-residence-pref');
+    const closeBookBtn = bookModal ? bookModal.querySelector('.modal-close-trigger') : null;
 
     // Plan Modal
     const planModal = document.getElementById('unit-plan-modal');
@@ -1191,20 +1159,15 @@
     // "Book a Call" Modal
     function openBookModalWithUnit(unitName) {
       if (bookModal) {
-        if (unitName & prefSelect) {
-          let found = false;
-          for (let opt of prefSelect.options) {
-            if (opt.text.includes(unitName)) {
-              opt.selected = true;
-              found = true;
-              break;
-            }
+        if (unitName) {
+          const msgInput = document.getElementById('lead-msg-apart');
+          if (msgInput) {
+            msgInput.value = `Interested in ${unitName}`;
           }
-          if (!found) prefSelect.value = 'General Inquiry';
         }
-        bookModal.classList.add('active');
+        bookModal.classList.add('is-active', 'active');
         bookModal.setAttribute('aria-hidden', 'false');
-        document.body.classList.add('modal-locked');
+        document.body.classList.add('modal-locked', 'modal-open');
       }
     }
 
@@ -1214,21 +1177,21 @@
 
     function closeBookModal() {
       if (bookModal) {
-        bookModal.classList.remove('active');
+        bookModal.classList.remove('is-active', 'active');
         bookModal.setAttribute('aria-hidden', 'true');
-        document.body.classList.remove('modal-locked');
+        document.body.classList.remove('modal-locked', 'modal-open');
       }
     }
 
     if (closeBookBtn) closeBookBtn.addEventListener('click', closeBookModal);
     if (bookModal) {
       bookModal.addEventListener('click', function(e) {
-        if (e.target === bookModal) closeBookModal();
+        if (e.target === bookModal || e.target.classList.contains('lux-modal-backdrop')) closeBookModal();
       });
     }
 
     // Mobile Menu Toggle
-    if (mobMenuToggle & mobMenu) {
+    if (mobMenuToggle && mobMenu) {
       mobMenuToggle.addEventListener('click', function() {
         const isOpen = mobMenu.classList.contains('active');
         mobMenu.classList.toggle('active', !isOpen);
@@ -1238,7 +1201,7 @@
       });
     }
 
-    if (mobMenuClose & mobMenu) {
+    if (mobMenuClose && mobMenu) {
       mobMenuClose.addEventListener('click', function() {
         mobMenu.classList.remove('active');
         mobMenu.setAttribute('aria-hidden', 'true');
@@ -1247,52 +1210,7 @@
       });
     }
 
-    // Book Form Submission
-    const bookForm = document.getElementById('book-call-form');
-    const formSuccess = document.getElementById('book-form-success');
-    const formError = document.getElementById('book-form-error');
-
-    if (bookForm) {
-      bookForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        let valid = true;
-
-        const nameInput = document.getElementById('book-name');
-        const phoneInput = document.getElementById('book-phone');
-        const emailInput = document.getElementById('book-email');
-
-        document.querySelectorAll('.form-error-msg').forEach(msg => msg.style.display = 'none');
-
-        if (!nameInput.value.trim()) {
-          document.getElementById('err-book-name').style.display = 'block';
-          valid = false;
-        }
-
-        if (!phoneInput.value.trim() || phoneInput.value.trim().length < 8) {
-          document.getElementById('err-book-phone').style.display = 'block';
-          valid = false;
-        }
-
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) {
-          document.getElementById('err-book-email').style.display = 'block';
-          valid = false;
-        }
-
-        if (!valid) return;
-
-        const submitBtn = document.getElementById('book-submit-btn');
-        submitBtn.disabled = true;
-        submitBtn.querySelector('.btn-text').style.display = 'none';
-        submitBtn.querySelector('.btn-loader').style.display = 'inline-block';
-
-        // Simulate submission
-        setTimeout(() => {
-          bookForm.style.display = 'none';
-          if (formSuccess) formSuccess.style.display = 'block';
-        }, 800);
-      });
-    }
+    // Note: book-call-form submit is automatically handled by assets/js/forms.js
 
     // Escape Key Listener for Modals
     document.addEventListener('keydown', function(e) {

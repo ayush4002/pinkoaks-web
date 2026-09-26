@@ -1054,14 +1054,30 @@ body {
    The ring's text sits at 38% radius, leaving roughly 63% of the badge clear,
    so 45% keeps the leaf comfortably inside it.
    --------------------------------------------------------------------------- */
+.top-header-bar .brand-badge-logo {
+  width: 130px;
+  height: 130px;
+}
+
+@media (max-width: 768px) {
+  .top-header-bar .brand-badge-logo {
+    width: 104px;
+    height: 104px;
+  }
+}
+
 .top-header-bar .brand-badge-logo > .brand-badge-emblem {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 45%;
-  height: 45%;
+  width: 18%;
+  height: 18%;
   z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
 }
 
 /* restore the intended sizing when the navy circle variant IS present */
@@ -1076,6 +1092,9 @@ body {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  /* Centering calibration: shifts the leaf's bounding center directly onto the circle center.
+     Keeps the leaf small, centered, and safely nested with generous breathing room from the text ring. */
+  transform: translate(0.6%, 3.8%);
 }
 
 

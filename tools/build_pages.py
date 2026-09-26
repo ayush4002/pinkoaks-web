@@ -524,8 +524,8 @@ def build_contact_page():
       </div>
       <div class="brand-badge-text-ring">
         <svg viewBox="0 0 100 100" width="100%" height="100%">
-          <path id="badge-text-path" d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" fill="none"/>
-          <text fill="#0F1F3D" font-family="'Syne', 'Inter', sans-serif" font-size="6.6" font-weight="700" letter-spacing="2.0px">
+          <path id="badge-text-path" d="M 50, 50 m -41.5, 0 a 41.5,41.5 0 1,1 83,0 a 41.5,41.5 0 1,1 -83,0" fill="none"/>
+          <text fill="#0F1F3D" font-family="'Syne', 'Inter', sans-serif" font-size="6.9" font-weight="700" letter-spacing="2.25px">
             <textPath href="#badge-text-path" startOffset="0%">RESIDENCE • PINK OAKS • RESIDENCE • PINK OAKS • </textPath>
           </text>
         </svg>

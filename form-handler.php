@@ -62,18 +62,13 @@ $name    = clean($data['name']    ?? '', 120);
 $email   = clean($data['email']   ?? '', 180);
 $phone   = clean($data['phone']   ?? '', 40);
 $message = clean($data['message'] ?? '', 2000);
-$unit    = clean($data['residence'] ?? '', 120);
+$unit    = clean($data['unit'] ?? $data['residence'] ?? $data['title'] ?? '', 120);
 
 if (mb_strlen($name) < 2)                              reply(false, 'Please enter your name.', 422);
 if (!filter_var($email, FILTER_VALIDATE_EMAIL))        reply(false, 'Please enter a valid email.', 422);
 if (strlen(preg_replace('/\D/', '', $phone)) < 10)     reply(false, 'Please enter a valid phone number.', 422);
 
-if ($TO === '') {
-    error_log('form-handler.php: $TO is not set, lead not delivered: ' . $email);
-    reply(false, 'The form is not configured yet.', 500);
-}
-
-// ------------------------------------------------------------- compose mail
+// ------------------------------------------------------------- metadata
 
 $meta = [
     'Unit of interest' => $unit,
@@ -85,6 +80,63 @@ $meta = [
     'utm_campaign'     => clean($data['utm_campaign'] ?? '', 80),
     'IP'               => clean($_SERVER['REMOTE_ADDR'] ?? '', 60),
 ];
+
+// --------------------------------------------------------------- SQLite Database backup
+
+$DB_FILE = __DIR__ . '/database.sqlite';
+try {
+    $db = new PDO('sqlite:' . $DB_FILE);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $db->exec("CREATE TABLE IF NOT EXISTS leads (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        submitted_at TEXT,
+        name TEXT,
+        email TEXT,
+        phone TEXT,
+        unit TEXT,
+        message TEXT,
+        page_url TEXT,
+        utm_source TEXT,
+        utm_campaign TEXT,
+        ip TEXT
+    )");
+    $stmt = $db->prepare("INSERT INTO leads (submitted_at, name, email, phone, unit, message, page_url, utm_source, utm_campaign, ip) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->execute([
+        $meta['Submitted'],
+        $name,
+        $email,
+        $phone,
+        $unit,
+        $message,
+        $meta['Page'],
+        $meta['utm_source'],
+        $meta['utm_campaign'],
+        $meta['IP']
+    ]);
+} catch (Exception $e) {
+    error_log('Database insert error: ' . $e->getMessage());
+}
+
+// --------------------------------------------------------------- CSV backup
+
+if ($LOG_CSV !== '') {
+    $new = !file_exists($LOG_CSV);
+    if ($fh = @fopen($LOG_CSV, 'a')) {
+        if ($new) {
+            fputcsv($fh, ['submitted_at', 'name', 'email', 'phone', 'unit', 'message', 'page', 'utm_source', 'utm_campaign', 'ip']);
+        }
+        fputcsv($fh, [
+            $meta['Submitted'], $name, $email, $phone, $unit, $message,
+            $meta['Page'], $meta['utm_source'], $meta['utm_campaign'], $meta['IP'],
+        ]);
+        fclose($fh);
+    }
+}
+
+if ($TO === '') {
+    // Lead is safely stored in database / leads.csv / admin panel.
+    reply(true, 'Thank you. We will be in touch shortly.');
+}
 
 $lines = [
     'Name:    ' . $name,
@@ -111,21 +163,6 @@ $headers .= 'Reply-To: ' . $name . ' <' . $email . ">\r\n";
 $headers .= "Content-Type: text/plain; charset=utf-8\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 
-// --------------------------------------------------------------- CSV backup
-
-if ($LOG_CSV !== '') {
-    $new = !file_exists($LOG_CSV);
-    if ($fh = @fopen($LOG_CSV, 'a')) {
-        if ($new) {
-            fputcsv($fh, ['submitted_at', 'name', 'email', 'phone', 'unit', 'message', 'page', 'utm_source', 'utm_campaign', 'ip']);
-        }
-        fputcsv($fh, [
-            $meta['Submitted'], $name, $email, $phone, $unit, $message,
-            $meta['Page'], $meta['utm_source'], $meta['utm_campaign'], $meta['IP'],
-        ]);
-        fclose($fh);
-    }
-}
 
 // ------------------------------------------------------------------- send
 

@@ -15,13 +15,13 @@ echo.
 rem Open the browser a couple of seconds from now, once the server is listening.
 start "" /b cmd /c "timeout /t 2 /nobreak >nul & start "" http://localhost:8000/"
 
-py -3 -m http.server 8000
+py -3 server.py 8081
 if not errorlevel 1 goto :eof
 
-python -m http.server 8000
+python server.py 8081
 if not errorlevel 1 goto :eof
 
-python3 -m http.server 8000
+python3 server.py 8081
 if not errorlevel 1 goto :eof
 
 npx --yes serve -l 8000 .
