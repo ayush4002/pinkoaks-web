@@ -1139,6 +1139,13 @@ body {
   max-width: 440px !important;
 }
 
+@media screen and (max-width: 767px) {
+  .loc-intro-s_desc {
+    margin-top: 40px !important;
+    padding-bottom: 16px !important;
+  }
+}
+
 @media screen and (min-width: 992px) {
   .loc-intro-s_desc {
     align-self: center !important;
