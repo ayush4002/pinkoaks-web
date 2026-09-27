@@ -1382,9 +1382,54 @@ body {
     width: 100% !important;
   }
 
-  .arch-s_author {
-    text-align: center !important;
-    margin: 0.5rem auto 0 auto !important;
+}
+
+/* ===========================================================================
+   12. Refined & Slimmer Typography for Information Leads & Amenity Descriptions
+   Optimizes bulky uppercase headings shown across Concept, Overview & Amenities:
+   - Sets a more refined, elegant font-weight (300-400 instead of bold/heavy)
+   - Calibrates font-size so it does not feel overpowering
+   - Increases line-height and letter-spacing for high-end luxury editorial balance
+   ========================================================================= */
+
+.info-s_lead h3.h4,
+.info-s_lead .h4 {
+  font-family: var(--_fonts---font-display, 'Playfair Display', Georgia, serif) !important;
+  font-weight: 400 !important;
+  font-size: clamp(22px, 2.5vw, 36px) !important;
+  line-height: 1.35 !important;
+  letter-spacing: 0.03em !important;
+  max-width: 900px !important;
+  margin: 0 auto !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+.amen-slide_desc h4.h5,
+.amen-slide_desc .h5 {
+  font-family: var(--_fonts---font-display, 'Playfair Display', Georgia, serif) !important;
+  font-weight: 400 !important;
+  font-size: clamp(18px, 1.8vw, 24px) !important;
+  line-height: 1.45 !important;
+  letter-spacing: 0.035em !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+@media screen and (max-width: 767px) {
+  .info-s_lead h3.h4,
+  .info-s_lead .h4 {
+    font-size: clamp(19px, 5.5vw, 25px) !important;
+    line-height: 1.38 !important;
+    letter-spacing: 0.025em !important;
+    padding: 0 12px !important;
+  }
+
+  .amen-slide_desc h4.h5,
+  .amen-slide_desc .h5 {
+    font-size: clamp(16px, 4.2vw, 20px) !important;
+    line-height: 1.4 !important;
+    letter-spacing: 0.025em !important;
   }
 }
 
