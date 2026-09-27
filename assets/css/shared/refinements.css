@@ -1119,68 +1119,130 @@ body {
    inline style attributes.
    ========================================================================= */
 
-.category-section {
-  max-width: 1040px !important;
-  margin-top: 20px !important;
+/* ===========================================================================
+   10. Neighbourhood distance list (index.html)
+   ---------------------------------------------------------------------------
+   Ensure .loc-scroll-area_screen allows content to fully render without being
+   cut off or submerged by sticky/fixed height boundaries.
+   ========================================================================= */
+
+.loc-scroll-area_screen {
+  min-height: 100vh !important;
+  height: auto !important;
 }
 
-/* --- button row: one line wherever it can manage ------------------------- */
+/* Position the "Between Jaipur and Jaipur" text block so full heading & paragraph are clearly visible without overlapping adjacent elements */
+.loc-intro-s_desc {
+  align-self: center !important;
+  margin-top: 300px !important;
+  padding-bottom: 20px !important;
+  max-width: 440px !important;
+}
+
+@media screen and (min-width: 992px) {
+  .loc-intro-s_desc {
+    align-self: center !important;
+    margin-top: 340px !important;
+    padding-bottom: 24px !important;
+    max-width: 460px !important;
+  }
+}
+
+.loc-path-w {
+  min-height: 100vh !important;
+  height: auto !important;
+}
+
+.loc-path-s {
+  min-height: 100vh !important;
+  height: auto !important;
+  justify-content: center !important;
+  padding-top: clamp(24px, 4vh, 48px) !important;
+  padding-bottom: clamp(40px, 6vh, 72px) !important;
+  box-sizing: border-box !important;
+}
+
+.loc-path-s_t {
+  display: none !important;
+}
+
+.loc-path-s_path_c {
+  padding: 10px 20px 24px !important;
+}
+
+.category-section {
+  width: 100% !important;
+  max-width: 1080px !important;
+  margin: 16px auto 0 !important;
+  padding: 0 16px !important;
+  box-sizing: border-box !important;
+}
+
+/* --- button row ----------------------------------------------------------- */
 .category-section .cat-nav {
-  gap: 6px 8px !important;
-  margin-bottom: 16px !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 8px 10px !important;
+  margin: 0 auto 20px !important;
 }
 
 .category-section .cat-btn {
-  padding: 7px 12px !important;
-  font-size: 10.5px !important;
+  padding: 8px 16px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
   letter-spacing: 0.1em !important;
   line-height: 1.3 !important;
-  white-space: nowrap;
+  border-radius: 24px !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
 }
 
-/* --- cards: size to their content instead of stretching to 90px ---------- */
+/* --- cards ---------------------------------------------------------------- */
 .category-section .cat-grid {
+  display: grid !important;
   min-height: 0 !important;
-  align-content: start;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
-  gap: 8px !important;
+  align-content: start !important;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+  gap: 10px 14px !important;
+  width: 100% !important;
+  max-width: 960px !important;
+  margin: 0 auto !important;
 }
 
 .category-section .cat-item {
-  min-height: 44px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px !important;
+  min-height: 48px !important;
+  background: rgba(18, 42, 77, 0.04) !important;
+  border: 1px solid rgba(18, 42, 77, 0.1) !important;
+  border-radius: 10px !important;
+  transition: transform 0.15s ease, background 0.15s ease !important;
 }
 
-/* --- short windows: give up a little more ------------------------------- */
-@media (max-height: 760px) {
-
-  .category-section {
-    margin-top: 12px !important;
-  }
-
-  .category-section .cat-nav {
-    margin-bottom: 12px !important;
-  }
-
-  .category-section .cat-item {
-    padding: 8px 12px !important;
-    min-height: 40px;
-  }
+.category-section .cat-item:hover {
+  background: rgba(18, 42, 77, 0.07) !important;
 }
 
-/* --- phone: let the button row scroll sideways rather than stack ---------- */
+/* --- phone: let the button row scroll sideways smoothly ------------------ */
 @media (max-width: 767px) {
-
   .category-section {
     padding: 0 !important;
+    margin-top: 14px !important;
   }
 
   .category-section .cat-nav {
     flex-wrap: nowrap !important;
     justify-content: flex-start !important;
-    overflow-x: auto;
+    overflow-x: auto !important;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    padding: 0 16px 4px !important;
+    padding: 0 16px 6px !important;
+    gap: 8px !important;
   }
 
   .category-section .cat-nav::-webkit-scrollbar {
@@ -1188,11 +1250,14 @@ body {
   }
 
   .category-section .cat-btn {
-    flex: none;
+    flex: none !important;
+    padding: 7px 14px !important;
+    font-size: 10.5px !important;
   }
 
   .category-section .cat-grid {
-    padding: 0 16px;
+    grid-template-columns: 1fr !important;
+    padding: 0 16px !important;
   }
 }
 
