@@ -646,7 +646,7 @@
       </div>
       <span class="admin-login-badge">Private Concierge</span>
       <h1 class="admin-login-title">Pink Oaks Admin</h1>
-      <p class="admin-login-subtitle">Sign in to securely access inquiries, database leads &amp; customer concierge records.</p>
+      <p class="admin-login-subtitle">Sign in to securely access enquiries, database leads &amp; customer concierge records.</p>
 
       <div class="admin-login-error" id="login-error-msg">Invalid credentials. Please verify your details.</div>
 
@@ -709,7 +709,7 @@
       </div>
 
       <div class="admin-stat-card">
-        <div class="admin-stat-label">Today's Inquiries</div>
+        <div class="admin-stat-label">Today's Enquiries</div>
         <div class="admin-stat-value" id="stat-today-leads">0</div>
         <div class="admin-stat-sub">Recent client activity</div>
       </div>
@@ -765,11 +765,11 @@
       </div>
 
       <div class="admin-empty-state" id="empty-state">
-        <h3 class="admin-empty-title font-didone">No Inquiries Found</h3>
+        <h3 class="admin-empty-title font-didone">No Enquiries Found</h3>
         <p class="admin-empty-desc">No leads have been received yet or match your current filter. Real-time "Book a Call" requests submitted from the website will automatically appear right here in real time.</p>
         <button class="admin-btn admin-btn-primary" id="btn-empty-refresh" style="margin-top:14px;">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"></path><path d="M1 20v-6h6"></path><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
-          Check for New Inquiries
+          Check for New Enquiries
         </button>
       </div>
     </div>
@@ -780,7 +780,7 @@
   <div class="admin-modal-backdrop" id="detail-modal">
     <div class="admin-modal-card">
       <button class="admin-modal-close" id="modal-close">&times;</button>
-      <h2 class="font-didone" style="font-size:24px; color:var(--admin-navy); margin-bottom:20px;">Client Inquiry Details</h2>
+      <h2 class="font-didone" style="font-size:24px; color:var(--admin-navy); margin-bottom:20px;">Client Enquiry Details</h2>
 
       <div class="detail-row">
         <div class="detail-label">Client Name</div>
@@ -944,7 +944,7 @@
       // Top requested unit
       const counts = {};
       allLeads.forEach(l => {
-        const u = l.unit || 'General Inquiry';
+        const u = l.unit || 'General Enquiry';
         counts[u] = (counts[u] || 0) + 1;
       });
       let topUnit = '—';
@@ -995,7 +995,7 @@
           hour: '2-digit', minute: '2-digit'
         });
 
-        const unitTag = lead.unit ? `<span class="lead-badge">${escapeHtml(lead.unit)}</span>` : '<span class="lead-badge" style="background:#EBF2FA; color:#1C4482;">General Inquiry</span>';
+        const unitTag = lead.unit ? `<span class="lead-badge">${escapeHtml(lead.unit)}</span>` : '<span class="lead-badge" style="background:#EBF2FA; color:#1C4482;">General Enquiry</span>';
 
         tr.innerHTML = `
           <td>
@@ -1035,7 +1035,7 @@
       document.getElementById('md-name').textContent = lead.name || '—';
       document.getElementById('md-phone').textContent = lead.phone || '—';
       document.getElementById('md-email').textContent = lead.email || '—';
-      document.getElementById('md-unit').textContent = lead.unit || 'General Inquiry';
+      document.getElementById('md-unit').textContent = lead.unit || 'General Enquiry';
       document.getElementById('md-time').textContent = new Date(lead.submitted_at || Date.now()).toLocaleString('en-IN');
       document.getElementById('md-meta').textContent = `${lead.page_url || 'Website'} ${lead.utm_source ? '(Source: ' + lead.utm_source + ')' : ''}`;
       document.getElementById('md-message').textContent = lead.message || 'No additional message was specified by the client.';

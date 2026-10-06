@@ -94,7 +94,7 @@ for i, u in enumerate(units, start=1):
     elif i == 15:
         cards_html.append('''      <!-- Photo Interleaf 3: Courtyard Lifestyle -->
       <div class="apart-photo-card-item">
-        <img alt="Pink Oaks Courtyard Sanctuary" src="assets/images/footer copy.webp" loading="lazy"/>
+        <img alt="Pink Oaks Courtyard Sanctuary" src="assets/images/footer-copy.webp" loading="lazy"/>
         <div class="apart-photo-caption-overlay">Boutique Sanctuary · Pink Oaks</div>
       </div>''')
 
@@ -385,8 +385,8 @@ def build_apartments_page():
     <section class="cta-fullbleed-banner">
       <div class="cta-banner-bg">
         <picture>
-          <source srcset="assets/images/PINK%20OKAS%20Brochure%20copy.webp" type="image/webp" />
-          <img alt="Pink Oaks Nahargarh Views Terraces" src="assets/images/PINK%20OKAS%20Brochure%20copy.png" loading="lazy"/>
+          <source srcset="assets/images/pink-oaks-brochure-copy.webp" type="image/webp" />
+          <img alt="Pink Oaks Nahargarh Views Terraces" src="assets/images/pink-oaks-brochure-copy.png" loading="lazy"/>
         </picture>
       </div>
       <div class="cta-banner-overlay"></div>
@@ -594,7 +594,7 @@ def build_contact_page():
 
         <!-- Col 2: Sales Office -->
         <div class="contact-info-block">
-          <div class="contact-info-label">Sales Gallery</div>
+          <div class="contact-info-label">Sales Office</div>
           <div class="contact-info-value">D-169, Bhrigu Marg, Bani Park<br/>Jaipur, Rajasthan 302016</div>
         </div>
 
@@ -627,7 +627,7 @@ def build_contact_page():
 
           <!-- Top-Right City Labels -->
           <text x="740" y="50" font-family="'Syne', 'Inter', sans-serif" font-size="10" font-weight="700" letter-spacing="1.5px" fill="#0F1F3D" text-anchor="end" opacity="0.75">NAHARGARH FORT</text>
-          <text x="740" y="66" font-family="'Syne', 'Inter', sans-serif" font-size="8.5" font-weight="500" letter-spacing="0.5px" fill="#0F1F3D" text-anchor="end" opacity="0.5">4.2 KM</text>
+          <text x="740" y="66" font-family="'Syne', 'Inter', sans-serif" font-size="8.5" font-weight="500" letter-spacing="0.5px" fill="#0F1F3D" text-anchor="end" opacity="0.5">4.2 km</text>
 
           <!-- Architectural Vector Grid & Roads -->
           <path d="M 0 110 Q 240 100 480 130 T 800 115" stroke="#8FA5B5" stroke-width="1.2" fill="none"/>
@@ -664,7 +664,7 @@ def build_contact_page():
             </svg>
           </div>
           <div class="contact-map-sales-pin-text">
-            <div class="contact-map-sales-pin-title">Pink Oaks Sales Gallery</div>
+            <div class="contact-map-sales-pin-title">Pink Oaks Sales Office</div>
             <div class="contact-map-sales-pin-hours">MON–SAT 10:00 — 19:00</div>
           </div>
         </div>
