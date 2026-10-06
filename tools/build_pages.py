@@ -89,7 +89,7 @@ for i, u in enumerate(units, start=1):
         cards_html.append('''      <!-- Photo Interleaf 2: Balcony Living -->
       <div class="apart-photo-card-item">
         <img alt="Pink Oaks Nahargarh Fort Balconies" src="assets/images/lifestyle_balcony_nahargarh.webp" loading="lazy"/>
-        <div class="apart-photo-caption-overlay">Nahargarh Fort Vistas · Private Solariums</div>
+        <div class="apart-photo-caption-overlay">Nahargarh Fort Vistas · Rooftop Deck</div>
       </div>''')
     elif i == 15:
         cards_html.append('''      <!-- Photo Interleaf 3: Courtyard Lifestyle -->

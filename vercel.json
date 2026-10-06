@@ -2,17 +2,17 @@
   "cleanUrls": true,
   "redirects": [
     {
-      "source": "/apartments512b.html",
+      "source": "/apartments512b(.*)",
       "destination": "/apartments.html",
       "permanent": true
     },
     {
-      "source": "/apartments567f.html",
+      "source": "/apartments567f(.*)",
       "destination": "/apartments.html",
       "permanent": true
     },
     {
-      "source": "/apartments605b.html",
+      "source": "/apartments605b(.*)",
       "destination": "/apartments.html",
       "permanent": true
     },
