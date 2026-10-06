@@ -220,10 +220,10 @@
     </section>
 
     <!-- Mobile Filter Bottom Sheet -->
-    <div class="apart-filter-sheet-backdrop" id="apart-filter-sheet-modal" aria-hidden="true">
+    <div class="apart-filter-sheet-backdrop" id="apart-filter-sheet-modal" role="dialog" aria-modal="true" aria-labelledby="filter-sheet-heading" aria-hidden="true" hidden inert>
       <div class="apart-filter-sheet-panel">
         <div class="filter-sheet-header">
-          <h3 class="filter-sheet-title">Filter Residences</h3>
+          <h3 class="filter-sheet-title" id="filter-sheet-heading">Filter Residences</h3>
           <button type="button" class="filter-sheet-close" id="apart-filter-sheet-close-btn">&times;</button>
         </div>
         <div class="filter-sheet-body">
@@ -475,7 +475,7 @@
       </div>
 
       <!-- Empty State -->
-      <div class="apartments-empty-state" id="apartments-empty-state" style="display: none;" aria-hidden="true">
+      <div class="apartments-empty-state" id="apartments-empty-state" style="display: none;" aria-hidden="true" hidden>
         <div class="empty-state-card">
           <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5">
             <circle cx="24" cy="24" r="20"/>
@@ -648,7 +648,7 @@
   </main>
 
   <!-- Detailed Unit Floor Plan Modal (Interactive Viewer) -->
-  <div class="unit-plan-modal-backdrop" id="unit-plan-modal" aria-hidden="true">
+  <div class="unit-plan-modal-backdrop" id="unit-plan-modal" aria-hidden="true" hidden inert>
     <div class="unit-plan-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="plan-modal-title">
       <button type="button" class="unit-plan-modal-close" id="unit-plan-modal-close-btn" aria-label="Close Plan Viewer">&times;</button>
       
@@ -702,12 +702,12 @@
   </div>
 
   <!-- LUXURY BOOK A CALL LEAD MODAL -->
-  <div id="book-call-modal" class="lux-modal-overlay" aria-hidden="true">
+  <div id="book-call-modal" class="lux-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="book-call-title-apart" aria-hidden="true" hidden inert>
     <div class="lux-modal-backdrop"></div>
     <div class="lux-modal-content book-call-modal-content">
       <button class="modal-close-trigger" aria-label="Close Modal">&times;</button>
       <div class="book-call-modal-inner">
-        <h2 class="font-didone modal-call-title">BOOK A CALL</h2>
+        <h2 class="font-didone modal-call-title" id="book-call-title-apart">BOOK A CALL</h2>
         <p class="modal-call-subtitle">Leave your details and our private sales concierge will reach out to you within 24 hours.</p>
         <form class="book-call-form" id="book-call-form">
           <div class="book-call-fields">
@@ -729,11 +729,11 @@
             </div>
             <div class="modal-privacy-agreement">
               <input type="checkbox" id="lead-privacy-apart" required checked name="consent"/>
-              <label for="lead-privacy-apart">By submitting, you agree to be contacted about this enquiry.</label>
+              <label for="lead-privacy-apart">By submitting, you agree to our <a href="privacy.html" style="text-decoration:underline;color:inherit;" target="_blank" rel="noopener">Privacy Policy</a> and consent to be contacted about this enquiry.</label>
             </div>
             <button class="modal-submit-btn" type="submit">REQUEST A CALL</button>
           </div>
-          <div class="book-call-success" style="display:none; padding:20px 0; text-align:center;">
+          <div class="book-call-success" id="book-call-success" style="display:none;" aria-hidden="true" hidden>
             <h3 class="font-didone" style="font-size:24px; color:var(--color-navy); margin-bottom:8px;">THANK YOU</h3>
             <p style="font-size:12.5px; line-height:1.6; color:rgba(15,31,61,0.75);">We have received your details. Our private sales manager will get in touch with you shortly.</p>
           </div>
@@ -792,7 +792,7 @@
       <!-- Bottom Row: Copyright, Legal & Socials -->
       <div class="footer-bottom-bar">
         <div class="footer-copyright">
-          PINK OAKS RESIDENCES. &copy; 2026 ALL RIGHTS RESERVED
+          PINK OAKS RESIDENCES. &copy; 2026 ALL RIGHTS RESERVED · <a href="privacy.html" style="color:inherit;text-decoration:underline;">PRIVACY POLICY</a>
         </div>
         
         
@@ -992,8 +992,15 @@
 
       // Empty State
       if (emptyState) {
-        emptyState.style.display = (visibleCount === 0) ? 'block' : 'none';
-        emptyState.setAttribute('aria-hidden', visibleCount > 0 ? 'true' : 'false');
+        if (visibleCount === 0) {
+          emptyState.style.display = 'block';
+          emptyState.removeAttribute('hidden');
+          emptyState.setAttribute('aria-hidden', 'false');
+        } else {
+          emptyState.style.display = 'none';
+          emptyState.setAttribute('hidden', '');
+          emptyState.setAttribute('aria-hidden', 'true');
+        }
       }
     }
 
@@ -1076,20 +1083,29 @@
       });
     });
 
+    let lastFocusedTrigger = null;
+
     if (mobSheetResetBtn) mobSheetResetBtn.addEventListener('click', resetAll);
     if (mobSheetApplyBtn) mobSheetApplyBtn.addEventListener('click', function() {
       applyFilters();
       if (mobFilterSheetModal) {
         mobFilterSheetModal.classList.remove('active');
         mobFilterSheetModal.setAttribute('aria-hidden', 'true');
+        mobFilterSheetModal.setAttribute('hidden', '');
+        mobFilterSheetModal.setAttribute('inert', '');
+        if (lastFocusedTrigger && typeof lastFocusedTrigger.focus === 'function') lastFocusedTrigger.focus();
       }
     });
 
     // Mobile Filter Drawer Toggle
     if (mobFilterSheetBtn) {
       mobFilterSheetBtn.addEventListener('click', function() {
+        lastFocusedTrigger = mobFilterSheetBtn;
+        mobFilterSheetModal.removeAttribute('hidden');
+        mobFilterSheetModal.removeAttribute('inert');
         mobFilterSheetModal.classList.add('active');
         mobFilterSheetModal.setAttribute('aria-hidden', 'false');
+        if (mobFilterSheetCloseBtn) mobFilterSheetCloseBtn.focus();
       });
     }
 
@@ -1097,12 +1113,16 @@
       mobFilterSheetCloseBtn.addEventListener('click', function() {
         mobFilterSheetModal.classList.remove('active');
         mobFilterSheetModal.setAttribute('aria-hidden', 'true');
+        mobFilterSheetModal.setAttribute('hidden', '');
+        mobFilterSheetModal.setAttribute('inert', '');
+        if (lastFocusedTrigger && typeof lastFocusedTrigger.focus === 'function') lastFocusedTrigger.focus();
       });
     }
 
     // Unit Plan Modal Open/Close
     cards.forEach(card => {
       card.addEventListener('click', function() {
+        lastFocusedTrigger = card;
         const unitId = card.getAttribute('data-unit-id');
         const flat = card.getAttribute('data-flat');
         const typology = card.getAttribute('data-typology');
@@ -1126,17 +1146,23 @@
         planModalSaleareaVal.textContent = saleArea;
         planModalBalconyVal.textContent = balconyText;
 
+        planModal.removeAttribute('hidden');
+        planModal.removeAttribute('inert');
         planModal.classList.add('active');
         planModal.setAttribute('aria-hidden', 'false');
         document.body.classList.add('modal-locked');
+        if (closePlanBtn) closePlanBtn.focus();
       });
     });
 
     function closePlanModal() {
-      if (planModal) {
+      if (planModal && planModal.classList.contains('active')) {
         planModal.classList.remove('active');
         planModal.setAttribute('aria-hidden', 'true');
+        planModal.setAttribute('hidden', '');
+        planModal.setAttribute('inert', '');
         document.body.classList.remove('modal-locked');
+        if (lastFocusedTrigger && typeof lastFocusedTrigger.focus === 'function') lastFocusedTrigger.focus();
       }
     }
 
@@ -1157,29 +1183,37 @@
     }
 
     // "Book a Call" Modal
-    function openBookModalWithUnit(unitName) {
+    function openBookModalWithUnit(unitName, triggerEl) {
       if (bookModal) {
+        if (triggerEl) lastFocusedTrigger = triggerEl;
         if (unitName) {
           const msgInput = document.getElementById('lead-msg-apart');
           if (msgInput) {
             msgInput.value = `Interested in ${unitName}`;
           }
         }
+        bookModal.removeAttribute('hidden');
+        bookModal.removeAttribute('inert');
         bookModal.classList.add('is-active', 'active');
         bookModal.setAttribute('aria-hidden', 'false');
         document.body.classList.add('modal-locked', 'modal-open');
+        const firstInput = bookModal.querySelector('input:not([type="hidden"]), button');
+        if (firstInput) firstInput.focus();
       }
     }
 
     openBookBtns.forEach(btn => {
-      if (btn) btn.addEventListener('click', () => openBookModalWithUnit());
+      if (btn) btn.addEventListener('click', () => openBookModalWithUnit(null, btn));
     });
 
     function closeBookModal() {
-      if (bookModal) {
+      if (bookModal && (bookModal.classList.contains('is-active') || bookModal.classList.contains('active'))) {
         bookModal.classList.remove('is-active', 'active');
         bookModal.setAttribute('aria-hidden', 'true');
+        bookModal.setAttribute('hidden', '');
+        bookModal.setAttribute('inert', '');
         document.body.classList.remove('modal-locked', 'modal-open');
+        if (lastFocusedTrigger && typeof lastFocusedTrigger.focus === 'function') lastFocusedTrigger.focus();
       }
     }
 
@@ -1210,16 +1244,37 @@
       });
     }
 
-    // Note: book-call-form submit is automatically handled by assets/js/forms.js
-
-    // Escape Key Listener for Modals
+    // Focus Trap & Escape Key Listener for Modals
     document.addEventListener('keydown', function(e) {
+      const activeModal = [planModal, bookModal, mobFilterSheetModal].find(m => m && (m.classList.contains('active') || m.classList.contains('is-active')));
+      
       if (e.key === 'Escape') {
         closePlanModal();
         closeBookModal();
         if (mobMenu) mobMenu.classList.remove('active');
-        if (mobFilterSheetModal) mobFilterSheetModal.classList.remove('active');
+        if (mobFilterSheetModal && mobFilterSheetModal.classList.contains('active')) {
+          mobFilterSheetModal.classList.remove('active');
+          mobFilterSheetModal.setAttribute('aria-hidden', 'true');
+          mobFilterSheetModal.setAttribute('hidden', '');
+          mobFilterSheetModal.setAttribute('inert', '');
+          if (lastFocusedTrigger && typeof lastFocusedTrigger.focus === 'function') lastFocusedTrigger.focus();
+        }
         document.body.classList.remove('modal-locked');
+      }
+
+      if (e.key === 'Tab' && activeModal) {
+        const focusable = activeModal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        if (focusable.length) {
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
       }
     });
 

@@ -116,10 +116,10 @@
 
       <!-- 3-Column Information Row -->
       <div class="contact-info-trio">
-        <!-- Col 1: Write Us -->
+        <!-- Col 1: Write to Us -->
         <div class="contact-info-block">
-          <div class="contact-info-label">Write Us</div>
-          <a class="contact-info-value" href="mailto:sales@pinkoaks.in">sales@pinkoaks.in</a>
+          <div class="contact-info-label">Write to Us</div>
+          <a class="contact-info-value" href="mailto:sales@pinkoaks.in" aria-label="Email Pink Oaks Sales">sales@pinkoaks.in</a>
         </div>
 
         <!-- Col 2: Sales Office -->
@@ -131,8 +131,8 @@
         <!-- Col 3: Talk to Us -->
         <div class="contact-info-block">
           <div class="contact-info-label">Talk to Us</div>
-          <a class="contact-info-value" href="tel:+919116965636">+91 91169 65636</a>
-          <a class="contact-info-label" href="https://wa.me/919116965636" target="_blank" rel="noopener noreferrer" style="text-decoration:underline; margin-top:4px; color:var(--color-navy); display:inline-block;">WhatsApp</a>
+          <a class="contact-info-value" href="tel:+919116965636" aria-label="Call Pink Oaks Sales at +91 91169 65636">+91 91169 65636</a>
+          <a class="contact-info-label" href="https://wa.me/919116965636" target="_blank" rel="noopener noreferrer" style="text-decoration:underline; margin-top:4px; color:var(--color-navy); display:inline-block;" aria-label="Chat with Pink Oaks on WhatsApp">WhatsApp</a>
         </div>
       </div>
 
@@ -324,7 +324,7 @@
       <!-- Bottom Row: Copyright, Legal & Socials -->
       <div class="footer-bottom-bar">
         <div class="footer-copyright">
-          PINK OAKS RESIDENCES. &copy; 2026 ALL RIGHTS RESERVED
+          PINK OAKS RESIDENCES. &copy; 2026 ALL RIGHTS RESERVED · <a href="privacy.html" style="color:inherit;text-decoration:underline;">PRIVACY POLICY</a>
         </div>
 
         <div class="footer-social-links">
@@ -350,12 +350,12 @@
   </footer>
 
   <!-- LUXURY BOOK A CALL LEAD MODAL -->
-  <div id="book-call-modal" class="lux-modal-overlay" aria-hidden="true">
+  <div id="book-call-modal" class="lux-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="contact-modal-call-title" aria-hidden="true" hidden inert>
     <div class="lux-modal-backdrop"></div>
     <div class="lux-modal-content book-call-modal-content">
       <button class="modal-close-trigger" aria-label="Close Modal">&times;</button>
       <div class="book-call-modal-inner">
-        <h2 class="font-didone modal-call-title">BOOK A CALL</h2>
+        <h2 class="font-didone modal-call-title" id="contact-modal-call-title">BOOK A CALL</h2>
         <p class="modal-call-subtitle">Leave your details and our private sales team will reach out to you within 24 hours. 18 exclusive residences — a life beyond ordinary.</p>
         <form class="book-call-form" id="contact-book-call-form">
           <div class="book-call-fields">
@@ -377,11 +377,11 @@
             </div>
             <div class="modal-privacy-agreement">
               <input type="checkbox" id="lead-privacy-c" name="consent" required checked/>
-              <label for="lead-privacy-c">By submitting, you agree to be contacted about this enquiry.</label>
+              <label for="lead-privacy-c">By submitting, you agree to our <a href="privacy.html" style="text-decoration:underline;color:inherit;" target="_blank" rel="noopener">Privacy Policy</a> and consent to be contacted about this enquiry.</label>
             </div>
             <button class="modal-submit-btn" type="submit">REQUEST A CALL</button>
           </div>
-          <div class="book-call-success" style="display:none; padding:20px 0; text-align:center;">
+          <div class="book-call-success" id="contact-book-call-success" style="display:none;" aria-hidden="true" hidden>
             <h3 class="font-didone" style="font-size:24px; color:var(--color-navy); margin-bottom:8px;">THANK YOU</h3>
             <p style="font-size:12.5px; line-height:1.6; color:rgba(15,31,61,0.75);">We have received your details. Our private sales manager will get in touch with you shortly.</p>
           </div>

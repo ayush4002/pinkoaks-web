@@ -110,10 +110,20 @@
 }
 
 a.contact-info-label {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   width: fit-content;
   margin-top: 4px;
   padding-bottom: 2px;
   border-bottom: 1px solid rgba(18, 42, 77, 0.3);
+  transition: color 0.2s ease, outline-color 0.2s ease;
+}
+
+a.contact-info-label:focus-visible {
+  outline: 2px solid var(--color-pink-accent, #E8829F);
+  outline-offset: 4px;
+  border-radius: 2px;
 }
 
 .contact-info-value {
@@ -122,6 +132,19 @@ a.contact-info-label {
   line-height: 1.5;
   color: var(--color-navy-primary, #122a4d);
   text-decoration: none;
+}
+
+a.contact-info-value {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  border-radius: 4px;
+  transition: color 0.2s ease, outline-color 0.2s ease;
+}
+
+a.contact-info-value:focus-visible {
+  outline: 2px solid var(--color-pink-accent, #E8829F);
+  outline-offset: 4px;
 }
 
 a.contact-info-value:hover {

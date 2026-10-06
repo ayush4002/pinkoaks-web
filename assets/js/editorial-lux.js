@@ -343,9 +343,11 @@
     const modalFloor = modal.querySelector('.modal-floor-spec');
     const closeBtn = modal.querySelector('.modal-close-trigger');
     const downloadPdf = modal.querySelector('.modal-download-pdf');
+    let lastFocusedTrigger = null;
 
     document.querySelectorAll('.apart-card-item').forEach((card) => {
       card.addEventListener('click', (e) => {
+        lastFocusedTrigger = card;
         const unit = card.getAttribute('data-unit') || 'Residence';
         const img = card.querySelector('.apart-plan-image')?.getAttribute('src') || '';
         const area = card.querySelector('.spec-col:nth-child(2) .spec-value')?.textContent.trim() || '';
@@ -359,14 +361,24 @@
         if (modalFloor) modalFloor.textContent = floor;
         if (downloadPdf) downloadPdf.setAttribute('href', `assets/plans/${unit.replace(/[^0-9]/g, '')}.pdf`);
 
+        modal.removeAttribute('hidden');
+        modal.removeAttribute('inert');
+        modal.setAttribute('aria-hidden', 'false');
         modal.classList.add('is-active');
         document.body.classList.add('modal-open');
+        if (closeBtn) closeBtn.focus();
       });
     });
 
     function closeModal() {
       modal.classList.remove('is-active');
+      modal.setAttribute('aria-hidden', 'true');
+      modal.setAttribute('hidden', '');
+      modal.setAttribute('inert', '');
       document.body.classList.remove('modal-open');
+      if (lastFocusedTrigger && typeof lastFocusedTrigger.focus === 'function') {
+        lastFocusedTrigger.focus();
+      }
     }
 
     if (closeBtn) closeBtn.addEventListener('click', closeModal);
@@ -377,8 +389,23 @@
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.classList.contains('is-active')) {
-        closeModal();
+      if (modal.classList.contains('is-active')) {
+        if (e.key === 'Escape') {
+          closeModal();
+        } else if (e.key === 'Tab') {
+          const focusable = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+          if (focusable.length) {
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+              e.preventDefault();
+              last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+              e.preventDefault();
+              first.focus();
+            }
+          }
+        }
       }
     });
   }
@@ -390,16 +417,31 @@
 
     const triggers = document.querySelectorAll('.book-call-trigger, a[href="#book-call"]');
     const closeBtn = modal.querySelector('.modal-close-trigger');
+    let lastFocusedTrigger = null;
 
     function openModal(e) {
-      if (e) e.preventDefault();
+      if (e) {
+        e.preventDefault();
+        lastFocusedTrigger = e.currentTarget;
+      }
+      modal.removeAttribute('hidden');
+      modal.removeAttribute('inert');
+      modal.setAttribute('aria-hidden', 'false');
       modal.classList.add('is-active');
       document.body.classList.add('modal-open');
+      const firstInput = modal.querySelector('input:not([type="hidden"]), button');
+      if (firstInput) firstInput.focus();
     }
 
     function closeModal() {
       modal.classList.remove('is-active');
+      modal.setAttribute('aria-hidden', 'true');
+      modal.setAttribute('hidden', '');
+      modal.setAttribute('inert', '');
       document.body.classList.remove('modal-open');
+      if (lastFocusedTrigger && typeof lastFocusedTrigger.focus === 'function') {
+        lastFocusedTrigger.focus();
+      }
     }
 
     triggers.forEach((trigger) => {
@@ -414,8 +456,23 @@
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.classList.contains('is-active')) {
-        closeModal();
+      if (modal.classList.contains('is-active')) {
+        if (e.key === 'Escape') {
+          closeModal();
+        } else if (e.key === 'Tab') {
+          const focusable = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+          if (focusable.length) {
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+              e.preventDefault();
+              last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+              e.preventDefault();
+              first.focus();
+            }
+          }
+        }
       }
     });
   }

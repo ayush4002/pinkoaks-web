@@ -834,12 +834,12 @@
   </div>
 
   <!-- LUXURY BOOK A CALL LEAD MODAL (Slides in over dark overlay) -->
-  <div id="book-call-modal" class="lux-modal-overlay" aria-hidden="true">
+  <div id="book-call-modal" class="lux-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="book-call-modal-title" aria-hidden="true" hidden inert>
     <div class="lux-modal-backdrop"></div>
     <div class="lux-modal-content book-call-modal-content">
       <button class="modal-close-trigger" aria-label="Close Modal">&times;</button>
       <div class="book-call-modal-inner">
-        <h2 class="font-didone modal-call-title">BOOK A CALL</h2>
+        <h2 class="font-didone modal-call-title" id="book-call-modal-title">BOOK A CALL</h2>
         <p class="modal-call-subtitle">Leave your details and our private sales concierge will reach out to you within 24 hours.</p>
         <form class="book-call-form">
           <div class="book-call-fields">
@@ -861,7 +861,7 @@
             </div>
             <div class="modal-privacy-agreement">
               <input type="checkbox" id="lead-privacy-a" required checked name="consent"/>
-              <label for="lead-privacy-a">By submitting, you agree to be contacted about this enquiry.</label>
+              <label for="lead-privacy-a">By submitting, you agree to our <a href="privacy.html" style="text-decoration:underline; color:inherit;" target="_blank" rel="noopener">Privacy Policy</a> and consent to be contacted.</label>
             </div>
             <button class="modal-submit-btn" type="submit">REQUEST A CALL</button>
           </div>

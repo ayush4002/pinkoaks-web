@@ -586,9 +586,9 @@ def build_contact_page():
 
       <!-- 3-Column Information Row -->
       <div class="contact-info-trio">
-        <!-- Col 1: Write Us -->
+        <!-- Col 1: Write to Us -->
         <div class="contact-info-block">
-          <div class="contact-info-label">Write Us</div>
+          <div class="contact-info-label">Write to Us</div>
           <a class="contact-info-value" href="mailto:sales@pinkoaks.in">sales@pinkoaks.in</a>
         </div>
 
