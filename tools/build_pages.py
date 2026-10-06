@@ -107,7 +107,7 @@ def build_apartments_page():
 <head>
   <meta charset="utf-8"/>
   <title>Apartments — Pink Oaks Luxury Residences, Jaipur</title>
-  <meta content="Explore boutique 2, 3 & 4 BHK residences, duplexes and penthouses with private solariums and Nahargarh Fort views in Bani Park, Jaipur." name="description"/>
+  <meta content="Explore boutique 3 & 4 BHK residences with private balconies and Nahargarh Fort views in Bani Park, Jaipur." name="description"/>
   <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
   
   <!-- Fonts -->
@@ -627,7 +627,6 @@ def build_contact_page():
 
           <!-- Top-Right City Labels -->
           <text x="740" y="50" font-family="'Syne', 'Inter', sans-serif" font-size="10" font-weight="700" letter-spacing="1.5px" fill="#0F1F3D" text-anchor="end" opacity="0.75">NAHARGARH FORT</text>
-          <text x="740" y="66" font-family="'Syne', 'Inter', sans-serif" font-size="8.5" font-weight="500" letter-spacing="0.5px" fill="#0F1F3D" text-anchor="end" opacity="0.5">4.2 km</text>
 
           <!-- Architectural Vector Grid & Roads -->
           <path d="M 0 110 Q 240 100 480 130 T 800 115" stroke="#8FA5B5" stroke-width="1.2" fill="none"/>
