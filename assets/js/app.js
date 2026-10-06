@@ -2232,50 +2232,99 @@ function initTabs() {
     const t = [...e.querySelectorAll("[data-tab-trigger]")],
       r = e.querySelectorAll("[data-tab-content]");
     let a = 0,
-      o = !1;
+      o = !1,
+      timer = null,
+      isPaused = !1;
+    const autoDuration = 4500;
+
+    function nextTab() {
+      if (o || isPaused) return;
+      const nextIdx = (a + 1) % t.length;
+      switchTab(nextIdx);
+    }
+
+    function startAuto() {
+      stopAuto();
+      timer = setInterval(nextTab, autoDuration);
+    }
+
+    function stopAuto() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    function switchTab(n) {
+      if (n === a || o) return;
+      const i = t[a],
+        targetTrigger = t[n],
+        s = e.querySelector(`[data-tab-content="${i.getAttribute("data-tab-trigger")}"]`),
+        l = s.querySelectorAll('[data-tab="h"]'),
+        c = s.querySelectorAll('[data-tab="p"]'),
+        d = s.querySelectorAll('[data-tab="ctn"]'),
+        u = s.querySelectorAll('[data-tab="slide"]'),
+        g = e.querySelector(`[data-tab-content="${targetTrigger.getAttribute("data-tab-trigger")}"]`),
+        m = g.querySelectorAll('[data-tab="h"]'),
+        p = g.querySelectorAll('[data-tab="p"]'),
+        h = g.querySelectorAll('[data-tab="ctn"]'),
+        y = g.querySelectorAll('[data-tab="slide"]');
+      gsap.killTweensOf([s, g]), o = !0, gsap.timeline({
+        onComplete: () => {
+          o = !1
+        }
+      }).set(g, {
+        display: "block",
+        position: "relative",
+        zIndex: 1
+      }).set(s, {
+        display: "block",
+        position: "absolute",
+        zIndex: 0
+      }).add((() => {
+        animateTextH(m, "initial"), animateTextP(p, "initial"), animateCtn(h, "initial"), animateSlide(y, "initial")
+      })).add((() => {
+        ScrollTrigger.refresh()
+      })).add((() => {
+        animateTextH(l, "hide", 0), animateTextP(c, "hide", 0), animateCtn(d, "hide", 0), animateSlide(u, "hide", 0), animateSlide(y, "reveal", 0)
+      })).to({}, {
+        duration: durM
+      }).add((() => {
+        animateTextH(m, "reveal", 0), animateTextP(p, "reveal", 0), animateCtn(h, "reveal", durS)
+      })).to({}, {
+        duration: durS
+      }).set(s, {
+        display: "none"
+      }), i.classList.remove("is-active"), targetTrigger.classList.add("is-active"), a = n
+    }
+
     t[0].classList.add("is-active"), r[0].classList.add("is-active"), t.forEach(((r, n) => {
       r.addEventListener("click", (() => {
-        if (n === a || o) return;
-        const i = t[a],
-          s = e.querySelector(`[data-tab-content="${i.getAttribute("data-tab-trigger")}"]`),
-          l = s.querySelectorAll('[data-tab="h"]'),
-          c = s.querySelectorAll('[data-tab="p"]'),
-          d = s.querySelectorAll('[data-tab="ctn"]'),
-          u = s.querySelectorAll('[data-tab="slide"]'),
-          g = e.querySelector(`[data-tab-content="${r.getAttribute("data-tab-trigger")}"]`),
-          m = g.querySelectorAll('[data-tab="h"]'),
-          p = g.querySelectorAll('[data-tab="p"]'),
-          h = g.querySelectorAll('[data-tab="ctn"]'),
-          y = g.querySelectorAll('[data-tab="slide"]');
-        gsap.killTweensOf([s, g]), o = !0, gsap.timeline({
-          onComplete: () => {
-            o = !1
-          }
-        }).set(g, {
-          display: "block",
-          position: "relative",
-          zIndex: 1
-        }).set(s, {
-          display: "block",
-          position: "absolute",
-          zIndex: 0
-        }).add((() => {
-          animateTextH(m, "initial"), animateTextP(p, "initial"), animateCtn(h, "initial"), animateSlide(y, "initial")
-        })).add((() => {
-          ScrollTrigger.refresh()
-        })).add((() => {
-          animateTextH(l, "hide", 0), animateTextP(c, "hide", 0), animateCtn(d, "hide", 0), animateSlide(u, "hide", 0), animateSlide(y, "reveal", 0)
-        })).to({}, {
-          duration: durM
-        }).add((() => {
-          animateTextH(m, "reveal", 0), animateTextP(p, "reveal", 0), animateCtn(h, "reveal", durS)
-        })).to({}, {
-          duration: durS
-        }).set(s, {
-          display: "none"
-        }), i.classList.remove("is-active"), r.classList.add("is-active"), a = n
+        switchTab(n);
+        startAuto();
       }))
-    }))
+    }));
+
+    e.addEventListener("mouseenter", (() => {
+      isPaused = !0;
+    }));
+    e.addEventListener("mouseleave", (() => {
+      isPaused = !1;
+    }));
+
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver((([entry]) => {
+        entry.isIntersecting ? startAuto() : stopAuto();
+      }), {
+        threshold: 0.15
+      }).observe(e);
+    } else {
+      startAuto();
+    }
+
+    document.addEventListener("visibilitychange", (() => {
+      document.hidden ? stopAuto() : startAuto();
+    }));
   }))
 }
 
