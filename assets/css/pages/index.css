@@ -431,6 +431,10 @@
   .lifestyle-glass-badge p,
   .lifestyle-glass-badge span {
     color: #FFFFFF !important;
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
   }
 
   .quote-s,

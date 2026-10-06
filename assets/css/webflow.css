@@ -191,12 +191,20 @@ html{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;font-family:sans-se
 }
 
 /* 6. LIFESTYLE / BALCONY NAHARGARH BADGE */
-.lifestyle-glass-badge,
-.lifestyle-glass-badge * {
+.lifestyle-glass-badge {
   background: rgba(18, 42, 77, 0.88) !important;
   backdrop-filter: blur(12px) !important;
   -webkit-backdrop-filter: blur(12px) !important;
   border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6) !important;
+}
+
+.lifestyle-glass-badge * {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
   color: #FFFFFF !important;
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6) !important;
 }
@@ -379,12 +387,20 @@ html{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;font-family:sans-se
   }
 
   /* 6. LIFESTYLE / BALCONY BADGE */
-  .lifestyle-glass-badge,
-  .lifestyle-glass-badge * {
+  .lifestyle-glass-badge {
     background: rgba(18, 42, 77, 0.92) !important;
     backdrop-filter: blur(14px) !important;
     -webkit-backdrop-filter: blur(14px) !important;
     border: 1px solid rgba(255, 255, 255, 0.35) !important;
+    color: #FFFFFF !important;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7) !important;
+  }
+
+  .lifestyle-glass-badge * {
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
     color: #FFFFFF !important;
     text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7) !important;
   }
