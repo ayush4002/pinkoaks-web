@@ -840,3 +840,9 @@
     justify-content: center !important;
   }
 }
+
+/* Ensure apartment unit floor plans in slider are never cropped */
+.apart-type-slide_img .img {
+  object-fit: contain !important;
+}
+
